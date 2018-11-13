@@ -1,3 +1,34 @@
 <div style="margin:0 auto; text-align: center;  border-bottom:1px solid #ccc; overflow: auto">
+  <p>Accepted TA's for Selected Course</p>
+  <div style="padding:5px;" *ngFor="let acceptedTA of acceptedTAList">
+    <button id='myBtn' (click)='plusSelect()' class='btn1'>+</button>
+
+    <!-- Trigger/Open The Modal -->
+    <!-- <button id="myBtn">Open Modal</button> -->
+
+
+    <button class='btn1'>{{acceptedTA.firstName}} {{acceptedTA.lastName}} <br>
+      Grade : {{acceptedTA.selectedCourseGrade}} <br>
+      Term : {{acceptedTA.selectedCourseTerm}}</button>
+  </div>
+</div>
+
+<div style="margin:0 auto; text-align: center;">
+  <p>Your TA's For Currently Selected Course</p>
+  <div style="padding:5px;" *ngFor="let currentTA of currentTAList">
+    <button class='btn1'>{{currentTA.firstName}} {{currentTA.lastName}} <br>
+      Grade : {{currentTA.selectedCourseGrade}} <br>
+      Term : {{currentTA.selectedCourseTerm}}</button>
+  </div>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span (click)='closePopup()' class="close">&times;</span>
+    <p>Success</p>
+  </div>
 
 </div>
