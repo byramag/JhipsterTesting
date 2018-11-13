@@ -1,0 +1,19 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div *ngIf=toggleLoginHTML>
+  <div style="text-align:center">
+    <h1>
+      TA Management System
+    </h1>
+  </div>
+  <div style="text-align:center">
+    <form action="javascript:validateLogin()">
+      Email: <input type="email" name="email" value="email"><br>
+      Password: <input type="password" name="password" value="password"><br>
+      <input type="submit" value="Submit" (click)='validateLogin()'>
+    </form>
+  </div>
+</div>
+
+<div *ngIf=!toggleLoginHTML>
+  <app-class-list-screen></app-class-list-screen>
+</div>

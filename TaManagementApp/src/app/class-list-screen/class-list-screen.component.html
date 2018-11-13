@@ -1,0 +1,13 @@
+<div *ngIf='selectClassHTMLToggle' style="margin:0 auto; text-align: center">
+  <div>
+    <p>Class List</p>
+  </div>
+  <div style="padding:5px" *ngFor="let class of professorsClassList">
+    <button (click)='selectClass(class.className)' class='btn1'>{{class.className}}</button>
+  </div>
+</div>
+
+<div *ngIf='!selectClassHTMLToggle'>
+  <p *ngFor="let className of selectedClass">{{className}}</p>
+  <app-class-selected-screen> </app-class-selected-screen>
+</div>

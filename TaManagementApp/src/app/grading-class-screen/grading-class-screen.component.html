@@ -1,0 +1,11 @@
+<div *ngIf='selectedAssignmentHTMLToggle' style="margin:0 auto; text-align: center">
+  <p>Course Assignments</p>
+  <div style="padding:5px" *ngFor="let assignment of assignmentList">
+    <button (click)='selectAssignment(assignment.assignmentName)' class='btn1'>{{assignment.assignmentName}}</button>
+  </div>
+</div>
+
+<div *ngIf='!selectedAssignmentHTMLToggle' style="margin:0 auto; text-align: center">
+  <p>{{selectedAssignmentName}}</p>
+  <app-grading-assignment-selected-screen></app-grading-assignment-selected-screen>
+</div>

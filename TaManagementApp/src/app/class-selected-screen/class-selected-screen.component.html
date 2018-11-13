@@ -1,0 +1,25 @@
+<div style="margin:0 auto; text-align: center">
+  <ul>
+    <li (click)='showGradingScreen()'><a>Grading</a></li>
+    <li (click)='showTASelectScreen()'><a>TA Selection</a></li>
+    <li (click)='showCourseAnalyticsScreen()'><a>Course Analytics</a></li>
+    <li (click)='showAboutScreen()'><a>About</a></li>
+  </ul>
+
+  <div *ngIf='aboutScreenHTMLToggle'>
+    <app-about-class-screen></app-about-class-screen>
+  </div>
+
+  <div *ngIf='gradingScreenHTMLToggle'>
+    <app-grading-class-screen></app-grading-class-screen>
+  </div>
+
+  <div *ngIf='TASelectHTMLToggle'>
+    <app-taselect-class-screen></app-taselect-class-screen>
+  </div>
+
+  <div *ngIf='CourseAnalyticsHTMLToggle'>
+    <app-course-analytics-class-screen></app-course-analytics-class-screen>
+  </div>
+
+</div>
