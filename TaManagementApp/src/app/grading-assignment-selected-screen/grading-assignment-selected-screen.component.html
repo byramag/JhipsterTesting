@@ -1,7 +1,62 @@
 <div style="margin:0 auto; text-align: center">
   <p>Assignment Style:</p>
-  <select>
-    <option>Assign by Portion of Assignment</option>
-    <option>Assign TA to grade specific portion of students</option>
+  <select (change)="onChange($event)">
+    <option>---------------Select an option---------------</option>
+    <option value = "option1">Assign by Portion of Assignment</option>
+    <option value = "option2">Assign TA to grade specific portion of students</option>
   </select>
+
+
+  <div *ngIf = "selectedOption === 'option1'">
+      option1
+
+
+
+  </div>
+  <div *ngIf = "selectedOption === 'option2'">
+
+      <div class = "border">
+      <div class="container blue">
+          TA : Matthew Tran
+        </div>
+        <form class="container">
+          <p>
+          <label>Portion of student  </label>
+          <input class="input" type="text"></p>
+          <p>
+        </form>
+      </div>
+
+      <div class = "border">
+          <div class="container blue">
+              TA : Matthew Pointer
+
+            </div>
+
+            <form class="container">
+              <p>
+              <label>Portion of student  </label>
+              <input class="input" type="text"></p>
+              <p>
+            </form>
+          </div>
+
+          <div class = "border">
+              <div class="container blue">
+                  TA : Nathan Hyunh
+
+                </div>
+
+                <form class="container">
+                  <p>
+                  <label>Portion of student  </label>
+                  <input class="input" type="text"></p>
+                  <p>
+                </form>
+              </div>
+
+
+  </div>
+
+
 </div>

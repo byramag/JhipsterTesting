@@ -1,0 +1,17 @@
+.border {
+  border: 1px solid #ccc!important;
+  width: 450px;
+  margin: auto;
+}
+.blue, .hover-blue:hover {
+  color: #fff!important;
+  background-color: #2196F3!important;
+}
+.input {
+  padding: 8px;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  width: 80%;
+  margin: auto;
+}

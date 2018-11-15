@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClassSelectedScreenComponent implements OnInit {
 
+
   aboutScreenHTMLToggle: boolean;
   gradingScreenHTMLToggle: boolean;
   TASelectHTMLToggle: boolean;
@@ -17,6 +18,9 @@ export class ClassSelectedScreenComponent implements OnInit {
     this.gradingScreenHTMLToggle = false;
     this.TASelectHTMLToggle = false;
     this.CourseAnalyticsHTMLToggle = false;
+  }
+  public ts1(): void {
+    document.getElementById('sidebar').classList.toggle('active');
   }
 
   ngOnInit() {
