@@ -1,56 +1,81 @@
 -- CS313 - TA MANAGEMENT SYSTEM
 -- ABIlGAIL BYRAM, NEIL WATSON, MATTHEW POINTER, MATTHEW TRAN
-
-CREATE TABLE TA(
-	studentName varchar(30) DEFAULT NULL,
-	vNumber varchar(9,0) NOT NULL PRIMARY KEY,
-	email varchar(30) DEFAULT NULL,
-	classYear varchar(9) DEFAULT NULL,
-	currentAssign varchar(10) DEFAULT NULL,
-	previousAssign SET() DEFAULT NULL--incomplete
-);
+-- gcloud sql connect myinstance --user=root
+-- PASSWORD: vcu
 
 CREATE TABLE applicant(
 	studentName varchar(30) DEFAULT NULL,
-	vNumber varchar(9,0) NOT NULL PRIMARY KEY,
+	vNumber varchar(9) NOT NULL PRIMARY KEY,
 	email varchar(30) DEFAULT NULL,
 	classYear varchar(9) DEFAULT NULL,
-	taMotivation -- courseHistory
-	requestedDuties 
-	255request -- from applicant
-	255confirm -- from referenced professor
-	256request
-	256confirm
-	257request
-	257confirm
-);
+	taMotivation varchar(500) DEFAULT NULL,-- courseHistory
+	refName varchar(30) DEFAULT NULL,
+	refEmail varchar(30) DEFAULT NULL,
+	refResponse varchar(500) DEFAULT NULL,
+	isConfirmed boolean DEFAULT NULL,-- from referenced professor
+	
+	request255 boolean DEFAULT NULL,-- from applicant
+	request256 boolean DEFAULT NULL,
+	request257 boolean DEFAULT NULL);
+
+CREATE TABLE TA(
+	studentName varchar(30) DEFAULT NULL,
+	vNumber varchar(9) NOT NULL PRIMARY KEY,
+	email varchar(30) DEFAULT NULL,
+	classYear varchar(9) DEFAULT NULL,
+	currentAssign varchar(10) DEFAULT NULL,
+	previousAssign varchar(100) DEFAULT NULL,
+	ptdLabTA boolean DEFAULT NULL,
+	ptdClassTA boolean DEFAULT NULL,
+	ptdTestGrade boolean DEFAULT NULL,
+	ptdProjectGrade boolean DEFAULT NULL,
+	ptdOfficeHours boolean DEFAULT NULL); 
+	
+CREATE TABLE faculty(
+	profID varchar(9) NOT NULL PRIMARY KEY,-- or v number 
+	profName varchar(30) DEFAULT NULL,
+	email varchar(30) DEFAULT NULL);
 
 CREATE TABLE course(
 	courseName varchar(50) DEFAULT NULL,-- Intro to Programming
 	courseDept varchar(4) DEFAULT NULL, -- CMSC
 	courseNo decimal(3,0) NOT NULL PRIMARY KEY, -- 255
-	courseDesc TEXT(500) DEFAULT NULL
-	);
+	courseDesc varchar(500) DEFAULT NULL);
 
-CREATE TABLE section (
-	courseID
+CREATE TABLE section(
 	crn decimal(5,0) NOT NULL PRIMARY KEY, -- sectID if crn is not unique per semester
 	sectNo decimal (3,0) DEFAULT NULL,
-	profName varchar(30) DEFAULT NULL,
-	semester varchar(10) DEFAULT NULL,
+	profID varchar(9) DEFAULT NULL,
+	semester varchar(20) DEFAULT NULL,
 	lectureTime varchar(20) DEFAULT NULL,
 	labTime varchar(20) DEFAULT NULL,
-	lectureRoom varchar(10) DEFAULT NULL,
-	labRoom varchar(10) DEFAULT NULL,
+	lectureRoom varchar(20) DEFAULT NULL,
+	labRoom varchar(20) DEFAULT NULL,
 	capacity decimal(4,0) DEFAULT NULL,
-	FOREIGN KEY (profName) REFERENCES faculty (profName)
-);
+	FOREIGN KEY (profID) REFERENCES faculty (profID));
 
-CREATE TABLE faculty(
-	profID varchar(9,0) NOT NULL PRIMARY KEY -- or v number 
-	profName varchar(30) DEFAULT NULL
-	email varchar(30) DEFAULT NULL);
 
+INSERT INTO applicant VALUES
+	('Abigail Byram','V00701835','byramag@vcu.edu','Senior','Because I want to','Debra Duke','s2dmduke@vcu.edu',null,0,1,1,1);
+	
+INSERT INTO TA VALUES
+	('John Doe','V00123456','doej@vcu.edu','Junior','257','255,256',1,1,1,1,0),
+	('Neil Watson','V00698622','watsonns@vcu.edu','Senior','255',null,0,1,1,0,1);
+	
+INSERT INTO faculty VALUES
+	('1','Debra Duke','s2dmduke@vcu.edu'),
+	('2','Caroline Budwell','ccbudwell@vcu.edu');
+
+INSERT INTO course VALUES
+	('Intro to Programming','CMSC','255','Introduction to object-oriented programming using Java. '),
+	('Data Structures and Object Oriented Programming','CMSC','256','Advanced programming using Java.'),
+	('Computer Systems','CMSC','257','C Programming and Advanced topics');
+
+INSERT INTO section VALUES
+	(36067,001,'1','Fall 2018','TR 12:30pm-01:45pm','W 11:00am-12:50pm','EGRB2 E2214','EGRB2 E1239',30),
+	(28934,002,'1','Fall 2018','TR 12:30pm-01:45pm','W 1:00pm-2:50pm','EGRB2 E2214','EGRB2 E1239',30);
+
+	
 --Grading/Analytics tables if we can get the data
 --Current tables are base
 
