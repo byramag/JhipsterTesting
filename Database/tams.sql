@@ -61,10 +61,34 @@ INSERT INTO applicant VALUES
 INSERT INTO TA VALUES
 	('John Doe','V00123456','doej@vcu.edu','Junior','257','255,256',1,1,1,1,0),
 	('Neil Watson','V00698622','watsonns@vcu.edu','Senior','255',null,0,1,1,0,1);
-	
+
+
+
 INSERT INTO faculty VALUES
 	('1','Debra Duke','s2dmduke@vcu.edu'),
-	('2','Caroline Budwell','ccbudwell@vcu.edu');
+	('2','Caroline Budwell','ccbudwell@vcu.edu'),
+	('3','IRFAN AHMED','iahmed3@vcu.edu'),
+	('4','TOMASZ ARODZ','tarodz@vcu.edu'),
+	('5','EYUPHAN BULUT','ebulut@vcu.edu'),
+	('6','ALBERTO CANO','acano@vcu.edu'),
+	('7','KRZYSZTOF CIOS','kcios@vcu.edu'),
+	('8','ROBERT DAHLBERG,','dahlbergra@vcu.edu'),
+	('9','KOSTADIN DAMEVSKI','kdamevski@vcu.edu'),
+	('10','THANG DINH','tndinh@vcu.edu'),
+	('11','CAROL FUNG','cfung@vcu.edu'),
+	('12','PREETAM GHOSH','pghosh@vcu.edu'),
+	('13','VOJISLAV KECMAN','vkecman@vcu.edu'),
+	('14','BARTOSZ KRAWCZYK','bkrawczyk@vcu.edu'),
+	('15','LUKASZ KURGAN','lkurgan@vcu.edu'),
+	('16','JOHN D. LEONARD II','jdleonard@vcu.edu'),
+	('17','CHANGQING LUO','cluo@vcu.edu'),
+	('18','MILOS MANIC','misko@vcu.edu'),
+	('19','BRIDGET MCINNES','btmcinnes@vcu.edu'),
+	('20','TAMER NADEEM','tnadeem@vcu.edu'),
+	('21','ZACHARY WHITTEN','zwhitten@vcu.edu'),
+	('22','TARYNN WITTEN','tmwitten@vcu.edu'),
+	('23','CANG YE','cye@vcu.edu'),
+	('24','HONG-SHENG ZHOU','hszhou@vcu.edu');
 
 INSERT INTO course VALUES
 	('Intro to Programming','CMSC','255','Introduction to object-oriented programming using Java. '),
