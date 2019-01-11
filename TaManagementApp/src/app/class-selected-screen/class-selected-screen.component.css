@@ -11,11 +11,11 @@
   height: 100%; /* Full height */
   position: fixed; /* Make it stick, even on scroll */
   overflow: auto; /* Enable scrolling if the sidenav has too much content */
-  left: -500px;
+  left: 10px;
 }
 
 #sidebar.active {
-  left:10px;
+  left: -500px;
 }
 
 
