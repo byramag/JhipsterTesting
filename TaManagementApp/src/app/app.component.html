@@ -12,10 +12,15 @@
       <input type="submit" value="Submit" (click)='validateLogin()'>
     </form>
   </div>
-  <div>
-    
+  <div style="text-align:center" >
+    <button *ngIf=!toggleApplicationHTML (click)='toggleApplication()' >
+      TA Application
+    </button>
 
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSckSr-UFwBSE9K71DWvv7q-XyQzMcNZYiWudASm5PBtPqSv2A/viewform?embedded=true" width="640" height="793" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+    <div *ngIf=toggleApplicationHTML>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSckSr-UFwBSE9K71DWvv7q-XyQzMcNZYiWudASm5PBtPqSv2A/viewform?embedded=true" width="640" height="793" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+    </div>
+
   </div>
 
 </div>

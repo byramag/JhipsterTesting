@@ -9,6 +9,7 @@ import { NullAstVisitor } from '@angular/compiler';
 export class AppComponent {
   title = 'TaManagementApp';
   toggleLoginHTML = true;
+  toggleApplicationHTML = false;
 
   constructor() {
     this.toggleLoginHTML = true;
@@ -17,4 +18,9 @@ export class AppComponent {
   validateLogin() {
     this.toggleLoginHTML = false; // Changes DOM, logs user in
   }
+
+  toggleApplication() {
+    this.toggleApplicationHTML = true;
+  }
+
 }
