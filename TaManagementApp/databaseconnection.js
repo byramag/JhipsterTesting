@@ -4,9 +4,10 @@ const mysql = require('mysql');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
 
-const port = 4200 || process.env.port;
+const port = 8080 || process.env.port;
 const app = express();
 
+app.use('/', express.static('TAMANAGEMENTAPP'));
 
 var con = mysql.createConnection({
   host: "10.142.0.2",
