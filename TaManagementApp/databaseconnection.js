@@ -1,3 +1,4 @@
+//node databaseconnection.js -> command line
 const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
@@ -13,7 +14,6 @@ var con = mysql.createConnection({
   user: "tester",
   password: "vcu",
   database: 'tamanagement',
-  //port: 8080
 });
 
 console.log('Waiting for database...');
