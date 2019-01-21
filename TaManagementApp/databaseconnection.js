@@ -1,4 +1,8 @@
 //node databaseconnection.js -> command line
+//query by...
+// con.query("SELECT * FROM course", function (err, result, fields) {
+      //console.log(result); (you can do whenever you want with result in here)
+    //});
 const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
@@ -22,45 +26,21 @@ con.connect(function(err) {
     console.log("error connecting", err);
     throw err;
   }else{
-      con.query("SELECT * FROM TA", function (err, result, fields) {
-      console.log(result);
-    });
+     // con.query("SELECT * FROM course", function (err, result, fields) {
+      //console.log(result);
+    //});
   console.log("Connected!");
   }
 });
 
-// const initDB = function() {
-//   return new Promise((resolve, reject) => {
-//     con.connect(err => {
-//       if (err) {
-//         console.error('Unable to connect to database.', err);
-//         console.error('Retrying in 5s.');
-//         setTimeout(() => initDB().then(resolve), 5000);
-//       } else {
-//         console.log('Connected.');
-//         resolve();
-//       }
-//     });
-//   });
-// };
-
-// const query = function(str, ...params) {
-//   return new Promise((resolve, reject) => {
-//     con.query(str, params, (error, results, fields) => {
-//       if (error) {
-//         reject(error);
-//         console.error({
-//           invocation: [str, ...params],
-//           error
-//         });
-//       } else {
-//         resolve(results);
-//       }
-//     });
-//   });
-// };
-
-// initDB().then(() => {
-//   app.listen(port);
-//   console.log(`Running on port ${port}.`);
-// });
+const query = function(str, ...params){
+  return new Promise((resolve, reject) => {
+    con.query(str, param, (err, result, fields) => {
+      if(err){
+        reject(err);
+      }else{
+        resolve(result);
+      }
+    });
+  });
+};
