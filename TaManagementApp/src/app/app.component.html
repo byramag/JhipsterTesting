@@ -9,11 +9,11 @@
     <form action="javascript:validateLogin()">
       Email: <input type="email" name="email" value="email"><br>
       Password: <input type="password" name="password" value="password"><br>
-      <input type="submit" value="Submit" (click)='validateLogin()'>
+      <input type="submit" value="Submit" (click)='validateLogin()' class="customButton cyan">
     </form>
   </div>
   <div style="text-align:center" >
-    <button *ngIf=!toggleApplicationHTML (click)='toggleApplication()' >
+    <button *ngIf=!toggleApplicationHTML (click)='toggleApplication()'  class="customButton cyan">
       TA Application
     </button>
 

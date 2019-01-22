@@ -1,8 +1,8 @@
-.btn, .btn-two {
+.btn, .customButton {
 	margin: 9px;
 }
 
-.btn.cyan, .btn-two.cyan     {background-color: #7fccde;}
+.btn.cyan, .customButton.cyan     {background-color: #7fccde;}
 
 /* default button style */
 .btn {
@@ -20,7 +20,7 @@
 .btn.cyan {box-shadow:0px 4px 0px #73B9C9;}
 .btn.cyan:active {box-shadow: 0 0 #73B9C9; background-color: #70B4C4;}
 
-.btn-two {
+.customButton {
 	color: white;
 	padding: 15px 25px;
 	display: inline-block;
@@ -33,7 +33,7 @@
 				      0 3px 13px -1px rgba(0,0,0,0.21);
 }
 
-.btn-two:active {
+.customButton:active {
 	top: 1px;
 	border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
 	box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;

@@ -7,7 +7,7 @@
     <!-- <button id="myBtn">Open Modal</button> -->
 
 
-    <button class="btn-two cyan">{{acceptedTA.firstName}} {{acceptedTA.lastName}} <br>
+    <button class="customButton cyan">{{acceptedTA.firstName}} {{acceptedTA.lastName}} <br>
       Grade : {{acceptedTA.selectedCourseGrade}} <br>
       Term : {{acceptedTA.selectedCourseTerm}}</button>
   </div>
@@ -16,7 +16,7 @@
 <div style="margin:0 auto; text-align: center;">
   <p>Your TA's For Currently Selected Course</p>
   <div style="padding:5px;" *ngFor="let currentTA of currentTAList">
-    <button class='btn1'>{{currentTA.firstName}} {{currentTA.lastName}} <br>
+    <button class="customButton cyan">{{currentTA.firstName}} {{currentTA.lastName}} <br>
       Grade : {{currentTA.selectedCourseGrade}} <br>
       Term : {{currentTA.selectedCourseTerm}}</button>
   </div>
