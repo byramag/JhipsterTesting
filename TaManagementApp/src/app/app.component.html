@@ -1,18 +1,18 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div *ngIf=toggleLoginHTML>
-  <div style="text-align:center">
+  <div style="text-align:left; padding-left: 42%">
     <h1>
       TA Management System
     </h1>
   </div>
-  <div style="text-align:center">
+  <div style="text-align:left; padding-left:42%">
     <form action="javascript:validateLogin()">
       Email: <input type="email" name="email" value="email"><br>
       Password: <input type="password" name="password" value="password"><br>
       <input type="submit" value="Submit" (click)='validateLogin()' class="customButton cyan">
     </form>
   </div>
-  <div style="text-align:center" >
+  <div style="text-align:left; padding-left: 42%" >
     <button *ngIf=!toggleApplicationHTML (click)='toggleApplication()'  class="customButton cyan">
       TA Application
     </button>
