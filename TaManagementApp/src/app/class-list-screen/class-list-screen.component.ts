@@ -3,7 +3,7 @@ import { Class } from './../Model/Class';
 import * as db from '../../../databaseconnection';
 
 // CHanged
-const mysql = require('mysql');
+// const mysql = require('mysql');
 
 import * as mySql from 'C:/Users/mpointer/AppData/Local/Microsoft/TypeScript/3.2/node_modules/@types/mysql/index';
 
@@ -39,36 +39,26 @@ export class ClassListScreenComponent implements OnInit {
 
   public query(str, ...params) {
 
-    const con = mysql.createConnection({
-      host: '104.196.121.215',
-      user: 'tester',
-      password: 'vcu',
-      database: 'tamanagement',
-    });
+    //   const con = mysql.createConnection({
+    //     host: '104.196.121.215',
+    //     user: 'tester',
+    //     password: 'vcu',
+    //     database: 'tamanagement',
+    //   });
 
-    console.log('Waiting for database...');
-    con.connect(function (err) {
-      if (err) {
-        console.log('error connecting', err);
-        throw err;
-      } else {
-        // tslint:disable-next-line:no-shadowed-variable
-        con.query(str, function (err, result, fields) {
-          console.log(result);
-        });
-        console.log('Connected!');
-      }
-    });
-
-    // return new Promise((resolve, reject) => {
-    //   con.query(str, param, (err, result, fields) => {
-    //     if(err){
-    //       reject(err);
-    //     }else{
-    //       resolve(result);
+    //   console.log('Waiting for database...');
+    //   con.connect(function (err) {
+    //     if (err) {
+    //       console.log('error connecting', err);
+    //       throw err;
+    //     } else {
+    //       // tslint:disable-next-line:no-shadowed-variable
+    //       con.query(str, function (err, result, fields) {
+    //         console.log(result);
+    //       });
+    //       console.log('Connected!');
     //     }
     //   });
-    // });
   }
 
   public setProfClassList() {
