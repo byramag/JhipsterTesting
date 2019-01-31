@@ -7,7 +7,7 @@
   </div>
 </div>
 
-<div *ngIf='!selectClassHTMLToggle'>
+<div *ngIf='!selectClassHTMLToggle' id="multiimage">
   <p *ngFor="let className of selectedClass">{{className}}</p>
-  <app-class-selected-screen> </app-class-selected-screen>
+  <app-class-selected-screen id='multiimage'> </app-class-selected-screen>
 </div>
