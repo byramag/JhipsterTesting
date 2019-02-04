@@ -5,8 +5,13 @@
   <div style="padding:5px" *ngFor="let class of professorsClassList">
     <button (click)='selectClass(class.className)' class="customButton cyan">{{class.className}}</button>
   </div>
+  <div id = "courseNames">
+    Hello world
+    <script>
+        alert("helloooo");
+            </script>
+  </div>
 </div>
-
 <div *ngIf='!selectClassHTMLToggle'>
   <p *ngFor="let className of selectedClass">{{className}}</p>
   <app-class-selected-screen> </app-class-selected-screen>

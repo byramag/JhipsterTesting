@@ -15,6 +15,7 @@ export class ClassListScreenComponent implements OnInit {
     this.selectClassHTMLToggle = true;
     this.professorsClassList = [];
     this.selectedClass = [];
+
   }
 
   ngOnInit() {
@@ -24,6 +25,7 @@ export class ClassListScreenComponent implements OnInit {
   public setProfClassList() {
     // Need way to get teacher's list of Courses from backend to populate here in the front end.
     // For now, Create 3 mock class Objects (see Class.ts for the class interface) and populate them to the class list
+
 
     for (let i = 0; i < 3; i++) {
       const temp: Class = {
@@ -42,5 +44,6 @@ export class ClassListScreenComponent implements OnInit {
   // public buildClass(): Class {
   //  const
   // }
+
 
 }
