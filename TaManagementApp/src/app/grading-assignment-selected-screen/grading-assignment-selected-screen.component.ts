@@ -57,12 +57,12 @@ export class GradingAssignmentSelectedScreenComponent implements OnInit, AfterVi
   }
 
   public addthisTA(firstName: String, lastName: String): void {
+    let container = document.getElementById('option1list') as HTMLInputElement;
     const firstspan = '<div class = "border"> <div class="container blue">';
     const secondspan = '</div><form class="container"><p><label>Portion of student  </label>';
     const thirdspan =  '<input class="input" type="text"></p></form></div>';
-
-    this.addStuff += '<li>' + firstspan + firstName + ' ' +  lastName + secondspan + thirdspan + '</li>';
-    console.log(this.addStuff);
+    container.insertAdjacentHTML('beforeend', '<li>' + firstspan + firstName + ' ' +  lastName + secondspan + thirdspan + '</li>');
+    //this.addStuff += '<li>' + firstspan + firstName + ' ' +  lastName + secondspan + thirdspan + '</li>';
   }
 
   public setAcceptedTAList() {
