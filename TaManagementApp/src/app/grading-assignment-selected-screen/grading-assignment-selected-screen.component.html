@@ -10,53 +10,44 @@
     </span></button>
 
   <div *ngIf = "selectedOption === 'option1'">
-    <ul>
+    <ul id="option1list" [innerHTML] = "addStuff">
 
     </ul>
   </div>
 
 
   <div *ngIf = "selectedOption === 'option2'">
-      <div class = "border">
-      <div class="container blue">
-          TA : Matthew Tran
-        </div>
-        <form class="container">
-          <p>
-          <label>Portion of student  </label>
-          <input class="input" type="text"></p>
-          <p>
-        </form>
-      </div>
-
-      <div class = "border">
-          <div class="container blue">
-              TA : Matthew Pointer
-
-            </div>
-
-            <form class="container">
-              <p>
-              <label>Portion of student  </label>
-              <input class="input" type="text"></p>
-              <p>
-            </form>
+<ul>
+  <li>
+    <div class = "border">
+        <div class="container blue">
+            TA : Matthew Tran
           </div>
+          <form class="container">
+            <p>
+            <label>Portion of student  </label>
+            <input class="input" type="text"></p>
+            <p>
+          </form>
+        </div>
+      </li>
 
-          <div class = "border">
-              <div class="container blue">
-                  TA : Nathan Hyunh
+      <li>
+        <div class = "border">
+            <div class="container blue">
+                TA : Matthew Pointer
 
-                </div>
-
-                <form class="container">
-                  <p>
-                  <label>Portion of student  </label>
-                  <input class="input" type="text"></p>
-                  <p>
-                </form>
               </div>
-  </div>
+
+              <form class="container">
+                <p>
+                <label>Portion of student  </label>
+                <input class="input" type="text"></p>
+                <p>
+              </form>
+            </div>
+          </li>
+</ul>
 </div>
 
 
@@ -67,9 +58,9 @@
     <!-- Modal content -->
     <div class="modal-content">
       <span (click)='closePopup()' class="close">&times;</span>
-      <div>Click to add</div>
+      <div><h1>Click to add</h1></div>
       <div style="padding:5px;" *ngFor="let acceptedTA of acceptedTAList">
-          <div><button class ="button1" (click)="addthisTA()"><span>{{acceptedTA.firstName}} {{acceptedTA.lastName}} <br>
+          <div><button class ="button1" (click)="addthisTA(acceptedTA.firstName,acceptedTA.lastName)"><span>{{acceptedTA.firstName}} {{acceptedTA.lastName}} <br>
             Grade : {{acceptedTA.selectedCourseGrade}} <br>
             Term : {{acceptedTA.selectedCourseTerm}}</span></button></div>
 

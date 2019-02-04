@@ -14,6 +14,7 @@ export class GradingAssignmentSelectedScreenComponent implements OnInit, AfterVi
   span: any;
   acceptedTAList: TAInfo[]; // Candidate TA's for Course
   currentTAList: TAInfo[]; // Current TA's for selected course
+  addStuff: String = '';
 
   constructor() {
     this.modal = null;
@@ -53,6 +54,15 @@ export class GradingAssignmentSelectedScreenComponent implements OnInit, AfterVi
     this.btn = document.getElementById('myBtn');
     this.span = document.getElementsByClassName('close')[0];
 
+  }
+
+  public addthisTA(firstName: String, lastName: String): void {
+    const firstspan = '<div class = "border"> <div class="container blue">';
+    const secondspan = '</div><form class="container"><p><label>Portion of student  </label>';
+    const thirdspan =  '<input class="input" type="text"></p></form></div>';
+
+    this.addStuff += '<li>' + firstspan + firstName + ' ' +  lastName + secondspan + thirdspan + '</li>';
+    console.log(this.addStuff);
   }
 
   public setAcceptedTAList() {
