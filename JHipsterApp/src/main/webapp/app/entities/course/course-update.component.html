@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-course-heading" jhiTranslate="taManagementApp.course.home.createOrEditLabel">Create or edit a Course</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!course.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="course.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.course.courseName" for="field_courseName">Course Name</label>
+                    <input type="text" class="form-control" name="courseName" id="field_courseName"
+                        [(ngModel)]="course.courseName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.course.courseID" for="field_courseID">Course ID</label>
+                    <input type="text" class="form-control" name="courseID" id="field_courseID"
+                        [(ngModel)]="course.courseID" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.course.courseDesc" for="field_courseDesc">Course Desc</label>
+                    <input type="text" class="form-control" name="courseDesc" id="field_courseDesc"
+                        [(ngModel)]="course.courseDesc" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -41,6 +41,17 @@ public class CacheConfiguration {
             cm.createCache(edu.vcu.tams.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(edu.vcu.tams.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(edu.vcu.tams.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(edu.vcu.tams.domain.TA.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.vcu.tams.domain.TA.class.getName() + ".sections", jcacheConfiguration);
+            cm.createCache(edu.vcu.tams.domain.TA.class.getName() + ".assignments", jcacheConfiguration);
+            cm.createCache(edu.vcu.tams.domain.Applicant.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.vcu.tams.domain.Faculty.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.vcu.tams.domain.Faculty.class.getName() + ".sections", jcacheConfiguration);
+            cm.createCache(edu.vcu.tams.domain.Course.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.vcu.tams.domain.Course.class.getName() + ".sections", jcacheConfiguration);
+            cm.createCache(edu.vcu.tams.domain.Section.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.vcu.tams.domain.Section.class.getName() + ".assignments", jcacheConfiguration);
+            cm.createCache(edu.vcu.tams.domain.Assignment.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

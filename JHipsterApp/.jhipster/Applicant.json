@@ -1,0 +1,56 @@
+{
+    "name": "Applicant",
+    "fields": [
+        {
+            "fieldName": "studentName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "vNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "taMotivation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "refName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "refEmail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "refResponse",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isConfirmed",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "ta",
+            "otherEntityName": "tA",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "applicant"
+        }
+    ],
+    "changelogDate": "20190204005151",
+    "entityTableName": "applicant",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

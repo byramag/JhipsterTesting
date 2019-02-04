@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tA">
+            <h2><span jhiTranslate="taManagementApp.tA.detail.title">TA</span> {{tA.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="taManagementApp.tA.studentName">Student Name</span></dt>
+                <dd>
+                    <span>{{tA.studentName}}</span>
+                </dd>
+                <dt><span jhiTranslate="taManagementApp.tA.vNumber">V Number</span></dt>
+                <dd>
+                    <span>{{tA.vNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="taManagementApp.tA.email">Email</span></dt>
+                <dd>
+                    <span>{{tA.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="taManagementApp.tA.classYear">Class Year</span></dt>
+                <dd>
+                    <span>{{tA.classYear}}</span>
+                </dd>
+                <dt><span jhiTranslate="taManagementApp.tA.currentAssign">Current Assign</span></dt>
+                <dd>
+                    <span>{{tA.currentAssign}}</span>
+                </dd>
+                <dt><span jhiTranslate="taManagementApp.tA.previousAssign">Previous Assign</span></dt>
+                <dd>
+                    <span>{{tA.previousAssign}}</span>
+                </dd>
+                <dt><span jhiTranslate="taManagementApp.tA.ptdLabTA">Ptd Lab TA</span></dt>
+                <dd>
+                    <span>{{tA.ptdLabTA}}</span>
+                </dd>
+                <dt><span jhiTranslate="taManagementApp.tA.ptdClassTA">Ptd Class TA</span></dt>
+                <dd>
+                    <span>{{tA.ptdClassTA}}</span>
+                </dd>
+                <dt><span jhiTranslate="taManagementApp.tA.ptdTestGrade">Ptd Test Grade</span></dt>
+                <dd>
+                    <span>{{tA.ptdTestGrade}}</span>
+                </dd>
+                <dt><span jhiTranslate="taManagementApp.tA.ptdOfficeHours">Ptd Office Hours</span></dt>
+                <dd>
+                    <span>{{tA.ptdOfficeHours}}</span>
+                </dd>
+                <dt><span jhiTranslate="taManagementApp.tA.acceptedCourses">Accepted Courses</span></dt>
+                <dd>
+                    <span>{{tA.acceptedCourses}}</span>
+                </dd>
+                <dt><span jhiTranslate="taManagementApp.tA.section">Section</span></dt>
+                <dd>
+                    <span *ngFor="let section of tA.sections; let last = last">
+                        <a [routerLink]="['/section', section?.id, 'view' ]">{{section.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="taManagementApp.tA.assignment">Assignment</span></dt>
+                <dd>
+                    <span *ngFor="let assignment of tA.assignments; let last = last">
+                        <a [routerLink]="['/assignment', assignment?.id, 'view' ]">{{assignment.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ta', tA.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

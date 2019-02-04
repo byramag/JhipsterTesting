@@ -1,0 +1,76 @@
+{
+    "name": "TA",
+    "fields": [
+        {
+            "fieldName": "studentName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "vNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "classYear",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "currentAssign",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "previousAssign",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ptdLabTA",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ptdClassTA",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ptdTestGrade",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ptdOfficeHours",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "acceptedCourses",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "section",
+            "otherEntityName": "section",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "assignment",
+            "otherEntityName": "assignment",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190204005149",
+    "entityTableName": "ta",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
