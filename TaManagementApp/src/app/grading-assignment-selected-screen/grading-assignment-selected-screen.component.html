@@ -10,44 +10,16 @@
     </span></button>
 
   <div *ngIf = "selectedOption === 'option1'">
-    <ul id="option1list" [innerHTML] = "addStuff">
+    <ul id="option1list">
 
     </ul>
   </div>
 
 
   <div *ngIf = "selectedOption === 'option2'">
-<ul>
-  <li>
-    <div class = "border">
-        <div class="container blue">
-            TA : Matthew Tran
-          </div>
-          <form class="container">
-            <p>
-            <label>Portion of student  </label>
-            <input class="input" type="text"></p>
-            <p>
-          </form>
-        </div>
-      </li>
+      <ul id="option1list">
 
-      <li>
-        <div class = "border">
-            <div class="container blue">
-                TA : Matthew Pointer
-
-              </div>
-
-              <form class="container">
-                <p>
-                <label>Portion of student  </label>
-                <input class="input" type="text"></p>
-                <p>
-              </form>
-            </div>
-          </li>
-</ul>
+        </ul>
 </div>
 
 
@@ -74,4 +46,8 @@
 
   </div>
 
-
+  <div>
+  <button id='submitBtn' class ="button2" style = "vertical-align:middle" (click)="submitGradeSection()"><span>
+      Submit
+    </span></button>
+  </div>
