@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-faculty-heading" jhiTranslate="taManagementApp.faculty.home.createOrEditLabel">Create or edit a Faculty</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!faculty.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="faculty.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.faculty.profID" for="field_profID">Prof ID</label>
+                    <input type="text" class="form-control" name="profID" id="field_profID"
+                        [(ngModel)]="faculty.profID" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.faculty.profName" for="field_profName">Prof Name</label>
+                    <input type="text" class="form-control" name="profName" id="field_profName"
+                        [(ngModel)]="faculty.profName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.faculty.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="faculty.email" />
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="taManagementApp.faculty.section" for="field_section">Section</label>
+                    <select class="form-control" id="field_section" multiple name="section" [(ngModel)]="faculty.sections">
+                        <option [ngValue]="getSelected(faculty.sections, sectionOption)" *ngFor="let sectionOption of sections; trackBy: trackSectionById">{{sectionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

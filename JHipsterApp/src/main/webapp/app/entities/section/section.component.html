@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="taManagementApp.section.home.title">Sections</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-section" [routerLink]="['/section/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="taManagementApp.section.home.createLabel">
+            Create new Section
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="sections">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="taManagementApp.section.crn">Crn</span></th>
+            <th><span jhiTranslate="taManagementApp.section.sectNo">Sect No</span></th>
+            <th><span jhiTranslate="taManagementApp.section.semester">Semester</span></th>
+            <th><span jhiTranslate="taManagementApp.section.lectureTime">Lecture Time</span></th>
+            <th><span jhiTranslate="taManagementApp.section.labTime">Lab Time</span></th>
+            <th><span jhiTranslate="taManagementApp.section.lectureRoom">Lecture Room</span></th>
+            <th><span jhiTranslate="taManagementApp.section.labRoom">Lab Room</span></th>
+            <th><span jhiTranslate="taManagementApp.section.capacity">Capacity</span></th>
+            <th><span jhiTranslate="taManagementApp.section.course">Course</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let section of sections ;trackBy: trackId">
+                <td><a [routerLink]="['/section', section.id, 'view' ]">{{section.id}}</a></td>
+                <td>{{section.crn}}</td>
+                <td>{{section.sectNo}}</td>
+                <td>{{section.semester}}</td>
+                <td>{{section.lectureTime}}</td>
+                <td>{{section.labTime}}</td>
+                <td>{{section.lectureRoom}}</td>
+                <td>{{section.labRoom}}</td>
+                <td>{{section.capacity}}</td>
+                <td>
+                    <div *ngIf="section.course">
+                        <a [routerLink]="['../course', section.course?.id, 'view' ]" >{{section.course?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/section', section.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/section', section.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'section', { outlets: { popup: section.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

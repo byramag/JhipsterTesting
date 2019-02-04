@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-section-heading" jhiTranslate="taManagementApp.section.home.createOrEditLabel">Create or edit a Section</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!section.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="section.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.section.crn" for="field_crn">Crn</label>
+                    <input type="number" class="form-control" name="crn" id="field_crn"
+                        [(ngModel)]="section.crn" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.section.sectNo" for="field_sectNo">Sect No</label>
+                    <input type="number" class="form-control" name="sectNo" id="field_sectNo"
+                        [(ngModel)]="section.sectNo" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.section.semester" for="field_semester">Semester</label>
+                    <input type="text" class="form-control" name="semester" id="field_semester"
+                        [(ngModel)]="section.semester" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.section.lectureTime" for="field_lectureTime">Lecture Time</label>
+                    <input type="text" class="form-control" name="lectureTime" id="field_lectureTime"
+                        [(ngModel)]="section.lectureTime" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.section.labTime" for="field_labTime">Lab Time</label>
+                    <input type="text" class="form-control" name="labTime" id="field_labTime"
+                        [(ngModel)]="section.labTime" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.section.lectureRoom" for="field_lectureRoom">Lecture Room</label>
+                    <input type="text" class="form-control" name="lectureRoom" id="field_lectureRoom"
+                        [(ngModel)]="section.lectureRoom" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.section.labRoom" for="field_labRoom">Lab Room</label>
+                    <input type="text" class="form-control" name="labRoom" id="field_labRoom"
+                        [(ngModel)]="section.labRoom" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.section.capacity" for="field_capacity">Capacity</label>
+                    <input type="number" class="form-control" name="capacity" id="field_capacity"
+                        [(ngModel)]="section.capacity" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.section.course" for="field_course">Course</label>
+                    <select class="form-control" id="field_course" name="course" [(ngModel)]="section.course" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="courseOption.id === section.course?.id ? section.course : courseOption" *ngFor="let courseOption of courses; trackBy: trackCourseById">{{courseOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

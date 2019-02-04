@@ -1,0 +1,30 @@
+{
+    "name": "Assignment",
+    "fields": [
+        {
+            "fieldName": "taID",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "sectNo",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "section",
+            "otherEntityName": "section",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190204005155",
+    "entityTableName": "assignment",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

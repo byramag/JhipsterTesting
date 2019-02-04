@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity TA.
+    -->
+    <changeSet id="20190204005149-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="ta_id"
+                                 baseTableName="ta_section"
+                                 constraintName="fk_ta_section_ta_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ta"/>
+        <addForeignKeyConstraint baseColumnNames="section_id"
+                                 baseTableName="ta_section"
+                                 constraintName="fk_ta_section_section_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="section"/>
+        
+        <addForeignKeyConstraint baseColumnNames="ta_id"
+                                 baseTableName="ta_assignment"
+                                 constraintName="fk_ta_assignment_ta_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ta"/>
+        <addForeignKeyConstraint baseColumnNames="assignment_id"
+                                 baseTableName="ta_assignment"
+                                 constraintName="fk_ta_assignment_assignment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="assignment"/>
+        
+    </changeSet>
+</databaseChangeLog>
