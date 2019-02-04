@@ -1,0 +1,13 @@
+<div *ngIf='selectClassHTMLToggle' id="multiimage" style="margin-top:0px; text-align: center; height:100vh">
+  <div>
+    <p>Class List</p>
+  </div>
+  <div style="padding:5px" *ngFor="let class of professorsClassList">
+    <button (click)='selectClass(class.className)' class="customButton cyan">{{class.className}}</button>
+  </div>
+</div>
+
+<div *ngIf='!selectClassHTMLToggle' id="multiimage">
+  <p *ngFor="let className of selectedClass">{{className}}</p>
+  <app-class-selected-screen id='multiimage'> </app-class-selected-screen>
+</div>

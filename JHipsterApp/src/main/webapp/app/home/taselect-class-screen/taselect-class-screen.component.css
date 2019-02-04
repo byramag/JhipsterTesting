@@ -1,27 +1,3 @@
-/* ==========================================================================
-Main page styles
-========================================================================== */
-
-.hipster {
-    display: inline-block;
-    width: 347px;
-    height: 497px;
-    background: url('../../content/images/jhipster_family_member_0.svg') no-repeat center top;
-    background-size: contain;
-}
-
-/* wait autoprefixer update to allow simple generation of high pixel density media query */
-@media only screen and (-webkit-min-device-pixel-ratio: 2),
-    only screen and (-moz-min-device-pixel-ratio: 2),
-    only screen and (-o-min-device-pixel-ratio: 2/1),
-    only screen and (min-resolution: 192dpi),
-    only screen and (min-resolution: 2dppx) {
-    .hipster {
-        background: url('../../content/images/jhipster_family_member_0.svg') no-repeat center top;
-        background-size: contain;
-    }
-}
-
 .btn,
 .customButton {
     margin: 9px;
@@ -69,6 +45,45 @@ Main page styles
     border-color: rgba(0, 0, 0, 0.34) rgba(0, 0, 0, 0.21) rgba(0, 0, 0, 0.21);
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.89), 0 1px rgba(0, 0, 0, 0.05) inset;
     position: relative;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 #multiimage {

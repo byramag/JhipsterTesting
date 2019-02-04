@@ -13,6 +13,10 @@ export class HomeComponent implements OnInit {
     account: Account;
     modalRef: NgbModalRef;
 
+    title = 'TaManagementApp';
+    toggleLoginHTML = true;
+    toggleApplicationHTML = false;
+
     constructor(
         private accountService: AccountService,
         private loginModalService: LoginModalService,
@@ -24,6 +28,7 @@ export class HomeComponent implements OnInit {
             this.account = account;
         });
         this.registerAuthenticationSuccess();
+        this.toggleLoginHTML = true;
     }
 
     registerAuthenticationSuccess() {
@@ -40,5 +45,13 @@ export class HomeComponent implements OnInit {
 
     login() {
         this.modalRef = this.loginModalService.open();
+    }
+
+    validateLogin() {
+        this.toggleLoginHTML = false; // Changes DOM, logs user in
+    }
+
+    toggleApplication() {
+        this.toggleApplicationHTML = true;
     }
 }
