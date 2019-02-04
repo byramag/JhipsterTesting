@@ -6,6 +6,7 @@ import { TAInfo } from './../Model/TAInfo';
   templateUrl: './grading-assignment-selected-screen.component.html',
   styleUrls: ['./grading-assignment-selected-screen.component.css']
 })
+
 export class GradingAssignmentSelectedScreenComponent implements OnInit, AfterViewInit  {
   selectedOption: String = '';
   selectedOption2: String = '';
@@ -58,12 +59,11 @@ export class GradingAssignmentSelectedScreenComponent implements OnInit, AfterVi
 
   public addthisTA(firstName: String, lastName: String): void {
     const container = document.getElementById('option1list') as HTMLInputElement;
-    // const container2 = document.getElementById('option2list') as HTMLInputElement;
     const firstspan = '<div class = "border"> <div class="container blue">';
     const secondspan = '</div><form class="container"><p><label>Grading Instructions: </label>';
     const thirdspan =  '<input class="input" type="text"></p></form></div>';
     container.insertAdjacentHTML('beforeend', '<li>' + firstspan + firstName + ' ' +  lastName + secondspan + thirdspan + '</li>');
-   // container2.insertAdjacentHTML('beforeend', '<li>' + firstspan + firstName + ' ' +  lastName + secondspan + thirdspan + '</li>');
+
 
     alert(firstName + ' ' + lastName + ' added!');
   }
