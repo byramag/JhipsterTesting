@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div *ngIf=toggleLoginHTML>
+<div  id="multiimage" *ngIf=toggleLoginHTML  style="height:100vh; margin-top:0px;">
   <div style="text-align:left; padding-left: 42%">
     <h1>
       TA Management System
@@ -12,7 +12,7 @@
       <input type="submit" value="Submit" (click)='validateLogin()' class="customButton cyan">
     </form>
   </div>
-  <div style="text-align:left; padding-left: 42%" >
+  <div style="text-align:left; padding-left: 42%" id="multiimage" >
     <button *ngIf=!toggleApplicationHTML (click)='toggleApplication()'  class="customButton cyan">
       TA Application
     </button>
@@ -24,6 +24,7 @@
   </div>
 
 </div>
+
 
 <div *ngIf=!toggleLoginHTML>
   <app-class-list-screen>

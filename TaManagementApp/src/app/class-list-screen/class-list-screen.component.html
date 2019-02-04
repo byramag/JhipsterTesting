@@ -1,4 +1,4 @@
-<div *ngIf='selectClassHTMLToggle' style="margin:0 auto; text-align: center">
+<div *ngIf='selectClassHTMLToggle' id="multiimage" style="margin-top:0px; text-align: center; height:100vh">
   <div>
     <p>Class List</p>
   </div>
@@ -12,7 +12,12 @@
             </script>
   </div>
 </div>
+<<<<<<< HEAD
 <div *ngIf='!selectClassHTMLToggle'>
+=======
+
+<div *ngIf='!selectClassHTMLToggle' id="multiimage">
+>>>>>>> a7bbd085fdf6e1283bf629707e21f9c05407b872
   <p *ngFor="let className of selectedClass">{{className}}</p>
-  <app-class-selected-screen> </app-class-selected-screen>
+  <app-class-selected-screen id='multiimage'> </app-class-selected-screen>
 </div>

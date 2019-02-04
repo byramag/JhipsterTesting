@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Class } from './../Model/Class';
+import * as db from '../../../databaseconnection';
+
+// CHanged
+// const mysql = require('mysql');
+
+// import * as mySql from 'C:/Users/mpointer/AppData/Local/Microsoft/TypeScript/3.2/node_modules/@types/mysql/index';
+
 
 @Component({
   selector: 'app-class-list-screen',
@@ -15,11 +22,43 @@ export class ClassListScreenComponent implements OnInit {
     this.selectClassHTMLToggle = true;
     this.professorsClassList = [];
     this.selectedClass = [];
+    // console.log('Waiting for database...');
+    // db.test('test');
 
+
+    // this.query('SELECT * FROM TA');
+
+
+
+    // db.query('SELECT * FROM TA');
   }
 
   ngOnInit() {
     this.setProfClassList();
+  }
+
+  public query(str, ...params) {
+
+    //   const con = mysql.createConnection({
+    //     host: '104.196.121.215',
+    //     user: 'tester',
+    //     password: 'vcu',
+    //     database: 'tamanagement',
+    //   });
+
+    //   console.log('Waiting for database...');
+    //   con.connect(function (err) {
+    //     if (err) {
+    //       console.log('error connecting', err);
+    //       throw err;
+    //     } else {
+    //       // tslint:disable-next-line:no-shadowed-variable
+    //       con.query(str, function (err, result, fields) {
+    //         console.log(result);
+    //       });
+    //       console.log('Connected!');
+    //     }
+    //   });
   }
 
   public setProfClassList() {
