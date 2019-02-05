@@ -6,15 +6,8 @@ env: flex
 # for production use. For more information, see:
 # https://cloud.google.com/appengine/docs/flexible/nodejs/configuring-your-app-with-app-yaml
 manual_scaling:
- instances: 1
+  instances: 1
 resources:
- cpu: 1
- memory_gb: 0.5
- disk_size_gb: 10
-runtime_config: 
-  jdk: openjdk8 
-  server: jetty9
-handlers: 
-- url: /.* 
-script: this field is required, but ignored 
-secure: always # Require HTTPS 
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10
