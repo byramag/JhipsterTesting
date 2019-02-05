@@ -11,3 +11,10 @@ resources:
  cpu: 1
  memory_gb: 0.5
  disk_size_gb: 10
+runtime_config: 
+  jdk: openjdk8 
+  server: jetty9
+handlers: 
+- url: /.* 
+script: this field is required, but ignored 
+secure: always # Require HTTPS 
