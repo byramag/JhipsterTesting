@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Class } from './../Model/Class';
-import * as db from '../../../databaseconnection';
+// import * as db from '../../../databaseconnection';
 
 // CHanged
 // const mysql = require('mysql');
@@ -8,6 +8,7 @@ import * as db from '../../../databaseconnection';
 import * as mySql from 'C:/Users/mpointer/AppData/Local/Microsoft/TypeScript/3.2/node_modules/@types/mysql/index';
 
 @Component({
+    // tslint:disable-next-line:component-selector
     selector: 'app-class-list-screen',
     templateUrl: './class-list-screen.component.html',
     styleUrls: ['./class-list-screen.component.css']
