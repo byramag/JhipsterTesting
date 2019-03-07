@@ -1,0 +1,139 @@
+ /**
+ * TA Management System, Entity Description
+ *  - Date: 3/7/19
+ *  - Author: Abigail Byram
+ **/
+
+//Helper enumerations
+enum Role {
+    TUTOR, LAB_TA, CLASSROOM, TEST_GRADE, HW_GRADE, PROJECT_GRADE, OFFICE_HOUR, HELP_SESSION, SLACK
+}
+enum AssignmentType {
+	HOMEWORK, TEST, PROJECT
+}
+enum GradingStyle {
+	BY_STUDENT, BY_RUBRIC_ITEM
+}
+
+
+entity Applicant {
+	name String,
+    email String,
+    vNum String,
+    classYear String,
+    expectedGradYear Integer,
+    expectedGradSemester String,
+    statement String,
+    grade255 String,
+    grade256 String,
+    grade257 String,
+    referenceEmail String,
+    referenceResponse String,
+    isRecommended Boolean
+}
+entity Ta {
+	name String,
+    email String,
+    vNum String,
+    classYear String,
+    expectedGradYear Integer,
+    expectedGradSemester String,
+    totalHoursAvailable Integer,
+    isActive Boolean
+}
+entity Faculty {
+    name String,
+    email String,
+    isAdmin Boolean
+}
+entity Course {
+    courseName String,
+    description String,
+    department String,
+    courseNumber Integer
+}
+entity Section {
+	sectionId Integer,
+    semester String,
+    year Integer,
+    labRoom String,
+    lectureRoom String,
+    capacity Integer,
+    enrolled Integer
+}
+entity Assignment {
+    totalPoints Integer,
+    numParts Integer,
+    numSubmissions Integer,
+    gradeBy GradingStyle,
+    gradingDirections String,
+    type AssignmentType,
+    gradingLink String
+}
+
+//Helper Entities
+entity Grading {
+    numAssigned Integer,
+    numCompleted Integer
+}
+entity TimeWindow {
+    startTime Instant,
+    endTime Instant
+}
+entity Note {
+    createdOn Instant,
+    noteText String
+}
+entity TaRole {
+    role Role
+}
+entity Document {
+    document Blob
+}
+
+
+//Section-related relationships
+relationship OneToMany {
+	Course{section} to Section{course},
+	Faculty{section} to Section{faculty},
+    Section{doc} to Document
+}
+
+//TA Relationships
+relationship ManyToMany {
+	Ta{section} to Section{ta},
+    Ta{courseQualified} to Course{qualifiedTa},
+    Ta{courseHasExperience} to Course{experiencedTa},
+    Ta{availableRole} to TaRole{ta}
+}
+
+//Grading-related relationships
+relationship OneToMany {
+    Ta{grading} to Grading{taAssigned},
+    Assignment{grading} to Grading{forAssignment},
+    Assignment{doc} to Document
+}
+
+//Scheduling-related relationships
+relationship OneToMany {
+	Ta{availability} to TimeWindow,
+    Section{lectureTime} to TimeWindow,
+    Section{labTime} to TimeWindow
+}
+
+//Relationships for notes
+relationship OneToMany {
+    Section{note} to Note,
+    Ta{note} to Note,
+    Assignment{note} to Note
+}
+relationship ManyToOne {
+	Note{writtenBy} to Ta,
+    Note{writtenBy} to Faculty
+}
+
+//Associating an app user with a TA or a Faculty entry
+relationship OneToOne {
+	Ta{user(login)} to User,
+	Faculty{user(login)} to User
+}
