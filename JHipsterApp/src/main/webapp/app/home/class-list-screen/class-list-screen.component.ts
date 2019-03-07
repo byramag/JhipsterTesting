@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Class } from './../Model/Class';
-import * as db from '../../../databaseconnection';
+// import * as db from '../../../databaseconnection';
 
 // CHanged
 // const mysql = require('mysql');
 
-import * as mySql from 'C:/Users/mpointer/AppData/Local/Microsoft/TypeScript/3.2/node_modules/@types/mysql/index';
+// import * as mySql from 'C:/Users/mpointer/AppData/Local/Microsoft/TypeScript/3.2/node_modules/@types/mysql/index';
 
 @Component({
     selector: 'app-class-list-screen',
