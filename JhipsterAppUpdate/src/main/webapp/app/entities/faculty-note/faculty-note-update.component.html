@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-faculty-note-heading">Create or edit a Faculty Note</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!facultyNote.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="facultyNote.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_createdOn">Created On</label>
+                    <div class="d-flex">
+                        <input id="field_createdOn" type="datetime-local" class="form-control" name="createdOn" [(ngModel)]="createdOn" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_noteText">Note Text</label>
+                    <input type="text" class="form-control" name="noteText" id="field_noteText"
+                        [(ngModel)]="facultyNote.noteText" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ta">Ta</label>
+                    <select class="form-control" id="field_ta" name="ta" [(ngModel)]="facultyNote.ta" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="taOption.id === facultyNote.ta?.id ? facultyNote.ta : taOption" *ngFor="let taOption of tas; trackBy: trackTaById">{{taOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_section">Section</label>
+                    <select class="form-control" id="field_section" name="section" [(ngModel)]="facultyNote.section" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sectionOption.id === facultyNote.section?.id ? facultyNote.section : sectionOption" *ngFor="let sectionOption of sections; trackBy: trackSectionById">{{sectionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_writtenBy">Written By</label>
+                    <select class="form-control" id="field_writtenBy" name="writtenBy" [(ngModel)]="facultyNote.writtenBy" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="facultyOption.id === facultyNote.writtenBy?.id ? facultyNote.writtenBy : facultyOption" *ngFor="let facultyOption of faculties; trackBy: trackFacultyById">{{facultyOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

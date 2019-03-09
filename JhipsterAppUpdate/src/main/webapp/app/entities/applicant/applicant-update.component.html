@@ -1,0 +1,89 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-applicant-heading">Create or edit a Applicant</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!applicant.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="applicant.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="applicant.name" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="applicant.email" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_vNum">V Num</label>
+                    <input type="text" class="form-control" name="vNum" id="field_vNum"
+                        [(ngModel)]="applicant.vNum" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_classYear">Class Year</label>
+                    <input type="text" class="form-control" name="classYear" id="field_classYear"
+                        [(ngModel)]="applicant.classYear" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_expectedGradYear">Expected Grad Year</label>
+                    <input type="number" class="form-control" name="expectedGradYear" id="field_expectedGradYear"
+                        [(ngModel)]="applicant.expectedGradYear" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_expectedGradSemester">Expected Grad Semester</label>
+                    <input type="text" class="form-control" name="expectedGradSemester" id="field_expectedGradSemester"
+                        [(ngModel)]="applicant.expectedGradSemester" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_statement">Statement</label>
+                    <input type="text" class="form-control" name="statement" id="field_statement"
+                        [(ngModel)]="applicant.statement" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_grade255">Grade 255</label>
+                    <input type="text" class="form-control" name="grade255" id="field_grade255"
+                        [(ngModel)]="applicant.grade255" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_grade256">Grade 256</label>
+                    <input type="text" class="form-control" name="grade256" id="field_grade256"
+                        [(ngModel)]="applicant.grade256" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_grade257">Grade 257</label>
+                    <input type="text" class="form-control" name="grade257" id="field_grade257"
+                        [(ngModel)]="applicant.grade257" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_referenceEmail">Reference Email</label>
+                    <input type="text" class="form-control" name="referenceEmail" id="field_referenceEmail"
+                        [(ngModel)]="applicant.referenceEmail" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_referenceResponse">Reference Response</label>
+                    <input type="text" class="form-control" name="referenceResponse" id="field_referenceResponse"
+                        [(ngModel)]="applicant.referenceResponse" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_isRecommended">Is Recommended</label>
+                    <input type="checkbox" class="form-control" name="isRecommended" id="field_isRecommended"
+                        [(ngModel)]="applicant.isRecommended" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

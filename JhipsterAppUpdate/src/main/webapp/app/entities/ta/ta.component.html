@@ -1,0 +1,96 @@
+<div>
+    <h2 id="page-heading">
+        <span>Tas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ta" [routerLink]="['/ta/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Ta
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="tas">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>Email</span></th>
+            <th><span>V Num</span></th>
+            <th><span>Class Year</span></th>
+            <th><span>Expected Grad Year</span></th>
+            <th><span>Expected Grad Semester</span></th>
+            <th><span>Total Hours Available</span></th>
+            <th><span>Is Active</span></th>
+            <th><span>User</span></th>
+            <th><span>Section</span></th>
+            <th><span>Course Qualified</span></th>
+            <th><span>Course Has Experience</span></th>
+            <th><span>Available Role</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ta of tas ;trackBy: trackId">
+                <td><a [routerLink]="['/ta', ta.id, 'view' ]">{{ta.id}}</a></td>
+                <td>{{ta.name}}</td>
+                <td>{{ta.email}}</td>
+                <td>{{ta.vNum}}</td>
+                <td>{{ta.classYear}}</td>
+                <td>{{ta.expectedGradYear}}</td>
+                <td>{{ta.expectedGradSemester}}</td>
+                <td>{{ta.totalHoursAvailable}}</td>
+                <td>{{ta.isActive}}</td>
+                <td>
+                    {{ta.user?.login}}
+                </td>
+                <td>
+                    <span *ngFor="let section of ta.sections; let last = last">
+                            <a class="form-control-static" [routerLink]="['../section', section?.id, 'view' ]">{{section.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let courseQualified of ta.courseQualifieds; let last = last">
+                            <a class="form-control-static" [routerLink]="['../course', courseQualified?.id, 'view' ]">{{courseQualified.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let courseHasExperience of ta.courseHasExperiences; let last = last">
+                            <a class="form-control-static" [routerLink]="['../course', courseHasExperience?.id, 'view' ]">{{courseHasExperience.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let availableRole of ta.availableRoles; let last = last">
+                            <a class="form-control-static" [routerLink]="['../ta-role', availableRole?.id, 'view' ]">{{availableRole.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/ta', ta.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/ta', ta.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'ta', { outlets: { popup: ta.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

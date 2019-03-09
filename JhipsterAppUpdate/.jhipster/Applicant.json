@@ -1,0 +1,67 @@
+{
+    "name": "Applicant",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "vNum",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "classYear",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "expectedGradYear",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "expectedGradSemester",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "statement",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grade255",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grade256",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grade257",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "referenceEmail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "referenceResponse",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isRecommended",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190309205951",
+    "entityTableName": "applicant",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

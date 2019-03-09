@@ -1,0 +1,106 @@
+{
+    "name": "Ta",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "vNum",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "classYear",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "expectedGradYear",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "expectedGradSemester",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "totalHoursAvailable",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "isActive",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "ta"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "grading",
+            "otherEntityName": "grading",
+            "otherEntityRelationshipName": "taAssigned"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "availability",
+            "otherEntityName": "timeWindow",
+            "otherEntityRelationshipName": "ta"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "note",
+            "otherEntityName": "facultyNote",
+            "otherEntityRelationshipName": "ta"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "ta",
+            "relationshipName": "section",
+            "otherEntityName": "section",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "qualifiedTa",
+            "relationshipName": "courseQualified",
+            "otherEntityName": "course",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "experiencedTa",
+            "relationshipName": "courseHasExperience",
+            "otherEntityName": "course",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "ta",
+            "relationshipName": "availableRole",
+            "otherEntityName": "taRole",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190309205952",
+    "entityTableName": "ta",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

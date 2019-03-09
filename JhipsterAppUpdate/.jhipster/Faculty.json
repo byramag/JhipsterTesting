@@ -1,0 +1,42 @@
+{
+    "name": "Faculty",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isAdmin",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "faculty"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "section",
+            "otherEntityName": "section",
+            "otherEntityRelationshipName": "faculty"
+        }
+    ],
+    "changelogDate": "20190309205953",
+    "entityTableName": "faculty",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

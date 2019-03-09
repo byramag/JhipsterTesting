@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Ta.
+    -->
+    <changeSet id="20190309205952-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="ta"
+                                 constraintName="fk_ta_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="ta_id"
+                                 baseTableName="ta_section"
+                                 constraintName="fk_ta_section_ta_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ta"/>
+        <addForeignKeyConstraint baseColumnNames="section_id"
+                                 baseTableName="ta_section"
+                                 constraintName="fk_ta_section_section_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="section"/>
+        
+        <addForeignKeyConstraint baseColumnNames="ta_id"
+                                 baseTableName="ta_course_qualified"
+                                 constraintName="fk_ta_course_qualified_ta_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ta"/>
+        <addForeignKeyConstraint baseColumnNames="course_qualified_id"
+                                 baseTableName="ta_course_qualified"
+                                 constraintName="fk_ta_course_qualified_course_qualified_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="course"/>
+        
+        <addForeignKeyConstraint baseColumnNames="ta_id"
+                                 baseTableName="ta_course_has_experience"
+                                 constraintName="fk_ta_course_has_experience_ta_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ta"/>
+        <addForeignKeyConstraint baseColumnNames="course_has_experience_id"
+                                 baseTableName="ta_course_has_experience"
+                                 constraintName="fk_ta_course_has_experience_course_has_experience_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="course"/>
+        
+        <addForeignKeyConstraint baseColumnNames="ta_id"
+                                 baseTableName="ta_available_role"
+                                 constraintName="fk_ta_available_role_ta_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ta"/>
+        <addForeignKeyConstraint baseColumnNames="available_role_id"
+                                 baseTableName="ta_available_role"
+                                 constraintName="fk_ta_available_role_available_role_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ta_role"/>
+        
+    </changeSet>
+</databaseChangeLog>

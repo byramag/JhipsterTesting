@@ -121,8 +121,8 @@ relationship OneToMany {
 //Scheduling-related relationships
 relationship OneToMany {
 	Ta{availability} to TimeWindow,
-    Section{lectureTime} to TimeWindow,
-    Section{labTime} to TimeWindow
+    Section{lectureTime} to TimeWindow{sectionLecture},
+    Section{labTime} to TimeWindow{sectionLab}
 }
 
 //Relationships for notes
@@ -132,8 +132,8 @@ relationship OneToMany {
     Ta{note} to FacultyNote
 }
 relationship ManyToOne {
-	Note{writtenBy} to Ta,
-    Note{writtenBy} to Faculty
+	TANote{writtenBy} to Ta,
+    FacultyNote{writtenBy} to Faculty
 }
 
 //Associating an app user with a TA or a Faculty entry

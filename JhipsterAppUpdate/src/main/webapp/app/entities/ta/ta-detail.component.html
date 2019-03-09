@@ -1,0 +1,83 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ta">
+            <h2><span>Ta</span> {{ta.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{ta.name}}</span>
+                </dd>
+                <dt><span>Email</span></dt>
+                <dd>
+                    <span>{{ta.email}}</span>
+                </dd>
+                <dt><span>V Num</span></dt>
+                <dd>
+                    <span>{{ta.vNum}}</span>
+                </dd>
+                <dt><span>Class Year</span></dt>
+                <dd>
+                    <span>{{ta.classYear}}</span>
+                </dd>
+                <dt><span>Expected Grad Year</span></dt>
+                <dd>
+                    <span>{{ta.expectedGradYear}}</span>
+                </dd>
+                <dt><span>Expected Grad Semester</span></dt>
+                <dd>
+                    <span>{{ta.expectedGradSemester}}</span>
+                </dd>
+                <dt><span>Total Hours Available</span></dt>
+                <dd>
+                    <span>{{ta.totalHoursAvailable}}</span>
+                </dd>
+                <dt><span>Is Active</span></dt>
+                <dd>
+                    <span>{{ta.isActive}}</span>
+                </dd>
+                <dt><span>User</span></dt>
+                <dd>
+                    {{ta.user?.login}}
+                </dd>
+                <dt><span>Section</span></dt>
+                <dd>
+                    <span *ngFor="let section of ta.sections; let last = last">
+                        <a [routerLink]="['/section', section?.id, 'view' ]">{{section.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span>Course Qualified</span></dt>
+                <dd>
+                    <span *ngFor="let courseQualified of ta.courseQualifieds; let last = last">
+                        <a [routerLink]="['/course', courseQualified?.id, 'view' ]">{{courseQualified.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span>Course Has Experience</span></dt>
+                <dd>
+                    <span *ngFor="let courseHasExperience of ta.courseHasExperiences; let last = last">
+                        <a [routerLink]="['/course', courseHasExperience?.id, 'view' ]">{{courseHasExperience.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span>Available Role</span></dt>
+                <dd>
+                    <span *ngFor="let availableRole of ta.availableRoles; let last = last">
+                        <a [routerLink]="['/ta-role', availableRole?.id, 'view' ]">{{availableRole.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ta', ta.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
