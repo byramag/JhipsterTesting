@@ -62,7 +62,7 @@ export class GradingAssignmentSelectedScreenComponent implements OnInit, AfterVi
         const thirdspan = '<input class="input" type="text"></p></form></div>';
         container.insertAdjacentHTML('beforeend', '<li>' + firstspan + firstName + ' ' + lastName + secondspan + thirdspan + '</li>');
 
-        alert(firstName + ' ' + lastName + ' added!');
+        // alert(firstName + ' ' + lastName + ' added!');
     }
 
     public setAcceptedTAList() {

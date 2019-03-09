@@ -1,4 +1,5 @@
 export interface Assignment {
   assignmentName: string;
-  points: number;
+  points: number,
+  desc: string;
 }
