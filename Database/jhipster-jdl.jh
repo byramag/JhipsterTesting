@@ -80,7 +80,11 @@ entity TimeWindow {
     startTime Instant,
     endTime Instant
 }
-entity Note {
+entity TANote {
+    createdOn Instant,
+    noteText String
+}
+entity FacultyNote {
     createdOn Instant,
     noteText String
 }
@@ -123,9 +127,9 @@ relationship OneToMany {
 
 //Relationships for notes
 relationship OneToMany {
-    Section{note} to Note,
-    Ta{note} to Note,
-    Assignment{note} to Note
+    Section{taNote} to TANote,
+	Section{facutlyNote} to FacultyNote,
+    Ta{note} to FacultyNote
 }
 relationship ManyToOne {
 	Note{writtenBy} to Ta,

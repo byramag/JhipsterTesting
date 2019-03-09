@@ -25,15 +25,6 @@ spring:
         name: TA_Management
     cache:
         type: simple
-    cloud:
-        stream:
-            kafka:
-                binder:
-                    brokers: localhost
-                    zk-nodes: localhost
-            bindings:
-                output:
-                    destination: topic-jhipster
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:h2:mem:TA_Management;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
@@ -60,11 +51,6 @@ spring:
             hibernate.generate_statistics: false
             hibernate.hbm2ddl.auto: validate
             hibernate.jdbc.time_zone: UTC
-    data:
-        elasticsearch:
-            properties:
-                path:
-                    home: target/elasticsearch
     liquibase:
         contexts: test
     mail:
@@ -107,7 +93,7 @@ jhipster:
         authentication:
             jwt:
                 # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
-                base64-secret: NGQzOWU0ZWI2MGJmYTNjZjZjOWNlMTEwZTk0ZTk3ZGQ0ZmMzYTg1MDBiNzE2NjY4YjRhOTBkZGEwYzc3Njk5MzU5YmY0ZDlmMTMxZGVhZWI0MGZjZjc4ZTg1YzEyZDBkNjE5NmExYzM3MGFkNTVkNTMzNjQzOWRkNGQ2ZjRmOTM=
+                base64-secret: NzQzYzA5NDgwNDM2Y2RkOGY1M2E2NzIzYzA5MmZkYzZhNTkzZjVmZGUxYzA0M2ZiMWI1NTRkZmFiOTRiMzRmMDIzNjUwNGRiNzAwYjVlNmMxNzRmYmIyZGNlMTJjYTFlZGY2ZjAwMzNiMGUwMzkzNDk1YzQ1YTYxZDViN2MzZWE=
                 # Token is valid 24 hours
                 token-validity-in-seconds: 86400
     metrics:

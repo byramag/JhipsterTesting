@@ -32,15 +32,6 @@ spring:
             enabled: false
         livereload:
             enabled: false
-    cloud:
-        stream:
-            kafka:
-                binder:
-                    brokers: localhost
-                    zk-nodes: localhost
-            bindings:
-                output:
-                    destination: topic-jhipster
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:mysql://localhost:3306/TA_Management?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
@@ -65,9 +56,6 @@ spring:
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: true
             hibernate.cache.region.factory_class: io.github.jhipster.config.jcache.BeanClassLoaderAwareJCacheRegionFactory
-    data:
-        jest:
-            uri: http://localhost:9200
     liquibase:
         contexts: prod
     mail:
@@ -136,7 +124,7 @@ jhipster:
                 # - In the JHipster Registry (which includes a Spring Cloud Config server)
                 # - In a separate `application-prod.yml` file, in the same folder as your executable WAR file
                 # - In the `JHIPSTER_SECURITY_AUTHENTICATION_JWT_BASE64_SECRET` environment variable
-                base64-secret: NGQzOWU0ZWI2MGJmYTNjZjZjOWNlMTEwZTk0ZTk3ZGQ0ZmMzYTg1MDBiNzE2NjY4YjRhOTBkZGEwYzc3Njk5MzU5YmY0ZDlmMTMxZGVhZWI0MGZjZjc4ZTg1YzEyZDBkNjE5NmExYzM3MGFkNTVkNTMzNjQzOWRkNGQ2ZjRmOTM=
+                base64-secret: NzQzYzA5NDgwNDM2Y2RkOGY1M2E2NzIzYzA5MmZkYzZhNTkzZjVmZGUxYzA0M2ZiMWI1NTRkZmFiOTRiMzRmMDIzNjUwNGRiNzAwYjVlNmMxNzRmYmIyZGNlMTJjYTFlZGY2ZjAwMzNiMGUwMzkzNDk1YzQ1YTYxZDViN2MzZWE=
                 # Token is valid 24 hours
                 token-validity-in-seconds: 86400
                 token-validity-in-seconds-for-remember-me: 2592000

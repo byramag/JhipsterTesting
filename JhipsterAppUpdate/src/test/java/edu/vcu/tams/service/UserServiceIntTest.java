@@ -3,7 +3,6 @@ package edu.vcu.tams.service;
 import edu.vcu.tams.TaManagementApp;
 import edu.vcu.tams.config.Constants;
 import edu.vcu.tams.domain.User;
-import edu.vcu.tams.repository.search.UserSearchRepository;
 import edu.vcu.tams.repository.UserRepository;
 import edu.vcu.tams.service.dto.UserDTO;
 import edu.vcu.tams.service.util.RandomUtil;
@@ -29,8 +28,6 @@ import java.util.Optional;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
@@ -48,14 +45,6 @@ public class UserServiceIntTest {
 
     @Autowired
     private UserService userService;
-
-    /**
-     * This repository is mocked in the edu.vcu.tams.repository.search test package.
-     *
-     * @see edu.vcu.tams.repository.search.UserSearchRepositoryMockConfiguration
-     */
-    @Autowired
-    private UserSearchRepository mockUserSearchRepository;
 
     @Autowired
     private AuditingHandler auditingHandler;
@@ -169,9 +158,6 @@ public class UserServiceIntTest {
         userService.removeNotActivatedUsers();
         users = userRepository.findAllByActivatedIsFalseAndCreatedDateBefore(now.minus(3, ChronoUnit.DAYS));
         assertThat(users).isEmpty();
-
-        // Verify Elasticsearch mock
-        verify(mockUserSearchRepository, times(1)).delete(user);
     }
 
     @Test
@@ -201,9 +187,6 @@ public class UserServiceIntTest {
         assertThat(userRepository.findOneByLogin("johndoe")).isPresent();
         userService.removeNotActivatedUsers();
         assertThat(userRepository.findOneByLogin("johndoe")).isNotPresent();
-
-        // Verify Elasticsearch mock
-        verify(mockUserSearchRepository, times(1)).delete(user);
     }
 
 }
