@@ -21,4 +21,6 @@ The main focus is on:
 - Web application for data interaction (in TAManagementApp directory)
 
 # Web Application Usage Directions
+To run the backend: run ./mvnw in the JHipster directory
+To run only the front end: run npm start in the JHipster directory
 
