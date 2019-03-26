@@ -17,6 +17,7 @@ import { TaManagementAppRoutingModule } from './app-routing.module';
 import { TaManagementHomeModule } from './home/home.module';
 import { TaManagementAccountModule } from './account/account.module';
 import { TaManagementEntityModule } from './entities/entity.module';
+import { TaManagementApplicationModule } from './application/application.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ErrorComponent } from './layouts';
@@ -36,6 +37,7 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         TaManagementAccountModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
         TaManagementEntityModule,
+        TaManagementApplicationModule,
         TaManagementAppRoutingModule
     ],
     declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent],

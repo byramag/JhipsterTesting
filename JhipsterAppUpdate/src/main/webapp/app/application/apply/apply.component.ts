@@ -4,7 +4,7 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { IApplicant } from 'app/shared/model/applicant.model';
-import { ApplicantService } from '../applicant/applicant.service';
+import { ApplicantService } from 'app/entities/applicant/applicant.service';
 
 @Component({
     selector: 'jhi-apply',

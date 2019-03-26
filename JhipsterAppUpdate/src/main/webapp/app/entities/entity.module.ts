@@ -51,10 +51,6 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'document',
                 loadChildren: './document/document.module#TaManagementDocumentModule'
-            },
-            {
-                path: 'apply',
-                loadChildren: './apply/apply.module#TaManagementApplyModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])
