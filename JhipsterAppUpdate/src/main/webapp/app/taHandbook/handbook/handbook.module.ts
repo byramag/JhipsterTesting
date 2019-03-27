@@ -12,4 +12,4 @@ const ENTITY_STATES = [...handbookRoute];
     entryComponents: [HandbookComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class TaManagementApplyModule {}
+export class TaManagementHandbookModule {}

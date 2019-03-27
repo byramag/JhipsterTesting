@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
         RouterModule.forChild([
             {
                 path: 'handbook',
-                loadChildren: './handbook/handbook.module#TaManagementApplyModule'
+                loadChildren: './handbook/handbook.module#TaManagementHandbookModule'
             }
         ])
     ],
@@ -15,4 +15,4 @@ import { RouterModule } from '@angular/router';
     providers: [],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class TaManagementHandbookModule {}
+export class TaManagementTaHandbookModule {}
