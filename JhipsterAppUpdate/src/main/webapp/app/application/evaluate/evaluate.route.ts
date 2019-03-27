@@ -6,7 +6,8 @@ import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { Applicant } from 'app/shared/model/applicant.model';
 import { ApplicantService } from 'app/entities/applicant/applicant.service';
-import { EvaluateComponent } from 'app/application/evaluate/evaluate.component';
+import { EvaluateComponent } from './evaluate.component';
+import { EvaluateViewComponent } from 'app/application/evaluate/evaluate-view.component';
 import { IApplicant } from 'app/shared/model/applicant.model';
 
 @Injectable({ providedIn: 'root' })
@@ -32,6 +33,18 @@ export const evaluateRoute: Routes = [
         data: {
             authorities: ['ROLE_ADMIN'],
             pageTitle: 'Review Applicants'
+        },
+        canActivate: [UserRouteAccessService]
+    },
+    {
+        path: ':id/view',
+        component: EvaluateViewComponent,
+        resolve: {
+            applicant: ApplicantResolve
+        },
+        data: {
+            authorities: ['ROLE_ADMIN'],
+            pageTitle: 'Review this Applicant'
         },
         canActivate: [UserRouteAccessService]
     }

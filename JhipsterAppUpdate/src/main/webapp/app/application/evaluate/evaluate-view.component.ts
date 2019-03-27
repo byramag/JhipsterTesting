@@ -4,10 +4,10 @@ import { ActivatedRoute } from '@angular/router';
 import { IApplicant } from 'app/shared/model/applicant.model';
 
 @Component({
-    selector: 'jhi-applicant-detail',
-    templateUrl: './applicant-detail.component.html'
+    selector: 'jhi-evaluate-view',
+    templateUrl: './evaluate-view.component.html'
 })
-export class ApplicantDetailComponent implements OnInit {
+export class EvaluateViewComponent implements OnInit {
     applicant: IApplicant;
 
     constructor(protected activatedRoute: ActivatedRoute) {}
