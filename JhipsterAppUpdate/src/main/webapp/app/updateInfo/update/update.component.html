@@ -1,0 +1,95 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-ta-heading">Update your TA Information</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!ta.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="ta.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="ta.name" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="ta.email" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_vNum">V Num</label>
+                    <input type="text" class="form-control" name="vNum" id="field_vNum"
+                        [(ngModel)]="ta.vNum" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_classYear">Class Year</label>
+                    <input type="text" class="form-control" name="classYear" id="field_classYear"
+                        [(ngModel)]="ta.classYear" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_expectedGradYear">Expected Grad Year</label>
+                    <input type="number" class="form-control" name="expectedGradYear" id="field_expectedGradYear"
+                        [(ngModel)]="ta.expectedGradYear" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_expectedGradSemester">Expected Grad Semester</label>
+                    <input type="text" class="form-control" name="expectedGradSemester" id="field_expectedGradSemester"
+                        [(ngModel)]="ta.expectedGradSemester" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_totalHoursAvailable">Total Hours Available</label>
+                    <input type="number" class="form-control" name="totalHoursAvailable" id="field_totalHoursAvailable"
+                        [(ngModel)]="ta.totalHoursAvailable" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_isActive">Is Active</label>
+                    <input type="checkbox" class="form-control" name="isActive" id="field_isActive"
+                        [(ngModel)]="ta.isActive" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" [(ngModel)]="ta.user" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === ta.user?.id ? ta.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_section">Section</label>
+                    <select class="form-control" id="field_section" multiple name="section" [(ngModel)]="ta.sections">
+                        <option [ngValue]="getSelected(ta.sections, sectionOption)" *ngFor="let sectionOption of sections; trackBy: trackSectionById">{{sectionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_courseQualified">Course Qualified</label>
+                    <select class="form-control" id="field_courseQualified" multiple name="courseQualified" [(ngModel)]="ta.courseQualifieds">
+                        <option [ngValue]="getSelected(ta.courseQualifieds, courseOption)" *ngFor="let courseOption of courses; trackBy: trackCourseById">{{courseOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_courseHasExperience">Course Has Experience</label>
+                    <select class="form-control" id="field_courseHasExperience" multiple name="courseHasExperience" [(ngModel)]="ta.courseHasExperiences">
+                        <option [ngValue]="getSelected(ta.courseHasExperiences, courseOption)" *ngFor="let courseOption of courses; trackBy: trackCourseById">{{courseOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_availableRole">Available Role</label>
+                    <select class="form-control" id="field_availableRole" multiple name="availableRole" [(ngModel)]="ta.availableRoles">
+                        <option [ngValue]="getSelected(ta.availableRoles, taRoleOption)" *ngFor="let taRoleOption of taroles; trackBy: trackTaRoleById">{{taRoleOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
