@@ -33,7 +33,7 @@ export const applicantRoute: Routes = [
         path: '',
         component: ApplicantComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'Applicants'
         },
         canActivate: [UserRouteAccessService]
@@ -45,7 +45,7 @@ export const applicantRoute: Routes = [
             applicant: ApplicantResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'Applicants'
         },
         canActivate: [UserRouteAccessService]
@@ -57,7 +57,7 @@ export const applicantRoute: Routes = [
             applicant: ApplicantResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'Applicants'
         },
         canActivate: [UserRouteAccessService]
@@ -69,7 +69,7 @@ export const applicantRoute: Routes = [
             applicant: ApplicantResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'Applicants'
         },
         canActivate: [UserRouteAccessService]
@@ -84,7 +84,7 @@ export const applicantPopupRoute: Routes = [
             applicant: ApplicantResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'Applicants'
         },
         canActivate: [UserRouteAccessService],

@@ -33,7 +33,7 @@ export const facultyRoute: Routes = [
         path: '',
         component: FacultyComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'Faculties'
         },
         canActivate: [UserRouteAccessService]
@@ -45,7 +45,7 @@ export const facultyRoute: Routes = [
             faculty: FacultyResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'Faculties'
         },
         canActivate: [UserRouteAccessService]
@@ -57,7 +57,7 @@ export const facultyRoute: Routes = [
             faculty: FacultyResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'Faculties'
         },
         canActivate: [UserRouteAccessService]
@@ -69,7 +69,7 @@ export const facultyRoute: Routes = [
             faculty: FacultyResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'Faculties'
         },
         canActivate: [UserRouteAccessService]
@@ -84,7 +84,7 @@ export const facultyPopupRoute: Routes = [
             faculty: FacultyResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'Faculties'
         },
         canActivate: [UserRouteAccessService],
