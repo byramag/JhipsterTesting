@@ -7,6 +7,10 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'apply',
                 loadChildren: './apply/apply.module#TaManagementApplyModule'
+            },
+            {
+                path: 'evaluate',
+                loadChildren: './evaluate/evaluate.module#TaManagementEvaluateModule'
             }
         ])
     ],
