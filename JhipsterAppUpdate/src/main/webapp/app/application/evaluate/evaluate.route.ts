@@ -30,7 +30,7 @@ export const evaluateRoute: Routes = [
         path: '',
         component: EvaluateComponent,
         data: {
-            authorities: [],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'Review Applicants'
         },
         canActivate: [UserRouteAccessService]
