@@ -1,0 +1,62 @@
+<div>
+    <h2 id="page-heading">
+        <span>Grading assigned to you:</span>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="gradings">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Num Assigned</span></th>
+            <th><span>Num Completed</span></th>
+            <th><span>Ta Assigned</span></th>
+            <th><span>For Assignment</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let grading of gradings ;trackBy: trackId">
+                <td><a [routerLink]="['/grading', grading.id, 'view' ]">{{grading.id}}</a></td>
+                <td>{{grading.numAssigned}}</td>
+                <td>{{grading.numCompleted}}</td>
+                <td>
+                    <div *ngIf="grading.taAssigned">
+                        <a [routerLink]="['../ta', grading.taAssigned?.id, 'view' ]" >{{grading.taAssigned?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="grading.forAssignment">
+                        <a [routerLink]="['../assignment', grading.forAssignment?.id, 'view' ]" >{{grading.forAssignment?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/grading', grading.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/grading', grading.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'grading', { outlets: { popup: grading.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

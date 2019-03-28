@@ -24,7 +24,7 @@
                     </span>
                 </a>
             </li>
-            <li *jhiHasAnyAuthority="'ROLE_USER'" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <li *jhiHasAnyAuthority="'ROLE_TA'" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link" routerLink="/update" (click)="collapseNavbar()">
                     <span>
                         <fa-icon icon="user-plus"></fa-icon>
@@ -32,10 +32,26 @@
                     </span>
                 </a>
             </li>
+            <li *jhiHasAnyAuthority="'ROLE_USER'" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="/grading-view" (click)="collapseNavbar()">
+                    <span>
+                        <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                        <span>View Grading</span>
+                    </span>
+                </a>
+            </li>
+            <li *jhiHasAnyAuthority="'ROLE_USER'" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="/grading-assign" (click)="collapseNavbar()">
+                    <span>
+                        <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                        <span>Assign Grading</span>
+                    </span>
+                </a>
+            </li>
             <li *jhiHasAnyAuthority="'ROLE_ADMIN'" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link" routerLink="/evaluate" (click)="collapseNavbar()">
                     <span>
-                        <fa-icon icon="user-plus"></fa-icon>
+                        <fa-icon [icon]="'user-plus'"></fa-icon>
                         <span>Review Applicants</span>
                     </span>
                 </a>
