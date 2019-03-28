@@ -15,6 +15,7 @@ import { TaManagementSharedModule } from 'app/shared';
 import { TaManagementCoreModule } from 'app/core';
 import { TaManagementAppRoutingModule } from './app-routing.module';
 import { TaManagementHomeModule } from './home/home.module';
+import { TaManagementCourseListModule } from './courseList/courseList.module';
 import { TaManagementAccountModule } from './account/account.module';
 import { TaManagementEntityModule } from './entities/entity.module';
 import { TaManagementApplicationModule } from './application/application.module';
@@ -41,6 +42,7 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         // jhipster-needle-angular-add-module JHipster will add new module here
         TaManagementEntityModule,
         TaManagementApplicationModule,
+        TaManagementCourseListModule,
         TaManagementGradingModule,
         TaManagementSelectionModule,
         TaManagementTaHandbookModule,
