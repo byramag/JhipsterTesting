@@ -6,8 +6,8 @@ import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { Grading } from 'app/shared/model/grading.model';
 import { GradingService } from 'app/entities/grading/grading.service';
-import { GradingViewComponent } from './view.component';
-import { GradingDetailComponent } from 'app/grading/view/grading-view-detail.component';
+import { GradingComponent } from './grading.component';
+import { GradingDetailComponent } from './grading-detail.component';
 import { IGrading } from 'app/shared/model/grading.model';
 
 @Injectable({ providedIn: 'root' })
@@ -26,25 +26,25 @@ export class GradingResolve implements Resolve<IGrading> {
     }
 }
 
-export const viewRoute: Routes = [
+export const gradingRoute: Routes = [
     {
         path: '',
-        component: GradingViewComponent,
+        component: GradingComponent,
         data: {
             authorities: [],
-            pageTitle: 'View Grading'
+            pageTitle: 'My Grading'
         },
         canActivate: [UserRouteAccessService]
     },
     {
-        path: ':id/detail',
+        path: ':id/view',
         component: GradingDetailComponent,
         resolve: {
-            applicant: GradingResolve
+            grading: GradingResolve
         },
         data: {
             authorities: [],
-            pageTitle: 'View Details'
+            pageTitle: 'Grading Assignment'
         },
         canActivate: [UserRouteAccessService]
     }

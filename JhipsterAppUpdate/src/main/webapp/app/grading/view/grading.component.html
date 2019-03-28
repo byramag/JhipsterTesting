@@ -1,6 +1,6 @@
 <div>
     <h2 id="page-heading">
-        <span>Grading assigned to you:</span>
+        <span>My Grading</span>
     </h2>
     <jhi-alert></jhi-alert>
     <br/>
@@ -23,18 +23,18 @@
                 <td>{{grading.numCompleted}}</td>
                 <td>
                     <div *ngIf="grading.taAssigned">
-                        <a [routerLink]="['../ta', grading.taAssigned?.id, 'view' ]" >{{grading.taAssigned?.id}}</a>
+                        <a [routerLink]="['app/entities/ta', grading.taAssigned?.id, 'view' ]" >{{grading.taAssigned?.id}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="grading.forAssignment">
-                        <a [routerLink]="['../assignment', grading.forAssignment?.id, 'view' ]" >{{grading.forAssignment?.id}}</a>
+                        <a [routerLink]="['app/entities/assignment', grading.forAssignment?.id, 'view' ]" >{{grading.forAssignment?.id}}</a>
                     </div>
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"
-                                [routerLink]="['/grading-view', grading.id, 'detail' ]"
+                                [routerLink]="['/grading-view', grading.id, 'view' ]"
                                 class="btn btn-info btn-sm">
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline">View</span>

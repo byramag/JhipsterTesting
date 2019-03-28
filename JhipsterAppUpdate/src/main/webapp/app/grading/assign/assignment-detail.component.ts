@@ -4,10 +4,10 @@ import { ActivatedRoute } from '@angular/router';
 import { IAssignment } from 'app/shared/model/assignment.model';
 
 @Component({
-    selector: 'jhi-assign-detail',
-    templateUrl: './assign-detail.component.html'
+    selector: 'jhi-assignment-detail',
+    templateUrl: './assignment-detail.component.html'
 })
-export class AssignDetailComponent implements OnInit {
+export class AssignmentDetailComponent implements OnInit {
     assignment: IAssignment;
 
     constructor(protected activatedRoute: ActivatedRoute) {}

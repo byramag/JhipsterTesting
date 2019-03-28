@@ -6,11 +6,11 @@ import { RouterModule } from '@angular/router';
         RouterModule.forChild([
             {
                 path: 'grading-assign',
-                loadChildren: './assign/assign.module#TaManagementGradingAssignModule'
+                loadChildren: './assign/grading.module#TaManagementGradingAssignModule'
             },
             {
                 path: 'grading-view',
-                loadChildren: './view/view.module#TaManagementGradingViewModule'
+                loadChildren: './view/grading.module#TaManagementGradingViewModule'
             }
         ])
     ],

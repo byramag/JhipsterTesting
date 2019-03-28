@@ -9,10 +9,10 @@ import { AccountService } from 'app/core';
 import { GradingService } from 'app/entities/grading/grading.service';
 
 @Component({
-    selector: 'jhi-grading-view',
-    templateUrl: './view.component.html'
+    selector: 'jhi-grading',
+    templateUrl: './grading.component.html'
 })
-export class GradingViewComponent implements OnInit, OnDestroy {
+export class GradingComponent implements OnInit, OnDestroy {
     gradings: IGrading[];
     currentAccount: any;
     eventSubscriber: Subscription;

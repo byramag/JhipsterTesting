@@ -7,10 +7,10 @@ import { IAssignment } from 'app/shared/model/assignment.model';
 import { AssignmentService } from 'app/entities/assignment/assignment.service';
 
 @Component({
-    selector: 'jhi-assign-update',
-    templateUrl: './assign-update.component.html'
+    selector: 'jhi-assignment-update',
+    templateUrl: './assignment-update.component.html'
 })
-export class AssignUpdateComponent implements OnInit {
+export class AssignmentUpdateComponent implements OnInit {
     assignment: IAssignment;
     isSaving: boolean;
 

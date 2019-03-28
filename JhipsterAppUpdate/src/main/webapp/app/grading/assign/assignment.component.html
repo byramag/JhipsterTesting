@@ -1,7 +1,7 @@
 <div>
     <h2 id="page-heading">
-        <span>Assignments for this course:</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-assignment" [routerLink]="['/assignment/new']">
+        <span>Assignments</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-assignment" [routerLink]="['/grading-assign/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span >
             Create new Assignment
@@ -27,7 +27,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let assignment of assignments ;trackBy: trackId">
-                <td><a [routerLink]="['/assignment', assignment.id, 'view' ]">{{assignment.id}}</a></td>
+                <td><a [routerLink]="['/grading-assign', assignment.id, 'view' ]">{{assignment.id}}</a></td>
                 <td>{{assignment.totalPoints}}</td>
                 <td>{{assignment.numParts}}</td>
                 <td>{{assignment.numSubmissions}}</td>
@@ -38,19 +38,19 @@
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"
-                                [routerLink]="['/assignment', assignment.id, 'view' ]"
+                                [routerLink]="['/grading-assign', assignment.id, 'view' ]"
                                 class="btn btn-info btn-sm">
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline">View</span>
                         </button>
                         <button type="submit"
-                                [routerLink]="['/assignment', assignment.id, 'edit']"
+                                [routerLink]="['/grading-assign', assignment.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline">Edit</span>
                         </button>
                         <button type="submit"
-                                [routerLink]="['/', 'assignment', { outlets: { popup: assignment.id + '/delete'} }]"
+                                [routerLink]="['/', 'grading-assign', { outlets: { popup: assignment.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">
@@ -64,4 +64,3 @@
         </table>
     </div>
 </div>
-    
