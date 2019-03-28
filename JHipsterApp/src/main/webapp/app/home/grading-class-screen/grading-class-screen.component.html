@@ -1,3 +1,5 @@
+<script src="/js/ng-upload.js"></script>
+
 <div *ngIf='selectedAssignmentHTMLToggle' style="margin:0 auto; text-align: center; height:100vh" id="multiimage">
   <p>Course Assignments</p>
   <button id='myBtn' class ="button" style = "vertical-align:middle" (click)="addAssignmentModal()"><span>
@@ -21,10 +23,17 @@
             <form>
                     Assignment name: <input type="text" id="assignmentName"><br>
                     Total Points: <input type="text" id="assignmentPoints"><br>
-                    Description123: <input type="text" id="assignmentDesc"><br>
-                    File Upload: <input type="file" id="assignmentFile"><br>
+                    Description: <input type="text" id="assignmentDesc"><br>
                     <button class ="button" id = "addA" (click)="addAssignment(assignmentName)"><span>Add Assignment</span></button>
-                    </form>
+                    <div ng-app="app">
+                        <div ng-controller="mainCtrl">
+                         <form action="/uploads" ng-upload="complete(content)">
+                           <input type="file" name="avatar"></input>
+                           <div style='cursor: pointer' upload-submit></div> &bull;
+                         </form>
+                       </div>
+                      </div>
+                </form>
 
         </div>
   </div>

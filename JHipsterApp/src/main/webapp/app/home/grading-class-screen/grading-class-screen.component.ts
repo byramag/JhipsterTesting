@@ -74,7 +74,7 @@ export class GradingClassScreenComponent implements OnInit, AfterViewInit {
             points: 100 + 10,
             desc: 'hi'
         };
-        console.log(assignmentName1);
+        // console.log(assignmentName1);
         this.assignmentList.push(temp);
     }
 }
