@@ -21,7 +21,6 @@ import { TaManagementApplicationModule } from './application/application.module'
 import { TaManagementGradingModule } from './grading/grading.module';
 import { TaManagementTaHandbookModule } from './taHandbook/taHandbook.module';
 import { TaManagementUpdateInfoModule } from './updateInfo/updateInfo.module';
-import moment from 'moment/src/moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ErrorComponent } from './layouts';
 
@@ -73,6 +72,6 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
 })
 export class TaManagementAppModule {
     constructor(private dpConfig: NgbDatepickerConfig) {
-        this.dpConfig.minDate = { year: moment().year() - 100, month: 1, day: 1 };
+        this.dpConfig.minDate = { year: 1900, month: 1, day: 1 };
     }
 }

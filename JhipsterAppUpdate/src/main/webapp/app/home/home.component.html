@@ -18,17 +18,15 @@
                 <a class="alert-link" routerLink="register">Register a new account</a>
             </div>
         </div>
-
     </div>
-
-    <p>
-        Want to apply to be a TA?
-    </p>
-    <h2 id="page-heading">
-        <button id="jh-apply" class="btn btn-primary float-right jh-create-entity create-applicant" [routerLink]="['/apply']">
-            <span >
-            Apply Here
-            </span>
-        </button>
-    </h2>
+    <div [ngSwitch]="isAuthenticated()">
+        <div *ngSwitchCase="false">
+            <p class="lead"> Want to apply to be a TA?</p>
+            <h2 id="page-heading">
+                <button id="jh-apply" class="btn btn-primary float-right jh-create-entity create-applicant" [routerLink]="['/apply']">
+                    <span > Apply Here</span>
+                </button>
+            </h2>
+        </div>
+    </div>
 </div>
