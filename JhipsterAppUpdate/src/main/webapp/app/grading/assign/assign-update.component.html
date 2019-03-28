@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-assignment-heading">Create or edit a Assignment</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!assignment.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="assignment.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_totalPoints">Total Points</label>
+                    <input type="number" class="form-control" name="totalPoints" id="field_totalPoints"
+                        [(ngModel)]="assignment.totalPoints" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_numParts">Num Parts</label>
+                    <input type="number" class="form-control" name="numParts" id="field_numParts"
+                        [(ngModel)]="assignment.numParts" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_numSubmissions">Num Submissions</label>
+                    <input type="number" class="form-control" name="numSubmissions" id="field_numSubmissions"
+                        [(ngModel)]="assignment.numSubmissions" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_gradeBy">Grade By</label>
+                    <select class="form-control" name="gradeBy" [(ngModel)]="assignment.gradeBy" id="field_gradeBy" >
+                        <option value="BY_STUDENT">BY_STUDENT</option>
+                        <option value="BY_RUBRIC_ITEM">BY_RUBRIC_ITEM</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_gradingDirections">Grading Directions</label>
+                    <input type="text" class="form-control" name="gradingDirections" id="field_gradingDirections"
+                        [(ngModel)]="assignment.gradingDirections" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_type">Type</label>
+                    <select class="form-control" name="type" [(ngModel)]="assignment.type" id="field_type" >
+                        <option value="HOMEWORK">HOMEWORK</option>
+                        <option value="TEST">TEST</option>
+                        <option value="PROJECT">PROJECT</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_gradingLink">Grading Link</label>
+                    <input type="text" class="form-control" name="gradingLink" id="field_gradingLink"
+                        [(ngModel)]="assignment.gradingLink" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

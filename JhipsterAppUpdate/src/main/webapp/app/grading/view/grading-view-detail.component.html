@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="grading">
+            <h2><span>Grading for Assignment</span> {{grading.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Num Assigned</span></dt>
+                <dd>
+                    <span>{{grading.numAssigned}}</span>
+                </dd>
+                <dt><span>Num Completed</span></dt>
+                <dd>
+                    <span>{{grading.numCompleted}}</span>
+                </dd>
+                <dt><span>Ta Assigned</span></dt>
+                <dd>
+                    <div *ngIf="grading.taAssigned">
+                        <a [routerLink]="['/ta', grading.taAssigned?.id, 'view']">{{grading.taAssigned?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>For Assignment</span></dt>
+                <dd>
+                    <div *ngIf="grading.forAssignment">
+                        <a [routerLink]="['/assignment', grading.forAssignment?.id, 'view']">{{grading.forAssignment?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'link'"></fa-icon>&nbsp;<span> Grade Now</span>
+            </button>
+        </div>
+    </div>
+</div>
