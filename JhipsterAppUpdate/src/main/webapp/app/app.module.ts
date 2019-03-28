@@ -19,6 +19,7 @@ import { TaManagementAccountModule } from './account/account.module';
 import { TaManagementEntityModule } from './entities/entity.module';
 import { TaManagementApplicationModule } from './application/application.module';
 import { TaManagementGradingModule } from './grading/grading.module';
+import { TaManagementSelectionModule } from './taSelection/selection.module';
 import { TaManagementTaHandbookModule } from './taHandbook/taHandbook.module';
 import { TaManagementUpdateInfoModule } from './updateInfo/updateInfo.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
@@ -41,6 +42,7 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         TaManagementEntityModule,
         TaManagementApplicationModule,
         TaManagementGradingModule,
+        TaManagementSelectionModule,
         TaManagementTaHandbookModule,
         TaManagementUpdateInfoModule,
         TaManagementAppRoutingModule
