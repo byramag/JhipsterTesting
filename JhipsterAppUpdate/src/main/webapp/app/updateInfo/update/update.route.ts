@@ -30,7 +30,7 @@ export const updateRoute: Routes = [
         path: '',
         component: UpdateComponent,
         data: {
-            authorities: ['ROLE_TA'],
+            authorities: [],
             pageTitle: 'Update TA Info'
         },
         canActivate: [UserRouteAccessService]

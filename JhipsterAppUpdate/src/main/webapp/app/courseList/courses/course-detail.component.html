@@ -3,6 +3,30 @@
         <div *ngIf="section">
             <h2><span>Section</span> {{section.id}}</h2>
             <hr>
+            <button *jhiHasAnyAuthority="'ROLE_USER'" type="submit" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a routerLink="/select">
+                    <span>
+                        <fa-icon icon="user-plus"></fa-icon>
+                        <span>Manage TAs</span>
+                    </span>
+                </a>
+            </button>
+            <button routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a routerLink="/grading-view">
+                    <span>
+                        <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                        <span>View Grading</span>
+                    </span>
+                </a>
+            </button>
+            <button routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a routerLink="/grading-assign">
+                    <span>
+                        <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                        <span>Assign Grading</span>
+                    </span>
+                </a>
+            </button>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
                 <dt><span>Section Id</span></dt>

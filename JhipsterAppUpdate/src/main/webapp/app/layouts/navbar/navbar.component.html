@@ -25,14 +25,6 @@
                 </a>
             </li>
             <li *jhiHasAnyAuthority="'ROLE_USER'" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                <a class="nav-link" routerLink="/select" (click)="collapseNavbar()">
-                    <span>
-                        <fa-icon icon="user-plus"></fa-icon>
-                        <span>Manage TAs</span>
-                    </span>
-                </a>
-            </li>
-            <li *jhiHasAnyAuthority="'ROLE_USER'" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link" routerLink="/courses" (click)="collapseNavbar()">
                     <span>
                         <fa-icon icon="plus"></fa-icon>
@@ -40,27 +32,11 @@
                     </span>
                 </a>
             </li>
-            <li *jhiHasAnyAuthority="'ROLE_TA'" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <li *jhiHasAnyAuthority="'ROLE_USER'" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link" routerLink="/update" (click)="collapseNavbar()">
                     <span>
                         <fa-icon icon="user-plus"></fa-icon>
                         <span>Update Information</span>
-                    </span>
-                </a>
-            </li>
-            <li *jhiHasAnyAuthority="'ROLE_USER'" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                <a class="nav-link" routerLink="/grading-view" (click)="collapseNavbar()">
-                    <span>
-                        <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                        <span>View Grading</span>
-                    </span>
-                </a>
-            </li>
-            <li *jhiHasAnyAuthority="'ROLE_USER'" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                <a class="nav-link" routerLink="/grading-assign" (click)="collapseNavbar()">
-                    <span>
-                        <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                        <span>Assign Grading</span>
                     </span>
                 </a>
             </li>
