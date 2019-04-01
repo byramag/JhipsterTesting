@@ -8,38 +8,33 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                <th><span>ID</span></th>
+
                 <th><span>Name</span></th>
                 <th><span>Email</span></th>
-                <th><span>V Num</span></th>
+                <th><span>V Number</span></th>
                 <th><span>Class Year</span></th>
+
                 <th><span>Expected Grad Year</span></th>
-                <th><span>Expected Grad Semester</span></th>
-                <th><span>Statement</span></th>
-                <th><span>Grade 255</span></th>
-                <th><span>Grade 256</span></th>
-                <th><span>Grade 257</span></th>
+
+
                 <th><span>Reference Email</span></th>
-                <th><span>Reference Response</span></th>
+
                 <th><span>Is Recommended</span></th>
                 <th></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr *ngFor="let applicant of applicants ;trackBy: trackId">
-                    <td><a [routerLink]="['/applicant', applicant.id, 'view' ]">{{applicant.id}}</a></td>
+                    <!-- <td><a [routerLink]="['/applicant', applicant.id, 'view' ]">{{applicant.id}}</a></td> -->
                     <td>{{applicant.name}}</td>
                     <td>{{applicant.email}}</td>
                     <td>{{applicant.vNum}}</td>
                     <td>{{applicant.classYear}}</td>
-                    <td>{{applicant.expectedGradYear}}</td>
-                    <td>{{applicant.expectedGradSemester}}</td>
-                    <td>{{applicant.statement}}</td>
-                    <td>{{applicant.grade255}}</td>
-                    <td>{{applicant.grade256}}</td>
-                    <td>{{applicant.grade257}}</td>
+                    <td>{{applicant.expectedGradSemester}} {{applicant.expectedGradYear}}</td>
+
+
                     <td>{{applicant.referenceEmail}}</td>
-                    <td>{{applicant.referenceResponse}}</td>
+
                     <td>{{applicant.isRecommended}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
