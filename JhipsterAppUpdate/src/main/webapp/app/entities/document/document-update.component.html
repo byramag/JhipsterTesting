@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-document-heading">Create or edit a Document</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!document.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="document.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_document">Document</label>
+                    <div>
+                        <div *ngIf="document.document" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(document.documentContentType, document.document)">open</a><br>
+                            <span class="pull-left">{{document.documentContentType}}, {{byteSize(document.document)}}</span>
+                            <button type="button" (click)="document.document=null;document.documentContentType=null;"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_document" (change)="setFileData($event, document, 'document', false)"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="document" id="field_document"
+                        [(ngModel)]="document.document" />
+                    <input type="hidden" class="form-control" name="documentContentType" id="field_documentContentType"
+                        [(ngModel)]="document.documentContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_section">Section</label>
+                    <select class="form-control" id="field_section" name="section" [(ngModel)]="document.section" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sectionOption.id === document.section?.id ? document.section : sectionOption" *ngFor="let sectionOption of sections; trackBy: trackSectionById">{{sectionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_assignment">Assignment</label>
+                    <select class="form-control" id="field_assignment" name="assignment" [(ngModel)]="document.assignment" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="assignmentOption.id === document.assignment?.id ? document.assignment : assignmentOption" *ngFor="let assignmentOption of assignments; trackBy: trackAssignmentById">{{assignmentOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

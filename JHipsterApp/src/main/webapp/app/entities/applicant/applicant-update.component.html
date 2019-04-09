@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-applicant-heading" jhiTranslate="taManagementApp.applicant.home.createOrEditLabel">Create or edit a Applicant</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!applicant.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="applicant.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.applicant.studentName" for="field_studentName">Student Name</label>
+                    <input type="text" class="form-control" name="studentName" id="field_studentName"
+                        [(ngModel)]="applicant.studentName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.applicant.vNumber" for="field_vNumber">V Number</label>
+                    <input type="text" class="form-control" name="vNumber" id="field_vNumber"
+                        [(ngModel)]="applicant.vNumber" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.applicant.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="applicant.email" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.applicant.taMotivation" for="field_taMotivation">Ta Motivation</label>
+                    <input type="text" class="form-control" name="taMotivation" id="field_taMotivation"
+                        [(ngModel)]="applicant.taMotivation" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.applicant.refName" for="field_refName">Ref Name</label>
+                    <input type="text" class="form-control" name="refName" id="field_refName"
+                        [(ngModel)]="applicant.refName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.applicant.refEmail" for="field_refEmail">Ref Email</label>
+                    <input type="text" class="form-control" name="refEmail" id="field_refEmail"
+                        [(ngModel)]="applicant.refEmail" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.applicant.refResponse" for="field_refResponse">Ref Response</label>
+                    <input type="text" class="form-control" name="refResponse" id="field_refResponse"
+                        [(ngModel)]="applicant.refResponse" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.applicant.isConfirmed" for="field_isConfirmed">Is Confirmed</label>
+                    <input type="checkbox" class="form-control" name="isConfirmed" id="field_isConfirmed"
+                        [(ngModel)]="applicant.isConfirmed" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="taManagementApp.applicant.ta" for="field_ta">Ta</label>
+                    <select class="form-control" id="field_ta" name="ta" [(ngModel)]="applicant.ta">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tAOption.id === applicant.ta?.id ? applicant.ta : tAOption" *ngFor="let tAOption of tas; trackBy: trackTAById">{{tAOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

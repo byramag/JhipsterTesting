@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190309205951_added_entity_Applicant.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190309205952_added_entity_Ta.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190309205953_added_entity_Faculty.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190309205954_added_entity_Course.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190309205955_added_entity_Section.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190309205956_added_entity_Assignment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190309205957_added_entity_Grading.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190309205958_added_entity_TimeWindow.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190309205959_added_entity_TANote.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190309210000_added_entity_FacultyNote.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190309210001_added_entity_TaRole.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190309210002_added_entity_Document.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190309205952_added_entity_constraints_Ta.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190309205953_added_entity_constraints_Faculty.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190309205955_added_entity_constraints_Section.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190309205957_added_entity_constraints_Grading.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190309205958_added_entity_constraints_TimeWindow.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190309205959_added_entity_constraints_TANote.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190309210000_added_entity_constraints_FacultyNote.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190309210002_added_entity_constraints_Document.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

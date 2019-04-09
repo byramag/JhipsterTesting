@@ -1,0 +1,36 @@
+{
+    "name": "Faculty",
+    "fields": [
+        {
+            "fieldName": "profID",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "profName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "section",
+            "otherEntityName": "section",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190204005152",
+    "entityTableName": "faculty",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

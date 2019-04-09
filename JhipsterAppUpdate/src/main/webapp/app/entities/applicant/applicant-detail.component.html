@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="applicant">
+            <h2><span>Applicant</span> {{applicant.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{applicant.name}}</span>
+                </dd>
+                <dt><span>Email</span></dt>
+                <dd>
+                    <span>{{applicant.email}}</span>
+                </dd>
+                <dt><span>V Num</span></dt>
+                <dd>
+                    <span>{{applicant.vNum}}</span>
+                </dd>
+                <dt><span>Class Year</span></dt>
+                <dd>
+                    <span>{{applicant.classYear}}</span>
+                </dd>
+                <dt><span>Expected Grad Year</span></dt>
+                <dd>
+                    <span>{{applicant.expectedGradYear}}</span>
+                </dd>
+                <dt><span>Expected Grad Semester</span></dt>
+                <dd>
+                    <span>{{applicant.expectedGradSemester}}</span>
+                </dd>
+                <dt><span>Statement</span></dt>
+                <dd>
+                    <span>{{applicant.statement}}</span>
+                </dd>
+                <dt><span>Grade 255</span></dt>
+                <dd>
+                    <span>{{applicant.grade255}}</span>
+                </dd>
+                <dt><span>Grade 256</span></dt>
+                <dd>
+                    <span>{{applicant.grade256}}</span>
+                </dd>
+                <dt><span>Grade 257</span></dt>
+                <dd>
+                    <span>{{applicant.grade257}}</span>
+                </dd>
+                <dt><span>Reference Email</span></dt>
+                <dd>
+                    <span>{{applicant.referenceEmail}}</span>
+                </dd>
+                <dt><span>Reference Response</span></dt>
+                <dd>
+                    <span>{{applicant.referenceResponse}}</span>
+                </dd>
+                <dt><span>Is Recommended</span></dt>
+                <dd>
+                    <span>{{applicant.isRecommended}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/applicant', applicant.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

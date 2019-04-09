@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-time-window-heading">Create or edit a Time Window</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!timeWindow.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="timeWindow.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_startTime">Start Time</label>
+                    <div class="d-flex">
+                        <input id="field_startTime" type="datetime-local" class="form-control" name="startTime" [(ngModel)]="startTime" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_endTime">End Time</label>
+                    <div class="d-flex">
+                        <input id="field_endTime" type="datetime-local" class="form-control" name="endTime" [(ngModel)]="endTime" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ta">Ta</label>
+                    <select class="form-control" id="field_ta" name="ta" [(ngModel)]="timeWindow.ta" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="taOption.id === timeWindow.ta?.id ? timeWindow.ta : taOption" *ngFor="let taOption of tas; trackBy: trackTaById">{{taOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_sectionLecture">Section Lecture</label>
+                    <select class="form-control" id="field_sectionLecture" name="sectionLecture" [(ngModel)]="timeWindow.sectionLecture" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sectionOption.id === timeWindow.sectionLecture?.id ? timeWindow.sectionLecture : sectionOption" *ngFor="let sectionOption of sections; trackBy: trackSectionById">{{sectionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_sectionLab">Section Lab</label>
+                    <select class="form-control" id="field_sectionLab" name="sectionLab" [(ngModel)]="timeWindow.sectionLab" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sectionOption.id === timeWindow.sectionLab?.id ? timeWindow.sectionLab : sectionOption" *ngFor="let sectionOption of sections; trackBy: trackSectionById">{{sectionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

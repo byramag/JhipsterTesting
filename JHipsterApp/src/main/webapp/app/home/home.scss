@@ -1,0 +1,85 @@
+/* ==========================================================================
+Main page styles
+========================================================================== */
+
+.hipster {
+    display: inline-block;
+    width: 347px;
+    height: 497px;
+    background: url('../../content/images/jhipster_family_member_0.svg') no-repeat center top;
+    background-size: contain;
+}
+
+/* wait autoprefixer update to allow simple generation of high pixel density media query */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (-moz-min-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    .hipster {
+        background: url('../../content/images/jhipster_family_member_0.svg') no-repeat center top;
+        background-size: contain;
+    }
+}
+
+.btn,
+.customButton {
+    margin: 9px;
+}
+
+.btn.cyan,
+.customButton.cyan {
+    background-color: #7fccde;
+}
+
+/* default button style */
+.btn {
+    position: relative;
+    border: 0;
+    padding: 15px 25px;
+    display: inline-block;
+    text-align: center;
+    color: white;
+}
+.btn:active {
+    top: 4px;
+}
+
+.btn.cyan {
+    box-shadow: 0px 4px 0px #73b9c9;
+}
+.btn.cyan:active {
+    box-shadow: 0 0 #73b9c9;
+    background-color: #70b4c4;
+}
+
+.customButton {
+    color: white;
+    padding: 15px 25px;
+    display: inline-block;
+    border: 1px solid rgba(0, 0, 0, 0.21);
+    border-bottom-color: rgba(0, 0, 0, 0.34);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.34) inset, 0 2px 0 -1px rgba(0, 0, 0, 0.13), 0 3px 0 -1px rgba(0, 0, 0, 0.08),
+        0 3px 13px -1px rgba(0, 0, 0, 0.21);
+}
+
+.customButton:active {
+    top: 1px;
+    border-color: rgba(0, 0, 0, 0.34) rgba(0, 0, 0, 0.21) rgba(0, 0, 0, 0.21);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.89), 0 1px rgba(0, 0, 0, 0.05) inset;
+    position: relative;
+}
+
+#multiimage {
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/652/confectionary.png) repeat;
+}
+
+html,
+body,
+form,
+main {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}

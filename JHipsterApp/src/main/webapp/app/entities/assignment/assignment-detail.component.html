@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="assignment">
+            <h2><span jhiTranslate="taManagementApp.assignment.detail.title">Assignment</span> {{assignment.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="taManagementApp.assignment.taID">Ta ID</span></dt>
+                <dd>
+                    <span>{{assignment.taID}}</span>
+                </dd>
+                <dt><span jhiTranslate="taManagementApp.assignment.sectNo">Sect No</span></dt>
+                <dd>
+                    <span>{{assignment.sectNo}}</span>
+                </dd>
+                <dt><span jhiTranslate="taManagementApp.assignment.section">Section</span></dt>
+                <dd>
+                    <div *ngIf="assignment.section">
+                        <a [routerLink]="['/section', assignment.section?.id, 'view']">{{assignment.section?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/assignment', assignment.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

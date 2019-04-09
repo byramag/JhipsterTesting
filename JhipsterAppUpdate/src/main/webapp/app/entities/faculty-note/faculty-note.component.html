@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span>Faculty Notes</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-faculty-note" [routerLink]="['/faculty-note/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Faculty Note
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="facultyNotes">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Created On</span></th>
+            <th><span>Note Text</span></th>
+            <th><span>Ta</span></th>
+            <th><span>Section</span></th>
+            <th><span>Written By</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let facultyNote of facultyNotes ;trackBy: trackId">
+                <td><a [routerLink]="['/faculty-note', facultyNote.id, 'view' ]">{{facultyNote.id}}</a></td>
+                <td>{{facultyNote.createdOn | date:'medium'}}</td>
+                <td>{{facultyNote.noteText}}</td>
+                <td>
+                    <div *ngIf="facultyNote.ta">
+                        <a [routerLink]="['../ta', facultyNote.ta?.id, 'view' ]" >{{facultyNote.ta?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="facultyNote.section">
+                        <a [routerLink]="['../section', facultyNote.section?.id, 'view' ]" >{{facultyNote.section?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="facultyNote.writtenBy">
+                        <a [routerLink]="['../faculty', facultyNote.writtenBy?.id, 'view' ]" >{{facultyNote.writtenBy?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/faculty-note', facultyNote.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/faculty-note', facultyNote.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'faculty-note', { outlets: { popup: facultyNote.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

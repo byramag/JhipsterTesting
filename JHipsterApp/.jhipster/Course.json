@@ -1,0 +1,34 @@
+{
+    "name": "Course",
+    "fields": [
+        {
+            "fieldName": "courseName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "courseID",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "courseDesc",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "section",
+            "otherEntityName": "section",
+            "otherEntityRelationshipName": "course"
+        }
+    ],
+    "changelogDate": "20190204005153",
+    "entityTableName": "course",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

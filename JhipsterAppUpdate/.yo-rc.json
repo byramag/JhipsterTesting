@@ -1,0 +1,35 @@
+{
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "edu.vcu.tams"
+        },
+        "jhipsterVersion": "5.8.0",
+        "applicationType": "monolith",
+        "baseName": "TA_Management",
+        "packageName": "edu.vcu.tams",
+        "packageFolder": "edu/vcu/tams",
+        "serverPort": "8080",
+        "authenticationType": "jwt",
+        "cacheProvider": "ehcache",
+        "enableHibernateCache": true,
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "mysql",
+        "prodDatabaseType": "mysql",
+        "searchEngine": false,
+        "messageBroker": false,
+        "serviceDiscoveryType": "eureka",
+        "buildTool": "maven",
+        "enableSwaggerCodegen": false,
+        "jwtSecretKey": "NzQzYzA5NDgwNDM2Y2RkOGY1M2E2NzIzYzA5MmZkYzZhNTkzZjVmZGUxYzA0M2ZiMWI1NTRkZmFiOTRiMzRmMDIzNjUwNGRiNzAwYjVlNmMxNzRmYmIyZGNlMTJjYTFlZGY2ZjAwMzNiMGUwMzkzNDk1YzQ1YTYxZDViN2MzZWE=",
+        "clientFramework": "angularX",
+        "useSass": true,
+        "clientPackageManager": "npm",
+        "testFrameworks": [],
+        "jhiPrefix": "jhi",
+        "entitySuffix": "",
+        "dtoSuffix": "DTO",
+        "otherModules": [],
+        "enableTranslation": false
+    }
+}

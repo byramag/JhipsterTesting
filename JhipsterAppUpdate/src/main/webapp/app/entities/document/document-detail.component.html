@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="document">
+            <h2><span>Document</span> {{document.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Document</span></dt>
+                <dd>
+                    <div *ngIf="document.document">
+                        <a (click)="openFile(document.documentContentType, document.document)">open</a>
+                        {{document.documentContentType}}, {{byteSize(document.document)}}
+                    </div>
+                </dd>
+                <dt><span>Section</span></dt>
+                <dd>
+                    <div *ngIf="document.section">
+                        <a [routerLink]="['/section', document.section?.id, 'view']">{{document.section?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Assignment</span></dt>
+                <dd>
+                    <div *ngIf="document.assignment">
+                        <a [routerLink]="['/assignment', document.assignment?.id, 'view']">{{document.assignment?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/document', document.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

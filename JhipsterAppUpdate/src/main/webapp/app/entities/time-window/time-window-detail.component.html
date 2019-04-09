@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="timeWindow">
+            <h2><span>Time Window</span> {{timeWindow.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Start Time</span></dt>
+                <dd>
+                    <span>{{timeWindow.startTime}}</span>
+                </dd>
+                <dt><span>End Time</span></dt>
+                <dd>
+                    <span>{{timeWindow.endTime}}</span>
+                </dd>
+                <dt><span>Ta</span></dt>
+                <dd>
+                    <div *ngIf="timeWindow.ta">
+                        <a [routerLink]="['/ta', timeWindow.ta?.id, 'view']">{{timeWindow.ta?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Section Lecture</span></dt>
+                <dd>
+                    <div *ngIf="timeWindow.sectionLecture">
+                        <a [routerLink]="['/section', timeWindow.sectionLecture?.id, 'view']">{{timeWindow.sectionLecture?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Section Lab</span></dt>
+                <dd>
+                    <div *ngIf="timeWindow.sectionLab">
+                        <a [routerLink]="['/section', timeWindow.sectionLab?.id, 'view']">{{timeWindow.sectionLab?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/time-window', timeWindow.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
