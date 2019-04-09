@@ -1,7 +1,27 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { TAInfo } from './../Model/TAInfo';
+// import * as nodemailer from 'nodemailer';
+
+declare function require(name: string);
+const nodeMailer = require('nodemailer');
+
+const transporter = nodeMailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'youremail@address.com',
+        pass: 'yourpassword'
+    }
+});
+
+const mailOptions = {
+    from: 'sender@email.com', // sender address
+    to: 'to@email.com', // list of receivers
+    subject: 'Subject of your email', // Subject line
+    html: '<p>Your html here</p>' // plain text body
+};
 
 @Component({
+    // tslint:disable-next-line:component-selector
     selector: 'app-taselect-class-screen',
     templateUrl: './taselect-class-screen.component.html',
     styleUrls: ['./taselect-class-screen.component.css']
@@ -36,6 +56,17 @@ export class TASelectClassScreenComponent implements OnInit, AfterViewInit {
 
     public closePopup() {
         this.modal.style.display = 'none';
+    }
+
+    public submitEmail() {
+        // tslint:disable-next-line:space-before-function-paren
+        transporter.sendMail(mailOptions, function(err, info) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(info);
+            }
+        });
     }
 
     public setAcceptedTAList() {
