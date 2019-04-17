@@ -8,6 +8,8 @@ import { Applicant } from 'app/shared/model/applicant.model';
 import { ApplicantService } from 'app/entities/applicant/applicant.service';
 import { EvaluateComponent } from './evaluate.component';
 import { EvaluateViewComponent } from 'app/application/evaluate/evaluate-view.component';
+import { EvaluateDeletePopupComponent } from 'app/application/evaluate/evaluate-delete-dialog.component';
+import { EvaluateAcceptPopupComponent } from 'app/application/evaluate/evaluate-accept-dialog.component';
 import { IApplicant } from 'app/shared/model/applicant.model';
 
 @Injectable({ providedIn: 'root' })
@@ -47,5 +49,37 @@ export const evaluateRoute: Routes = [
             pageTitle: 'Review this Applicant'
         },
         canActivate: [UserRouteAccessService]
+    }
+];
+
+export const evaluatePopupRoute: Routes = [
+    {
+        path: ':id/delete',
+        component: EvaluateDeletePopupComponent,
+        resolve: {
+            applicant: ApplicantResolve
+        },
+        data: {
+            authorities: ['ROLE_ADMIN'],
+            pageTitle: 'Evaluate'
+        },
+        canActivate: [UserRouteAccessService],
+        outlet: 'popup'
+    }
+];
+
+export const evaluateAcceptPopupRoute: Routes = [
+    {
+        path: ':id/accept',
+        component: EvaluateAcceptPopupComponent,
+        resolve: {
+            applicant: ApplicantResolve
+        },
+        data: {
+            authorities: ['ROLE_ADMIN'],
+            pageTitle: 'Evaluate'
+        },
+        canActivate: [UserRouteAccessService],
+        outlet: 'popup'
     }
 ];

@@ -56,45 +56,28 @@
                 </dd>
             </dl>
 
-            <button type="submit"
-                    (click)="previousState()"
-                    class="btn btn-info">
+            <button type="submit" [routerLink]="['/', 'evaluate']" class="btn btn-info">
                 <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
             </button>
 
-            <button type="button"
-                    [routerLink]="['/applicant', applicant.id, 'edit']"
-                    class="btn btn-primary">
+            <button type="button" [routerLink]="['/applicant', applicant.id, 'edit']" class="btn btn-primary">
                 <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
             </button>
 
-			<button type="submit"
-                    (click)="previousState()"
-                    class="btn btn-info">
+            <button type="submit" (click)="previousState()" class="btn btn-info">
                 <fa-icon [icon]="'envelope'"></fa-icon>&nbsp;<span> Email</span>
             </button>
-			
-			<button type="submit"
-                    (click)="previousState()"
-                    class="btn btn-danger">
+
+            <button type="submit" [routerLink]="['/', 'evaluate', { outlets: { popup: applicant.id + '/delete'} }]"
+                replaceUrl="true" queryParamsHandling="merge" class="btn btn-danger">
                 <fa-icon [icon]="'times'"></fa-icon>&nbsp;<span> Reject</span>
             </button>
-			
-			<button type="submit"
-                    (click)="previousState()"
-                    class="btn btn-success">
+
+            <button type="submit" [routerLink]="['/', 'evaluate', { outlets: { popup: applicant.id + '/accept'} }]"
+                replaceUrl="true" queryParamsHandling="merge" class="btn btn-success">
                 <fa-icon [icon]="'check'"></fa-icon>&nbsp;<span> Accept</span>
             </button>
-			
-                        <button type="submit"
-                                [routerLink]="['/', 'evaluate', { outlets: { popup: applicant.id + '/delete'} }]"
-                                replaceUrl="true"
-                                queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
-                            <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline">Delete</span>
-                        </button>
-			
+
         </div>
     </div>
 </div>
