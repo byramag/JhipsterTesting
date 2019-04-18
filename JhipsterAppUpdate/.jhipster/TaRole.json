@@ -10,10 +10,11 @@
     "relationships": [
         {
             "relationshipType": "many-to-many",
-            "relationshipName": "ta",
             "otherEntityName": "ta",
-            "ownerSide": false,
-            "otherEntityRelationshipName": "availableRole"
+            "otherEntityRelationshipName": "availableRole",
+            "relationshipName": "ta",
+            "otherEntityField": "id",
+            "ownerSide": false
         }
     ],
     "changelogDate": "20190309210001",

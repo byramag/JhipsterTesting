@@ -33,7 +33,7 @@ export const timeWindowRoute: Routes = [
         path: '',
         component: TimeWindowComponent,
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'TimeWindows'
         },
         canActivate: [UserRouteAccessService]
@@ -45,7 +45,7 @@ export const timeWindowRoute: Routes = [
             timeWindow: TimeWindowResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'TimeWindows'
         },
         canActivate: [UserRouteAccessService]
@@ -57,7 +57,7 @@ export const timeWindowRoute: Routes = [
             timeWindow: TimeWindowResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'TimeWindows'
         },
         canActivate: [UserRouteAccessService]
@@ -69,7 +69,7 @@ export const timeWindowRoute: Routes = [
             timeWindow: TimeWindowResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'TimeWindows'
         },
         canActivate: [UserRouteAccessService]
@@ -84,7 +84,7 @@ export const timeWindowPopupRoute: Routes = [
             timeWindow: TimeWindowResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'TimeWindows'
         },
         canActivate: [UserRouteAccessService],

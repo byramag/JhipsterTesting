@@ -33,7 +33,7 @@ export const tANoteRoute: Routes = [
         path: '',
         component: TANoteComponent,
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'TANotes'
         },
         canActivate: [UserRouteAccessService]
@@ -45,7 +45,7 @@ export const tANoteRoute: Routes = [
             tANote: TANoteResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'TANotes'
         },
         canActivate: [UserRouteAccessService]
@@ -57,7 +57,7 @@ export const tANoteRoute: Routes = [
             tANote: TANoteResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'TANotes'
         },
         canActivate: [UserRouteAccessService]
@@ -69,7 +69,7 @@ export const tANoteRoute: Routes = [
             tANote: TANoteResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'TANotes'
         },
         canActivate: [UserRouteAccessService]
@@ -84,7 +84,7 @@ export const tANotePopupRoute: Routes = [
             tANote: TANoteResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'TANotes'
         },
         canActivate: [UserRouteAccessService],

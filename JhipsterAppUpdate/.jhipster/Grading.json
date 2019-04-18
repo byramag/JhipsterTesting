@@ -2,6 +2,10 @@
     "name": "Grading",
     "fields": [
         {
+            "fieldName": "status",
+            "fieldType": "String"
+        },
+        {
             "fieldName": "numAssigned",
             "fieldType": "Integer"
         },
@@ -13,14 +17,16 @@
     "relationships": [
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "taAssigned",
             "otherEntityName": "ta",
+            "otherEntityRelationshipName": "grading",
+            "relationshipName": "taAssigned",
             "otherEntityField": "id"
         },
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "forAssignment",
             "otherEntityName": "assignment",
+            "otherEntityRelationshipName": "grading",
+            "relationshipName": "forAssignment",
             "otherEntityField": "id"
         }
     ],

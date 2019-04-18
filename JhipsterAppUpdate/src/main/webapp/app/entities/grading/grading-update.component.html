@@ -10,6 +10,11 @@
                         [(ngModel)]="grading.id" readonly />
                 </div>
                 <div class="form-group">
+                    <label class="form-control-label" for="field_status">Status</label>
+                    <input type="text" class="form-control" name="status" id="field_status"
+                        [(ngModel)]="grading.status" />
+                </div>
+                <div class="form-group">
                     <label class="form-control-label" for="field_numAssigned">Num Assigned</label>
                     <input type="number" class="form-control" name="numAssigned" id="field_numAssigned"
                         [(ngModel)]="grading.numAssigned" />

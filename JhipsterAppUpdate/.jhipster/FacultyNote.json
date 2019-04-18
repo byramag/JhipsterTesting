@@ -25,8 +25,9 @@
         },
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "writtenBy",
             "otherEntityName": "faculty",
+            "otherEntityRelationshipName": "facultyNote",
+            "relationshipName": "writtenBy",
             "otherEntityField": "id"
         }
     ],

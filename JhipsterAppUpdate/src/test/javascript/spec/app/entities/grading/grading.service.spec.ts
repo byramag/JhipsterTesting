@@ -21,7 +21,7 @@ describe('Service Tests', () => {
             service = injector.get(GradingService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new Grading(0, 0, 0);
+            elemDefault = new Grading(0, 'AAAAAAA', 0, 0);
         });
 
         describe('Service methods', async () => {
@@ -55,6 +55,7 @@ describe('Service Tests', () => {
             it('should update a Grading', async () => {
                 const returnedFromService = Object.assign(
                     {
+                        status: 'BBBBBB',
                         numAssigned: 1,
                         numCompleted: 1
                     },
@@ -73,6 +74,7 @@ describe('Service Tests', () => {
             it('should return a list of Grading', async () => {
                 const returnedFromService = Object.assign(
                     {
+                        status: 'BBBBBB',
                         numAssigned: 1,
                         numCompleted: 1
                     },

@@ -24,6 +24,9 @@ public class Grading implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "status")
+    private String status;
+
     @Column(name = "num_assigned")
     private Integer numAssigned;
 
@@ -45,6 +48,19 @@ public class Grading implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public Grading status(String status) {
+        this.status = status;
+        return this;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Integer getNumAssigned() {
@@ -124,6 +140,7 @@ public class Grading implements Serializable {
     public String toString() {
         return "Grading{" +
             "id=" + getId() +
+            ", status='" + getStatus() + "'" +
             ", numAssigned=" + getNumAssigned() +
             ", numCompleted=" + getNumCompleted() +
             "}";

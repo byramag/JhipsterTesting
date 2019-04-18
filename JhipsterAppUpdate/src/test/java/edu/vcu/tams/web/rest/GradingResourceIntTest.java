@@ -40,6 +40,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = TaManagementApp.class)
 public class GradingResourceIntTest {
 
+    private static final String DEFAULT_STATUS = "AAAAAAAAAA";
+    private static final String UPDATED_STATUS = "BBBBBBBBBB";
+
     private static final Integer DEFAULT_NUM_ASSIGNED = 1;
     private static final Integer UPDATED_NUM_ASSIGNED = 2;
 
@@ -88,6 +91,7 @@ public class GradingResourceIntTest {
      */
     public static Grading createEntity(EntityManager em) {
         Grading grading = new Grading()
+            .status(DEFAULT_STATUS)
             .numAssigned(DEFAULT_NUM_ASSIGNED)
             .numCompleted(DEFAULT_NUM_COMPLETED);
         return grading;
@@ -113,6 +117,7 @@ public class GradingResourceIntTest {
         List<Grading> gradingList = gradingRepository.findAll();
         assertThat(gradingList).hasSize(databaseSizeBeforeCreate + 1);
         Grading testGrading = gradingList.get(gradingList.size() - 1);
+        assertThat(testGrading.getStatus()).isEqualTo(DEFAULT_STATUS);
         assertThat(testGrading.getNumAssigned()).isEqualTo(DEFAULT_NUM_ASSIGNED);
         assertThat(testGrading.getNumCompleted()).isEqualTo(DEFAULT_NUM_COMPLETED);
     }
@@ -147,6 +152,7 @@ public class GradingResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(grading.getId().intValue())))
+            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())))
             .andExpect(jsonPath("$.[*].numAssigned").value(hasItem(DEFAULT_NUM_ASSIGNED)))
             .andExpect(jsonPath("$.[*].numCompleted").value(hasItem(DEFAULT_NUM_COMPLETED)));
     }
@@ -162,6 +168,7 @@ public class GradingResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(grading.getId().intValue()))
+            .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()))
             .andExpect(jsonPath("$.numAssigned").value(DEFAULT_NUM_ASSIGNED))
             .andExpect(jsonPath("$.numCompleted").value(DEFAULT_NUM_COMPLETED));
     }
@@ -187,6 +194,7 @@ public class GradingResourceIntTest {
         // Disconnect from session so that the updates on updatedGrading are not directly saved in db
         em.detach(updatedGrading);
         updatedGrading
+            .status(UPDATED_STATUS)
             .numAssigned(UPDATED_NUM_ASSIGNED)
             .numCompleted(UPDATED_NUM_COMPLETED);
 
@@ -199,6 +207,7 @@ public class GradingResourceIntTest {
         List<Grading> gradingList = gradingRepository.findAll();
         assertThat(gradingList).hasSize(databaseSizeBeforeUpdate);
         Grading testGrading = gradingList.get(gradingList.size() - 1);
+        assertThat(testGrading.getStatus()).isEqualTo(UPDATED_STATUS);
         assertThat(testGrading.getNumAssigned()).isEqualTo(UPDATED_NUM_ASSIGNED);
         assertThat(testGrading.getNumCompleted()).isEqualTo(UPDATED_NUM_COMPLETED);
     }

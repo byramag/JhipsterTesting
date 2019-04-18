@@ -19,14 +19,16 @@
         },
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "sectionLecture",
             "otherEntityName": "section",
+            "otherEntityRelationshipName": "lectureTime",
+            "relationshipName": "sectionLecture",
             "otherEntityField": "id"
         },
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "sectionLab",
             "otherEntityName": "section",
+            "otherEntityRelationshipName": "labTime",
+            "relationshipName": "sectionLab",
             "otherEntityField": "id"
         }
     ],

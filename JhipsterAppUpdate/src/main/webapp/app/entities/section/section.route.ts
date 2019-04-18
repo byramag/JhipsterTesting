@@ -33,7 +33,7 @@ export const sectionRoute: Routes = [
         path: '',
         component: SectionComponent,
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'Sections'
         },
         canActivate: [UserRouteAccessService]
@@ -45,7 +45,7 @@ export const sectionRoute: Routes = [
             section: SectionResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'Sections'
         },
         canActivate: [UserRouteAccessService]
@@ -57,7 +57,7 @@ export const sectionRoute: Routes = [
             section: SectionResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'Sections'
         },
         canActivate: [UserRouteAccessService]
@@ -69,7 +69,7 @@ export const sectionRoute: Routes = [
             section: SectionResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'Sections'
         },
         canActivate: [UserRouteAccessService]
@@ -84,7 +84,7 @@ export const sectionPopupRoute: Routes = [
             section: SectionResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'Sections'
         },
         canActivate: [UserRouteAccessService],

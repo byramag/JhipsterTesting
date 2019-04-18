@@ -19,8 +19,9 @@
         },
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "writtenBy",
             "otherEntityName": "ta",
+            "otherEntityRelationshipName": "tANote",
+            "relationshipName": "writtenBy",
             "otherEntityField": "id"
         }
     ],

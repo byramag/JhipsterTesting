@@ -33,52 +33,55 @@
     "relationships": [
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "doc",
             "otherEntityName": "document",
-            "otherEntityRelationshipName": "section"
+            "otherEntityRelationshipName": "section",
+            "relationshipName": "doc"
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "lectureTime",
             "otherEntityName": "timeWindow",
-            "otherEntityRelationshipName": "sectionLecture"
+            "otherEntityRelationshipName": "sectionLecture",
+            "relationshipName": "lectureTime"
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "labTime",
             "otherEntityName": "timeWindow",
-            "otherEntityRelationshipName": "sectionLab"
+            "otherEntityRelationshipName": "sectionLab",
+            "relationshipName": "labTime"
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "taNote",
             "otherEntityName": "tANote",
-            "otherEntityRelationshipName": "section"
+            "otherEntityRelationshipName": "section",
+            "relationshipName": "taNote"
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "facutlyNote",
             "otherEntityName": "facultyNote",
-            "otherEntityRelationshipName": "section"
+            "otherEntityRelationshipName": "section",
+            "relationshipName": "facutlyNote"
         },
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "course",
             "otherEntityName": "course",
+            "otherEntityRelationshipName": "section",
+            "relationshipName": "course",
             "otherEntityField": "id"
         },
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "faculty",
             "otherEntityName": "faculty",
+            "otherEntityRelationshipName": "section",
+            "relationshipName": "faculty",
             "otherEntityField": "id"
         },
         {
             "relationshipType": "many-to-many",
-            "relationshipName": "ta",
             "otherEntityName": "ta",
-            "ownerSide": false,
-            "otherEntityRelationshipName": "section"
+            "otherEntityRelationshipName": "section",
+            "relationshipName": "ta",
+            "otherEntityField": "id",
+            "ownerSide": false
         }
     ],
     "changelogDate": "20190309205955",

@@ -33,7 +33,7 @@ export const taRoleRoute: Routes = [
         path: '',
         component: TaRoleComponent,
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'TaRoles'
         },
         canActivate: [UserRouteAccessService]
@@ -45,7 +45,7 @@ export const taRoleRoute: Routes = [
             taRole: TaRoleResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'TaRoles'
         },
         canActivate: [UserRouteAccessService]
@@ -57,7 +57,7 @@ export const taRoleRoute: Routes = [
             taRole: TaRoleResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'TaRoles'
         },
         canActivate: [UserRouteAccessService]
@@ -69,7 +69,7 @@ export const taRoleRoute: Routes = [
             taRole: TaRoleResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'TaRoles'
         },
         canActivate: [UserRouteAccessService]
@@ -84,7 +84,7 @@ export const taRolePopupRoute: Routes = [
             taRole: TaRoleResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_USER'],
             pageTitle: 'TaRoles'
         },
         canActivate: [UserRouteAccessService],

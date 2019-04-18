@@ -62,6 +62,7 @@ entity Section {
     enrolled Integer
 }
 entity Assignment {
+	description String,
     totalPoints Integer,
     numParts Integer,
     numSubmissions Integer,
@@ -73,6 +74,7 @@ entity Assignment {
 
 //Helper Entities
 entity Grading {
+	status String,
     numAssigned Integer,
     numCompleted Integer
 }

@@ -15,6 +15,7 @@
             <thead>
             <tr>
             <th><span>ID</span></th>
+            <th><span>Status</span></th>
             <th><span>Num Assigned</span></th>
             <th><span>Num Completed</span></th>
             <th><span>Ta Assigned</span></th>
@@ -25,6 +26,7 @@
             <tbody>
             <tr *ngFor="let grading of gradings ;trackBy: trackId">
                 <td><a [routerLink]="['/grading', grading.id, 'view' ]">{{grading.id}}</a></td>
+                <td>{{grading.status}}</td>
                 <td>{{grading.numAssigned}}</td>
                 <td>{{grading.numCompleted}}</td>
                 <td>
