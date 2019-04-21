@@ -18,7 +18,7 @@ export class EvaluateDeleteDialogComponent {
         protected applicantService: ApplicantService,
         public activeModal: NgbActiveModal,
         protected eventManager: JhiEventManager
-    ) {}
+    ) { }
 
     clear() {
         this.activeModal.dismiss('cancel');
@@ -42,7 +42,7 @@ export class EvaluateDeleteDialogComponent {
 export class EvaluateDeletePopupComponent implements OnInit, OnDestroy {
     protected ngbModalRef: NgbModalRef;
 
-    constructor(protected activatedRoute: ActivatedRoute, protected router: Router, protected modalService: NgbModal) {}
+    constructor(protected activatedRoute: ActivatedRoute, protected router: Router, protected modalService: NgbModal) { }
 
     ngOnInit() {
         this.activatedRoute.data.subscribe(({ applicant }) => {

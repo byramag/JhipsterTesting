@@ -65,7 +65,7 @@
             </button>
 
             <button type="submit" (click)="previousState()" class="btn btn-info">
-                <fa-icon [icon]="'envelope'"></fa-icon>&nbsp;<span> Email</span>
+                &nbsp;<span>&#9993;</span><span> Email</span>
             </button>
 
             <button type="submit" [routerLink]="['/', 'evaluate', { outlets: { popup: applicant.id + '/delete'} }]"
@@ -75,7 +75,7 @@
 
             <button type="submit" [routerLink]="['/', 'evaluate', { outlets: { popup: applicant.id + '/accept'} }]"
                 replaceUrl="true" queryParamsHandling="merge" class="btn btn-success">
-                <fa-icon [icon]="'check'"></fa-icon>&nbsp;<span> Accept</span>
+                &nbsp;<span>&#10004;</span><span> Accept</span>
             </button>
 
         </div>

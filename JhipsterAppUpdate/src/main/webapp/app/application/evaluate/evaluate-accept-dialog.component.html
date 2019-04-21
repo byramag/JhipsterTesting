@@ -1,8 +1,7 @@
-<form name="deleteForm" (ngSubmit)="confirmDelete(applicant.id)">
+<form name="deleteForm" (ngSubmit)="save()" (ngSubmit)="confirmDelete(applicant.id)">
     <div class="modal-header">
         <h4 class="modal-title">Confirm accept operation</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-                (click)="clear()">&times;</button>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="clear()">&times;</button>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
@@ -12,9 +11,10 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
             <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
         </button>
-        <button id="jhi-confirm-delete-applicant" type="submit" [routerLink]="['/', 'evaluate']" class="btn btn-success">
-            <fa-icon [icon]="'plus'"></fa-icon>&nbsp;<span>Accept</span>
-            
+        <button id="jhi-confirm-delete-applicant" type="submit" [routerLink]="['/', 'evaluate']"
+            class="btn btn-success">
+            &nbsp;<span>&#10004;</span><span> Accept</span>
+
         </button>
     </div>
 </form>
