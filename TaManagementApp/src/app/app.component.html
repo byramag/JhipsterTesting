@@ -1,0 +1,42 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div  id="multiimage" *ngIf=toggleLoginHTML  style="height:100vh; margin-top:0px;">
+
+<div class = "box">
+  <div style="text-align:left">
+    <h1>
+      TA Management System
+    </h1>
+  </div>
+
+  <div style="text-align:left">
+    <form action="javascript:validateLogin()">
+       <input type="email" name="email" value="email" class ="email"><br>
+       <input type="password" name="password" value="password" class="email"><br>
+      <input type="submit" value="Sign In" (click)='validateLogin()' class="customButton cyan">
+    </form>
+  </div>
+
+
+</div>
+<div style="text-align:left" id="multiimage" >
+    <button *ngIf=!toggleApplicationHTML (click)='toggleApplication()'  class="button">
+      <span>
+      TA Application
+    </span>
+    </button>
+
+    <div *ngIf=toggleApplicationHTML>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSckSr-UFwBSE9K71DWvv7q-XyQzMcNZYiWudASm5PBtPqSv2A/viewform?embedded=true" width="640" height="793" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf=!toggleLoginHTML>
+  <app-class-list-screen>
+  </app-class-list-screen>
+  <script>
+      console.log("we made iti n here");
+     </script>
+</div>
+
