@@ -13,7 +13,7 @@
                 <dd>
                     <span>{{applicant.email}}</span>
                 </dd>
-                <dt><span>V Num</span></dt>
+                <dt><span>V Number</span></dt>
                 <dd>
                     <span>{{applicant.vNum}}</span>
                 </dd>
@@ -23,25 +23,22 @@
                 </dd>
                 <dt><span>Expected Grad Year</span></dt>
                 <dd>
-                    <span>{{applicant.expectedGradYear}}</span>
+                    <span>{{applicant.expectedGradSemester}}</span> <span>{{applicant.expectedGradYear}}</span>
                 </dd>
-                <dt><span>Expected Grad Semester</span></dt>
-                <dd>
-                    <span>{{applicant.expectedGradSemester}}</span>
-                </dd>
-                <dt><span>Statement</span></dt>
+
+                <dt><span>Reason For Application</span></dt>
                 <dd>
                     <span>{{applicant.statement}}</span>
                 </dd>
-                <dt><span>Grade 255</span></dt>
+                <dt><span>Grade in CMSC 255</span></dt>
                 <dd>
                     <span>{{applicant.grade255}}</span>
                 </dd>
-                <dt><span>Grade 256</span></dt>
+                <dt><span>Grade in CMSC 256</span></dt>
                 <dd>
                     <span>{{applicant.grade256}}</span>
                 </dd>
-                <dt><span>Grade 257</span></dt>
+                <dt><span>Grade in CMSC 257</span></dt>
                 <dd>
                     <span>{{applicant.grade257}}</span>
                 </dd>
@@ -59,17 +56,28 @@
                 </dd>
             </dl>
 
-            <button type="submit"
-                    (click)="previousState()"
-                    class="btn btn-info">
+            <button type="submit" [routerLink]="['/', 'evaluate']" class="btn btn-info">
                 <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
             </button>
 
-            <button type="button"
-                    [routerLink]="['/applicant', applicant.id, 'edit']"
-                    class="btn btn-primary">
+            <button type="button" [routerLink]="['/applicant', applicant.id, 'edit']" class="btn btn-primary">
                 <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
             </button>
+
+            <button type="submit" (click)="previousState()" class="btn btn-info">
+                &nbsp;<span>&#9993;</span><span> Email</span>
+            </button>
+
+            <button type="submit" [routerLink]="['/', 'evaluate', { outlets: { popup: applicant.id + '/delete'} }]"
+                replaceUrl="true" queryParamsHandling="merge" class="btn btn-danger">
+                <fa-icon [icon]="'times'"></fa-icon>&nbsp;<span> Reject</span>
+            </button>
+
+            <button type="submit" [routerLink]="['/', 'evaluate', { outlets: { popup: applicant.id + '/accept'} }]"
+                replaceUrl="true" queryParamsHandling="merge" class="btn btn-success">
+                &nbsp;<span>&#10004;</span><span> Accept</span>
+            </button>
+
         </div>
     </div>
 </div>

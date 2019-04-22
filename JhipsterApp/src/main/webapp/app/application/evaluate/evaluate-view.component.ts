@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 
 import { IApplicant } from 'app/shared/model/applicant.model';
 
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
     selector: 'jhi-evaluate-view',
     templateUrl: './evaluate-view.component.html'
