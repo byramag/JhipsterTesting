@@ -1,0 +1,42 @@
+{
+    "name": "Grading",
+    "fields": [
+        {
+            "fieldName": "status",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numAssigned",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numCompleted",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "ta",
+            "otherEntityRelationshipName": "grading",
+            "relationshipName": "taAssigned",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "assignment",
+            "otherEntityRelationshipName": "grading",
+            "relationshipName": "forAssignment",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190309205957",
+    "entityTableName": "grading",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

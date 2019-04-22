@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="assignment">
+            <h2><span>This Assignment</span> {{assignment.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Total Points</span></dt>
+                <dd>
+                    <span>{{assignment.totalPoints}}</span>
+                </dd>
+                <dt><span>Num Parts</span></dt>
+                <dd>
+                    <span>{{assignment.numParts}}</span>
+                </dd>
+                <dt><span>Num Submissions</span></dt>
+                <dd>
+                    <span>{{assignment.numSubmissions}}</span>
+                </dd>
+                <dt><span>Grade By</span></dt>
+                <dd>
+                    <span>{{assignment.gradeBy}}</span>
+                </dd>
+                <dt><span>Grading Directions</span></dt>
+                <dd>
+                    <span>{{assignment.gradingDirections}}</span>
+                </dd>
+                <dt><span>Type</span></dt>
+                <dd>
+                    <span>{{assignment.type}}</span>
+                </dd>
+                <dt><span>Grading Link</span></dt>
+                <dd>
+                    <span>{{assignment.gradingLink}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+            <button type="button"
+                    [routerLink]="['/grading-assign', assignment.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

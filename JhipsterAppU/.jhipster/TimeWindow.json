@@ -1,0 +1,44 @@
+{
+    "name": "TimeWindow",
+    "fields": [
+        {
+            "fieldName": "startTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "endTime",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "ta",
+            "otherEntityName": "ta",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "section",
+            "otherEntityRelationshipName": "lectureTime",
+            "relationshipName": "sectionLecture",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "section",
+            "otherEntityRelationshipName": "labTime",
+            "relationshipName": "sectionLab",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190309205958",
+    "entityTableName": "time_window",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

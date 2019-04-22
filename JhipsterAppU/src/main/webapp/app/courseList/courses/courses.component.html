@@ -1,0 +1,70 @@
+<div>
+    <h2 id="page-heading">
+        <span>My Courses</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-section" [routerLink]="['/courses/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Course
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="sections">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Section Id</span></th>
+            <th><span>Semester</span></th>
+            <th><span>Year</span></th>
+            <th><span>Lab Room</span></th>
+            <th><span>Lecture Room</span></th>
+            <th><span>Capacity</span></th>
+            <th><span>Enrolled</span></th>
+            <th><span>Course</span></th>
+            <th><span>Faculty</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let section of sections ;trackBy: trackId">
+                <td><a [routerLink]="['/section', section.id, 'view' ]">{{section.id}}</a></td>
+                <td>{{section.sectionId}}</td>
+                <td>{{section.semester}}</td>
+                <td>{{section.year}}</td>
+                <td>{{section.labRoom}}</td>
+                <td>{{section.lectureRoom}}</td>
+                <td>{{section.capacity}}</td>
+                <td>{{section.enrolled}}</td>
+                <td>
+                    <div *ngIf="section.course">
+                        <a [routerLink]="['../course', section.course?.id, 'view' ]" >{{section.course?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="section.faculty">
+                        <a [routerLink]="['../faculty', section.faculty?.id, 'view' ]" >{{section.faculty?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/courses', section.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/courses', section.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

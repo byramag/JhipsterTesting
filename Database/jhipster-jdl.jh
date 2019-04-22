@@ -5,139 +5,141 @@
  **/
 
 //Helper enumerations
-enum Role {
+enum Role { //See TA Handbook for description of roles and what they involve
     TUTOR, LAB_TA, CLASSROOM, TEST_GRADE, HW_GRADE, PROJECT_GRADE, OFFICE_HOUR, HELP_SESSION, SLACK
 }
 enum AssignmentType {
 	HOMEWORK, TEST, PROJECT
 }
-enum GradingStyle {
+enum GradingStyle { //Used to describe the way to partition assigned grading (e.g. 15 students vs. 10 questions for all students)
 	BY_STUDENT, BY_RUBRIC_ITEM
 }
 
-
+// A student who applied to be a TA. To be reviewed by Dept admin and deleted after a decision is made (info is added to TA table if accepted)
 entity Applicant {
 	name String,
     email String,
     vNum String,
-    classYear String,
-    expectedGradYear Integer,
-    expectedGradSemester String,
-    statement String,
-    grade255 String,
+    classYear String, 			//e.g. Sophomore
+    expectedGradYear Integer, 	//e.g. 2020
+    expectedGradSemester String,//e.g. Spring
+    statement String,			//Applicant prompted for motivation to be a TA
+    grade255 String,			//Self-reported letter grade in the course
     grade256 String,
     grade257 String,
-    referenceEmail String,
-    referenceResponse String,
-    isRecommended Boolean
+    referenceEmail String,		//Faculty reference to be contacted through the site (notify applicant that reference must agree before they apply)
+    referenceResponse String,	
+    isRecommended Boolean		//Reccommendation by faculty reference
 }
 entity Ta {
 	name String,
     email String,
     vNum String,
-    classYear String,
-    expectedGradYear Integer,
-    expectedGradSemester String,
-    totalHoursAvailable Integer,
-    isActive Boolean
+    classYear String,			//e.g. Sophomore
+    expectedGradYear Integer,	//e.g. 2020
+    expectedGradSemester String,//e.g. Spring
+    totalHoursAvailable Integer,//How many hours the TA is willing/able to work this semester (ask for updates each semester)
+    isActive Boolean			//TA's can be changed to inactive if they don't have time (see TA Handbook)
 }
 entity Faculty {
     name String,
     email String,
-    isAdmin Boolean
+    isAdmin Boolean				//Admin can access database and site management directly and review applicants
 }
-entity Course {
-    courseName String,
-    description String,
-    department String,
-    courseNumber Integer
+entity Course { // A general course, not linked to a specific semester
+    courseName String,			//e.g. Intro to Programming
+    description String,	
+    department String,			//e.g. CMSC
+    courseNumber Integer		//e.g. 255
 }
-entity Section {
-	sectionId Integer,
-    semester String,
+entity Section { // One specific section of a course in a given semester
+	sectionId Integer,			//CRN for this course e.g. 24816
+    semester String,			//e.g. Spring
     year Integer,
-    labRoom String,
-    lectureRoom String,
-    capacity Integer,
-    enrolled Integer
+    labRoom String,				//e.g. E4221
+    lectureRoom String,			//e.g. E2312
+    capacity Integer,			//Capacity of students for this section
+    enrolled Integer			//Number of students actually enrolled
 }
-entity Assignment {
-    totalPoints Integer,
-    numParts Integer,
-    numSubmissions Integer,
-    gradeBy GradingStyle,
-    gradingDirections String,
-    type AssignmentType,
-    gradingLink String
+entity Assignment { // An assignment for this course created in this site by the faculty e.g. Project 6, midterm
+	description String,
+    totalPoints Integer,		//e.g. out of 100 points
+    numParts Integer,			//if this assignment can be split into parts (e.g. test questions)
+    numSubmissions Integer,		
+    gradeBy GradingStyle,		//the way this assignment should be graded (by part or by submission)
+    gradingDirections String,	//faculty message to graders
+    type AssignmentType,		//project, test, homework
+    gradingLink String			//link (e.g. to gradescope) for grader to follow to start grading
 }
 
 //Helper Entities
-entity Grading {
+entity Grading { // 
+	status String,
     numAssigned Integer,
     numCompleted Integer
 }
-entity TimeWindow {
+entity TimeWindow { // Describes a portion of time to be used for scheduling (NOTE this is assumed to be weekly)
     startTime Instant,
     endTime Instant
 }
-entity TANote {
+entity TANote { // A message written by a TA on a section, for general information sharing (e.g. "Students are having trouble with lab 6")
     createdOn Instant,
     noteText String
 }
-entity FacultyNote {
+entity FacultyNote { // A message written by the professor on a section or on a TA to inform TA selection (e.g. "She is good at explaining OOP"
     createdOn Instant,
     noteText String
 }
-entity TaRole {
+entity TaRole { // Needed for matching multiple roles to a TA
     role Role
 }
-entity Document {
+entity Document { // Needed to include potentially multiple document "objects" to sections/assignments
     document Blob
 }
 
 
 //Section-related relationships
 relationship OneToMany {
-	Course{section} to Section{course},
-	Faculty{section} to Section{faculty},
-    Section{doc} to Document
+	Course{section} to Section{course},   //One course (e.g. CMSC 255) can have many sections (e.g. Spring 2018, section 2)
+	Faculty{section} to Section{faculty}, //One faculty can teach multiple sections (in the same or different semesters)
+    Section{doc} to Document              //A section can have multiple documents associated (e.g. syllabus, list of students etc.)
 }
 
 //TA Relationships
 relationship ManyToMany {
-	Ta{section} to Section{ta},
-    Ta{courseQualified} to Course{qualifiedTa},
-    Ta{courseHasExperience} to Course{experiencedTa},
-    Ta{availableRole} to TaRole{ta}
+	Ta{section} to Section{ta},                         //Multiple TA per section possible, multiple sections per TA also possible
+    Ta{courseQualified} to Course{qualifiedTa},         //A TA can be qualified for multiple courses and a course can have mutiple TAs qualified for it
+    Ta{courseHasExperience} to Course{experiencedTa},   //A TA can have experience teaching multiple courses and a course can have mutiple TAs with experience teaching it
+    Ta{availableRole} to TaRole{ta}                     //A TA can be available/willing to perform multiple TARoles and a TARole can have multiple TAs assigned to do it
 }
 
 //Grading-related relationships
 relationship OneToMany {
-    Ta{grading} to Grading{taAssigned},
-    Assignment{grading} to Grading{forAssignment},
-    Assignment{doc} to Document
+    Ta{grading} to Grading{taAssigned},             //One TA can have multiple things to grade
+    Assignment{grading} to Grading{forAssignment},  //One assignment can be split into multiple grading tasks
+    Assignment{doc} to Document                     //Multiple documents associated with an assignment (e.g. Specifications, possibly submissions to grade)
 }
 
 //Scheduling-related relationships
 relationship OneToMany {
-	Ta{availability} to TimeWindow,
-    Section{lectureTime} to TimeWindow{sectionLecture},
-    Section{labTime} to TimeWindow{sectionLab}
+	Ta{availability} to TimeWindow,                     //A TA can be available for multiple time periods
+    Section{lectureTime} to TimeWindow{sectionLecture}, //A section's lecture time can cover multiple time periods in a week (e.g. MWF 12:30-1:45 would be 3 TimeWindows)
+    Section{labTime} to TimeWindow{sectionLab}          //Same as above
 }
 
 //Relationships for notes
 relationship OneToMany {
-    Section{taNote} to TANote,
-	Section{facutlyNote} to FacultyNote,
-    Ta{note} to FacultyNote
+    Section{taNote} to TANote,              //A section has a set of notes written by TAs
+	Section{facutlyNote} to FacultyNote,    //A section has a set of notes written by faculty
+    Ta{note} to FacultyNote                 //A TA has a set of notes written by faculty
 }
 relationship ManyToOne {
-	TANote{writtenBy} to Ta,
-    FacultyNote{writtenBy} to Faculty
+	TANote{writtenBy} to Ta,            //A TA can write multiple notes
+    FacultyNote{writtenBy} to Faculty   //A faculty can write multiple notes
 }
 
 //Associating an app user with a TA or a Faculty entry
 relationship OneToOne {
-	Ta{user(login)} to User,
+	Ta{user(login)} to User,        //One user is assocated with one TA or one faculty
 	Faculty{user(login)} to User
 }
