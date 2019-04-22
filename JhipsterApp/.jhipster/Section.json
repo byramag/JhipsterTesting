@@ -1,0 +1,96 @@
+{
+    "name": "Section",
+    "fields": [
+        {
+            "fieldName": "sectionId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "semester",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "year",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "labRoom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lectureRoom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "capacity",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "enrolled",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "document",
+            "otherEntityRelationshipName": "section",
+            "relationshipName": "doc"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "timeWindow",
+            "otherEntityRelationshipName": "sectionLecture",
+            "relationshipName": "lectureTime"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "timeWindow",
+            "otherEntityRelationshipName": "sectionLab",
+            "relationshipName": "labTime"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tANote",
+            "otherEntityRelationshipName": "section",
+            "relationshipName": "taNote"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "facultyNote",
+            "otherEntityRelationshipName": "section",
+            "relationshipName": "facutlyNote"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "course",
+            "otherEntityRelationshipName": "section",
+            "relationshipName": "course",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "faculty",
+            "otherEntityRelationshipName": "section",
+            "relationshipName": "faculty",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "ta",
+            "otherEntityRelationshipName": "section",
+            "relationshipName": "ta",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190309205955",
+    "entityTableName": "section",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

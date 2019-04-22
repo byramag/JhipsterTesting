@@ -1,0 +1,29 @@
+{
+    "name": "TaRole",
+    "fields": [
+        {
+            "fieldName": "role",
+            "fieldType": "Role",
+            "fieldValues": "TUTOR,LAB_TA,CLASSROOM,TEST_GRADE,HW_GRADE,PROJECT_GRADE,OFFICE_HOUR,HELP_SESSION,SLACK"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "ta",
+            "otherEntityRelationshipName": "availableRole",
+            "relationshipName": "ta",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190309210001",
+    "entityTableName": "ta_role",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

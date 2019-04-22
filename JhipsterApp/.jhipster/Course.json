@@ -1,0 +1,54 @@
+{
+    "name": "Course",
+    "fields": [
+        {
+            "fieldName": "courseName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "department",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "courseNumber",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "section",
+            "otherEntityRelationshipName": "course",
+            "relationshipName": "section"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "ta",
+            "otherEntityRelationshipName": "courseQualified",
+            "relationshipName": "qualifiedTa",
+            "otherEntityField": "id",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "ta",
+            "otherEntityRelationshipName": "courseHasExperience",
+            "relationshipName": "experiencedTa",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190309205954",
+    "entityTableName": "course",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
