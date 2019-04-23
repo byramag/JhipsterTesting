@@ -79,6 +79,10 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'ta-role',
                 loadChildren: './ta-role/ta-role.module#TaManagementTaRoleModule'
+            },
+            {
+                path: 'assignment',
+                loadChildren: './assignment/assignment.module#TaManagementAssignmentModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])

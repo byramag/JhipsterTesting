@@ -30,6 +30,9 @@ public class Assignment implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "description")
+    private String description;
+
     @Column(name = "total_points")
     private Integer totalPoints;
 
@@ -66,6 +69,19 @@ public class Assignment implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Assignment description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Integer getTotalPoints() {
@@ -234,6 +250,7 @@ public class Assignment implements Serializable {
     public String toString() {
         return "Assignment{" +
             "id=" + getId() +
+            ", description='" + getDescription() + "'" +
             ", totalPoints=" + getTotalPoints() +
             ", numParts=" + getNumParts() +
             ", numSubmissions=" + getNumSubmissions() +

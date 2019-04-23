@@ -2,6 +2,10 @@
     "name": "Assignment",
     "fields": [
         {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
             "fieldName": "totalPoints",
             "fieldType": "Integer"
         },
@@ -35,15 +39,15 @@
     "relationships": [
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "grading",
             "otherEntityName": "grading",
-            "otherEntityRelationshipName": "forAssignment"
+            "otherEntityRelationshipName": "forAssignment",
+            "relationshipName": "grading"
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "doc",
             "otherEntityName": "document",
-            "otherEntityRelationshipName": "assignment"
+            "otherEntityRelationshipName": "assignment",
+            "relationshipName": "doc"
         }
     ],
     "changelogDate": "20190309205956",

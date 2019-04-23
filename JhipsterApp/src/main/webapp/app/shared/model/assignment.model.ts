@@ -14,6 +14,7 @@ export const enum AssignmentType {
 
 export interface IAssignment {
     id?: number;
+    description?: string;
     totalPoints?: number;
     numParts?: number;
     numSubmissions?: number;
@@ -28,6 +29,7 @@ export interface IAssignment {
 export class Assignment implements IAssignment {
     constructor(
         public id?: number,
+        public description?: string,
         public totalPoints?: number,
         public numParts?: number,
         public numSubmissions?: number,

@@ -10,6 +10,11 @@
                         [(ngModel)]="assignment.id" readonly />
                 </div>
                 <div class="form-group">
+                    <label class="form-control-label" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="assignment.description" />
+                </div>
+                <div class="form-group">
                     <label class="form-control-label" for="field_totalPoints">Total Points</label>
                     <input type="number" class="form-control" name="totalPoints" id="field_totalPoints"
                         [(ngModel)]="assignment.totalPoints" />

@@ -13,10 +13,12 @@ export interface IGrading {
 export class Grading implements IGrading {
     constructor(
         public id?: number,
-        public status?: string,
         public numAssigned?: number,
         public numCompleted?: number,
         public taAssigned?: ITa,
-        public forAssignment?: IAssignment
-    ) {}
+        public forAssignment?: IAssignment,
+        public status?: string
+        ) {
+            this.status = 'Assigned';
+        }
 }

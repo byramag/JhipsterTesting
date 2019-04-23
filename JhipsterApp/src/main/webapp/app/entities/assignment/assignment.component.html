@@ -15,6 +15,7 @@
             <thead>
             <tr>
             <th><span>ID</span></th>
+            <th><span>Description</span></th>
             <th><span>Total Points</span></th>
             <th><span>Num Parts</span></th>
             <th><span>Num Submissions</span></th>
@@ -28,6 +29,7 @@
             <tbody>
             <tr *ngFor="let assignment of assignments ;trackBy: trackId">
                 <td><a [routerLink]="['/assignment', assignment.id, 'view' ]">{{assignment.id}}</a></td>
+                <td>{{assignment.description}}</td>
                 <td>{{assignment.totalPoints}}</td>
                 <td>{{assignment.numParts}}</td>
                 <td>{{assignment.numSubmissions}}</td>
