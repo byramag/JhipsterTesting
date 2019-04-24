@@ -5,6 +5,10 @@
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
+                <dt><span>Description</span></dt>
+                <dd>
+                    <span>{{assignment.description}}</span>
+                </dd>
                 <dt><span>Total Points</span></dt>
                 <dd>
                     <span>{{assignment.totalPoints}}</span>
@@ -32,6 +36,12 @@
                 <dt><span>Grading Link</span></dt>
                 <dd>
                     <span>{{assignment.gradingLink}}</span>
+                </dd>
+                <dt><span>Section</span></dt>
+                <dd>
+                    <div *ngIf="assignment.section">
+                        <a [routerLink]="['/section', assignment.section?.id, 'view']">{{assignment.section?.id}}</a>
+                    </div>
                 </dd>
             </dl>
 

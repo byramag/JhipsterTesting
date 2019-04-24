@@ -42,6 +42,9 @@ import edu.vcu.tams.domain.enumeration.AssignmentType;
 @SpringBootTest(classes = TaManagementApp.class)
 public class AssignmentResourceIntTest {
 
+    private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";
+    private static final String UPDATED_DESCRIPTION = "BBBBBBBBBB";
+
     private static final Integer DEFAULT_TOTAL_POINTS = 1;
     private static final Integer UPDATED_TOTAL_POINTS = 2;
 
@@ -105,6 +108,7 @@ public class AssignmentResourceIntTest {
      */
     public static Assignment createEntity(EntityManager em) {
         Assignment assignment = new Assignment()
+            .description(DEFAULT_DESCRIPTION)
             .totalPoints(DEFAULT_TOTAL_POINTS)
             .numParts(DEFAULT_NUM_PARTS)
             .numSubmissions(DEFAULT_NUM_SUBMISSIONS)
@@ -135,6 +139,7 @@ public class AssignmentResourceIntTest {
         List<Assignment> assignmentList = assignmentRepository.findAll();
         assertThat(assignmentList).hasSize(databaseSizeBeforeCreate + 1);
         Assignment testAssignment = assignmentList.get(assignmentList.size() - 1);
+        assertThat(testAssignment.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
         assertThat(testAssignment.getTotalPoints()).isEqualTo(DEFAULT_TOTAL_POINTS);
         assertThat(testAssignment.getNumParts()).isEqualTo(DEFAULT_NUM_PARTS);
         assertThat(testAssignment.getNumSubmissions()).isEqualTo(DEFAULT_NUM_SUBMISSIONS);
@@ -174,6 +179,7 @@ public class AssignmentResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(assignment.getId().intValue())))
+            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
             .andExpect(jsonPath("$.[*].totalPoints").value(hasItem(DEFAULT_TOTAL_POINTS)))
             .andExpect(jsonPath("$.[*].numParts").value(hasItem(DEFAULT_NUM_PARTS)))
             .andExpect(jsonPath("$.[*].numSubmissions").value(hasItem(DEFAULT_NUM_SUBMISSIONS)))
@@ -194,6 +200,7 @@ public class AssignmentResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(assignment.getId().intValue()))
+            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
             .andExpect(jsonPath("$.totalPoints").value(DEFAULT_TOTAL_POINTS))
             .andExpect(jsonPath("$.numParts").value(DEFAULT_NUM_PARTS))
             .andExpect(jsonPath("$.numSubmissions").value(DEFAULT_NUM_SUBMISSIONS))
@@ -224,6 +231,7 @@ public class AssignmentResourceIntTest {
         // Disconnect from session so that the updates on updatedAssignment are not directly saved in db
         em.detach(updatedAssignment);
         updatedAssignment
+            .description(UPDATED_DESCRIPTION)
             .totalPoints(UPDATED_TOTAL_POINTS)
             .numParts(UPDATED_NUM_PARTS)
             .numSubmissions(UPDATED_NUM_SUBMISSIONS)
@@ -241,6 +249,7 @@ public class AssignmentResourceIntTest {
         List<Assignment> assignmentList = assignmentRepository.findAll();
         assertThat(assignmentList).hasSize(databaseSizeBeforeUpdate);
         Assignment testAssignment = assignmentList.get(assignmentList.size() - 1);
+        assertThat(testAssignment.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
         assertThat(testAssignment.getTotalPoints()).isEqualTo(UPDATED_TOTAL_POINTS);
         assertThat(testAssignment.getNumParts()).isEqualTo(UPDATED_NUM_PARTS);
         assertThat(testAssignment.getNumSubmissions()).isEqualTo(UPDATED_NUM_SUBMISSIONS);
