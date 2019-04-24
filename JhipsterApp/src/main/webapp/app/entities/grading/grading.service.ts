@@ -16,7 +16,6 @@ export class GradingService {
     constructor(protected http: HttpClient) {}
 
     create(grading: IGrading): Observable<EntityResponseType> {
-        grading.status = 'Assigned';
         return this.http.post<IGrading>(this.resourceUrl, grading, { observe: 'response' });
     }
 
