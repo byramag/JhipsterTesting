@@ -22,14 +22,29 @@
                 <dt><span>For Assignment</span></dt>
                 <dd>
                     <div *ngIf="grading.forAssignment">
-                        <a [routerLink]="['/assignment', grading.forAssignment?.id, 'view']">{{grading.forAssignment?.id}}</a>
+                        <a
+                            [routerLink]="['/assignment', grading.forAssignment?.id, 'view']">{{grading.forAssignment?.id}}</a>
                     </div>
+                </dd>
+                <dt><span># of Submissions</span></dt>
+                <dd>
+                    <span>{{getNumSubmissions(grading.id)}}</span>
+                </dd>
+                <dt><span># of Parts</span></dt>
+                <dd>
+                    <span>{{getNumParts(grading.id)}}</span>
+                </dd>
+                <dt><span>Grading Instructions</span></dt>
+                <dd>
+                    <span>{{getGradingInstructions(grading.id)}}</span>
+                </dd>
+                <dt><span>Grading Link</span></dt>
+                <dd>
+                    <span>{{getAssignmentLink(grading.id)}}</span>
                 </dd>
             </dl>
 
-            <button type="submit"
-                    (click)="previousState()"
-                    class="btn btn-info">
+            <button type="submit" (click)="previousState()" class="btn btn-info">
                 <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
             </button>
         </div>
