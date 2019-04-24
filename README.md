@@ -44,11 +44,23 @@ For best results, run both maven and angular in separate terminals. See the [Run
 
 #### Making changes in web app configuration:
 - To change the Mail server:
-  - Go to `***` in the JHipsterApp
-  - Set `***` to `***`
+  - Go to `src/main/resources/config/application-dev.yml` in the JHipsterApp
+  - Under `spring.mail`
+    - set `host` to `smtp.mailgun.org`
+    - set `port` to `587`
+    - `username` and `password` can be found in the mailgun console as `Default SMTP Login` and `Default Password` respectively:
+    ![mailgun](Documentation/mailgun.png)
+  - Set the same values in `src/main/resources/config/application-prod.yml`
 - To set the Database connection:
-  - Go to `***` in the JHipsterApp
-  - Set `***` to `***`
+  - Create a user in the GCP console:
+    ![GCPUser](Documentation/gcp_user.png)
+  - Create a database in your GCP SQL instance by going to your instance -> databases -> create database
+  - Go to `src/main/resources/config/application-dev.yml` in the JHipsterApp
+  - Under `spring.datasource`
+    - set `username` and `password` to the values from the user created in GCP
+    - insert `<IP address>:3306/<Name of created database>` into `url`
+  - Do the same in `src/main/resources/config/application-prod.yml` 
+  - (or you can set up a local DB for development and only connect to the GCP DB when in prod to )
 - To make changes to the database:
   - Make changes to the file `Database/jhipster-jdl.jh` by following the format described in the [Jhipster JDL Documentation](https://www.jhipster.tech/jdl/)
   - Next, run 
@@ -61,6 +73,84 @@ For best results, run both maven and angular in separate terminals. See the [Run
 ## Description of web app target functionality 
 ######(and what needs to be done to reach the target)
 
-- 
+### General Functionality
+- TA Application on the home page when not logged in, adds an instance to the applicant table
+- TA Handbook: a page available form anywhere, static text page with policy and directions about TAs
+
+######General TODOs:
+- Formatting and changing UI of all pages for better usability, clarity, and user experience
+- Expand the TA handbook and work with Debra Duke and/or the undergraduate committee to get approval of the handbook and get more ideas for useful information or policies
+- Host application in Google App Engine (this has been attempted, but there is a problem with the `jhipster gae` command, alternate hosting locations are also an option)
+- When logged in, all users can view their course list and open a course to see more detailed course information
+- Add connections between DB instances which have relationships (e.g. keeping track of which sections are linked to a specific faculty, documents to sections/assignments, or TimeWindows to sections/TAs etc.) 
+
+##### User Accounts and Registeration
+######TODOs:
+- Get a permanent mail server domain so that registeration emails can be sent (sandbox domain requires extra authentication of the email form mailgun before mail can be sent)
+- Include validation on registration for email to be a valid TA or faculty member
+- Link a specific instance of TA or Faculty to a user automatically on registration (The DB relationship exists, but this currently has be be done manually)
+- Stop the automatic login as anonymous user when not (this makes you have to log out again to be able to log in as a user or to access the TA application)
+
+### TA Functionality
+######(Note: in terms of the app, TAs have a role `ROLE_USER`)
+
+##### Update Information
+TAs can update their information, especially for availabilities and qualifications at any time. Active TAs will be prompted by email to update new semester information at the start of each semester.
+
+###### TODO:
+- Implement notification for TA information update, send an email to all active TAs x number of days before the semester starts
+- Improve input of availabilities with a calendar function (which correlates to TimeWindow instance(s))
+
+##### View Assigned Grading
+TAs can see the grading of specific assignments that the faculty has assigned to them. This includes assignment information and grading instructions. 
+
+######TODOs:
+- Add option for TAs to update status on grading (e.g. "In Progress", "Completed")
+- Make an easier integration of grading with this app using the `gradingLink` field for the assignment
+
+##### Making Notes
+TAs should be able to make a note on a section to get general messages to the faculty and/or other TAs to be on a long term record. The entity for TANotes is currently created but not being used.
+
+### Faculty Functionality
+######(Note: in terms of the app, all faculty have a role `ROLE_ADMIN`)
+
+Beyond the TA viewing ability, faculty can also make edits to courses and add new courses to the course list (these should be added to the faculty's sections, but this needs to be implemented). Faculty can also add documents to the section such as syllabus or list of students.
+
+##### TA Selection
+On the page for a specific section, faculty can click to select TAs for this section. On the selection page, the faculty sees a list of TAs, this can be limited to those  who are qualified for this course, those who are available to act as a specific role, and those who have availabilities at the times needed (this will take quite a bit of logic in the backend). Currently, the list only shows the list of all TAs. A specific "add TA to this section" function also still needs to be implemented.
+
+######TODOs:
+- Implementing the filtering logic and schedule matching for the list of TAs
+- Currently, the list only shows the list of all TAs. A specific "add TA to this section" function also still needs to be implemented.
+- When a TA is selected for a course, an email notification should be send to that TA
+
+##### Assignments and Grading
+On a specific section, faculty for the section can create an assignment to be graded and assign TAs to grade these assignments or portions of them, keeping track of TA progress with the `status` field of the grading entity.
+Documents can be added to the assignment for quick and easy description.
+
+######TODOs:
+- Filtering list of TAs to assign grading to only those in this section who have a grading role
+- When a TA is assigned grading, the TA should get an email notification, from which they can either accept or it or reject and send a message back to the faculty
+- Document functionality is only partially implemented
+
+##### Making Notes
+Faculty should have the same ability as TAs to create a note to share information within a section, but also to make a note on a TA for more informed TA selection. This is not currently implemented.
+
+### Admin Functionality
+######(Note: admin is defined as a faculty member with isAdmin set to true)
+
+##### Applicant Review
+An list of all unreviewed applicants with an ability to view each applicant, accept or reject them, and send a contact email to the applicant and to their faculty reference. When an applicant is accepted, the instance is deleted and the applicant information is added to the TA table. If reject, the applicant is only deleted.
+
+######TODOs:
+- Increase usability of applicant list, view screens by only showing most useful values and formatting UI
+- Implement email functionality to contact applicant or reference to get more information (currently email button leads back to the list)
+- Automatically send an email to the applicant on the decision of the reviewer (accepted or rejected). If accepted, include onboarding information from the TA handbook
+
+##### Database Management
+This is a direct interaction interface to each entity in the database to allow admin to view, edit, and delete all data. No changes have to be made.
+
+##### Website management
+This is an analytics and settings funcitonality auto-generated by JHipster and can be useful for managing users and seeing performance data of the site. No changes have to be made.
 
 
