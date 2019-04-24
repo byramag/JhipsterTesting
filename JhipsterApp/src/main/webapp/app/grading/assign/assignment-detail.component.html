@@ -4,7 +4,7 @@
             <h2><span>This Assignment</span> {{assignment.id}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
-            <dl class="row-md jh-entity-details">
+
                 <dt><span>Total Points</span></dt>
                 <dd>
                     <span>{{assignment.totalPoints}}</span>
@@ -33,6 +33,10 @@
                 <dd>
                     <span>{{assignment.gradingLink}}</span>
                 </dd>
+                <dt><span>Description</span></dt>
+                <dd>
+                    <span>{{assignment.description}}</span>
+                </dd>
             </dl>
 
             <button type="submit"
@@ -45,6 +49,37 @@
                     class="btn btn-primary">
                 <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
             </button>
+            <button type= "mybtn" id='myBtn' class ="btn btn-primary" style = "vertical-align:middle" (click)="addTASelected()"><span>
+                <fa-icon [icon]="'plus'">&nbsp;</fa-icon> Assign TA
+              </span></button>
+            <button type="button" [routerLink]="['/document', assignment.id, 'view']" class="btn btn-primary">
+                <fa-icon [icon]="'book'"></fa-icon>&nbsp;<span> View Document</span>
+            </button>
+
+ <!-- The Modal -->
+ <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span (click)='closePopup()' class="close">&times;</span>
+
+      <div>
+            <span>
+                Click to Assign TA to this Assignment
+                    <div style="padding:5px;" *ngFor="let ta of tas">
+                        <div><button class ="button" (click)="addthisTA(ta.id,ta.name, assignment.id)"><span><br>
+                          TA ID : {{ta.id}} <br>
+                          Name : {{ta.name}}
+
+                      </span></button></div>
+            </span>
+      </div>
+
+          <!-- Trigger/Open The Modal -->
+          <!-- <button id="myBtn">Open Modal</button> -->
+
+
         </div>
     </div>
+  </div>
 </div>

@@ -33,7 +33,7 @@ export const documentRoute: Routes = [
         path: '',
         component: DocumentComponent,
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_ADMIN', 'ROLE_USER'],
             pageTitle: 'Documents'
         },
         canActivate: [UserRouteAccessService]
@@ -45,7 +45,7 @@ export const documentRoute: Routes = [
             document: DocumentResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_ADMIN', 'ROLE_USER'],
             pageTitle: 'Documents'
         },
         canActivate: [UserRouteAccessService]
@@ -57,7 +57,7 @@ export const documentRoute: Routes = [
             document: DocumentResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_ADMIN', 'ROLE_USER'],
             pageTitle: 'Documents'
         },
         canActivate: [UserRouteAccessService]
@@ -69,7 +69,7 @@ export const documentRoute: Routes = [
             document: DocumentResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_ADMIN', 'ROLE_USER'],
             pageTitle: 'Documents'
         },
         canActivate: [UserRouteAccessService]
@@ -84,7 +84,7 @@ export const documentPopupRoute: Routes = [
             document: DocumentResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN'],
+            authorities: ['ROLE_ADMIN', 'ROLE_USER'],
             pageTitle: 'Documents'
         },
         canActivate: [UserRouteAccessService],

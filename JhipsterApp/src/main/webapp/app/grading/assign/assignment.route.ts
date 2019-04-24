@@ -12,6 +12,14 @@ import { AssignmentUpdateComponent } from './assignment-update.component';
 import { AssignmentDeletePopupComponent } from './assignment-delete-dialog.component';
 import { IAssignment } from 'app/shared/model/assignment.model';
 
+import { Ta } from 'app/shared/model/ta.model';
+import { TaService } from 'app/entities/ta/ta.service';
+import { ITa } from 'app/shared/model/ta.model';
+
+import { Document } from 'app/shared/model/document.model';
+import { IDocument } from 'app/shared/model/document.model';
+import { DocumentService } from 'app/entities/document/document.service';
+
 @Injectable({ providedIn: 'root' })
 export class AssignmentResolve implements Resolve<IAssignment> {
     constructor(private service: AssignmentService) {}
@@ -25,6 +33,38 @@ export class AssignmentResolve implements Resolve<IAssignment> {
             );
         }
         return of(new Assignment());
+    }
+}
+
+@Injectable({ providedIn: 'root' })
+export class TaResolve implements Resolve<ITa> {
+    constructor(private service: TaService) {}
+
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ITa> {
+        const id = route.params['id'] ? route.params['id'] : null;
+        if (id) {
+            return this.service.find(id).pipe(
+                filter((response: HttpResponse<Ta>) => response.ok),
+                map((ta: HttpResponse<Ta>) => ta.body)
+            );
+        }
+        return of(new Ta());
+    }
+}
+
+@Injectable({ providedIn: 'root' })
+export class DocumentResolve implements Resolve<IDocument> {
+    constructor(private service: DocumentService) {}
+
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IDocument> {
+        const id = route.params['id'] ? route.params['id'] : null;
+        if (id) {
+            return this.service.find(id).pipe(
+                filter((response: HttpResponse<Document>) => response.ok),
+                map((document: HttpResponse<Document>) => document.body)
+            );
+        }
+        return of(new Document());
     }
 }
 
