@@ -37,6 +37,12 @@
                 <dd>
                     <span>{{assignment.gradingLink}}</span>
                 </dd>
+                <dt><span>Section</span></dt>
+                <dd>
+                    <div *ngIf="assignment.section">
+                        <a [routerLink]="['/section', assignment.section?.id, 'view']">{{assignment.section?.id}}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

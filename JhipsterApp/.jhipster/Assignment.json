@@ -1,5 +1,30 @@
 {
-    "name": "Assignment",
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "grading",
+            "otherEntityRelationshipName": "forAssignment",
+            "relationshipName": "grading",
+            "otherEntityRelationshipNameUndefined": false
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "document",
+            "otherEntityRelationshipName": "assignment",
+            "relationshipName": "doc",
+            "otherEntityRelationshipNameUndefined": false
+        },
+        {
+            "relationshipName": "section",
+            "otherEntityName": "section",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "assignment",
+            "otherEntityRelationshipNameUndefined": true
+        }
+    ],
     "fields": [
         {
             "fieldName": "description",
@@ -36,27 +61,12 @@
             "fieldType": "String"
         }
     ],
-    "relationships": [
-        {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "grading",
-            "otherEntityRelationshipName": "forAssignment",
-            "relationshipName": "grading"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "document",
-            "otherEntityRelationshipName": "assignment",
-            "relationshipName": "doc"
-        }
-    ],
     "changelogDate": "20190309205956",
-    "entityTableName": "assignment",
     "dto": "no",
-    "pagination": "no",
+    "searchEngine": false,
     "service": "no",
+    "entityTableName": "assignment",
+    "databaseType": "sql",
     "jpaMetamodelFiltering": false,
-    "fluentMethods": true,
-    "clientRootFolder": "",
-    "applications": "*"
+    "pagination": "no"
 }

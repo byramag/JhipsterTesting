@@ -118,6 +118,7 @@ relationship OneToMany {
     Ta{grading} to Grading{taAssigned},             //One TA can have multiple things to grade
     Assignment{grading} to Grading{forAssignment},  //One assignment can be split into multiple grading tasks
     Assignment{doc} to Document                     //Multiple documents associated with an assignment (e.g. Specifications, possibly submissions to grade)
+	Assignment{section} to Section					//Multiple assignments can be associated with a single section (e.g. Project 2, Midterm)
 }
 
 //Scheduling-related relationships

@@ -1,5 +1,6 @@
 import { IGrading } from 'app/shared/model/grading.model';
 import { IDocument } from 'app/shared/model/document.model';
+import { ISection } from 'app/shared/model/section.model';
 
 export const enum GradingStyle {
     BY_STUDENT = 'BY_STUDENT',
@@ -24,6 +25,7 @@ export interface IAssignment {
     gradingLink?: string;
     gradings?: IGrading[];
     docs?: IDocument[];
+    section?: ISection;
 }
 
 export class Assignment implements IAssignment {
@@ -38,6 +40,7 @@ export class Assignment implements IAssignment {
         public type?: AssignmentType,
         public gradingLink?: string,
         public gradings?: IGrading[],
-        public docs?: IDocument[]
+        public docs?: IDocument[],
+        public section?: ISection
     ) {}
 }

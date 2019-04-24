@@ -55,6 +55,13 @@
                         [(ngModel)]="assignment.gradingLink" />
                 </div>
 
+                <div class="form-group">
+                    <label class="form-control-label" for="field_section">Section</label>
+                    <select class="form-control" id="field_section" name="section" [(ngModel)]="assignment.section" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sectionOption.id === assignment.section?.id ? assignment.section : sectionOption" *ngFor="let sectionOption of sections; trackBy: trackSectionById">{{sectionOption.id}}</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

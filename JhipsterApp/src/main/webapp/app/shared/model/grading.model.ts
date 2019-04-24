@@ -18,7 +18,7 @@ export class Grading implements IGrading {
         public taAssigned?: ITa,
         public forAssignment?: IAssignment,
         public status?: string
-        ) {
-            this.status = 'Assigned';
-        }
+    ) {
+        this.status = 'Assigned';
+    }
 }

@@ -2,6 +2,7 @@ package edu.vcu.tams.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -62,6 +63,10 @@ public class Assignment implements Serializable {
     @OneToMany(mappedBy = "assignment")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Document> docs = new HashSet<>();
+    @ManyToOne
+    @JsonIgnoreProperties("assignments")
+    private Section section;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -223,6 +228,19 @@ public class Assignment implements Serializable {
 
     public void setDocs(Set<Document> documents) {
         this.docs = documents;
+    }
+
+    public Section getSection() {
+        return section;
+    }
+
+    public Assignment section(Section section) {
+        this.section = section;
+        return this;
+    }
+
+    public void setSection(Section section) {
+        this.section = section;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

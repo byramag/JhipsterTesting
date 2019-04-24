@@ -51,38 +51,6 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'document',
                 loadChildren: './document/document.module#TaManagementDocumentModule'
-            },
-            {
-                path: 'course',
-                loadChildren: './course/course.module#TaManagementCourseModule'
-            },
-            {
-                path: 'section',
-                loadChildren: './section/section.module#TaManagementSectionModule'
-            },
-            {
-                path: 'grading',
-                loadChildren: './grading/grading.module#TaManagementGradingModule'
-            },
-            {
-                path: 'time-window',
-                loadChildren: './time-window/time-window.module#TaManagementTimeWindowModule'
-            },
-            {
-                path: 'ta-note',
-                loadChildren: './ta-note/ta-note.module#TaManagementTANoteModule'
-            },
-            {
-                path: 'faculty-note',
-                loadChildren: './faculty-note/faculty-note.module#TaManagementFacultyNoteModule'
-            },
-            {
-                path: 'ta-role',
-                loadChildren: './ta-role/ta-role.module#TaManagementTaRoleModule'
-            },
-            {
-                path: 'assignment',
-                loadChildren: './assignment/assignment.module#TaManagementAssignmentModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])
