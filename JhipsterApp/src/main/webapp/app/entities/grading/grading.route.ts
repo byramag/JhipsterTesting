@@ -33,7 +33,7 @@ export const gradingRoute: Routes = [
         path: '',
         component: GradingComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'Gradings'
         },
         canActivate: [UserRouteAccessService]
@@ -45,7 +45,7 @@ export const gradingRoute: Routes = [
             grading: GradingResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'Gradings'
         },
         canActivate: [UserRouteAccessService]
@@ -57,7 +57,7 @@ export const gradingRoute: Routes = [
             grading: GradingResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'Gradings'
         },
         canActivate: [UserRouteAccessService]
@@ -69,7 +69,7 @@ export const gradingRoute: Routes = [
             grading: GradingResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'Gradings'
         },
         canActivate: [UserRouteAccessService]
@@ -84,7 +84,7 @@ export const gradingPopupRoute: Routes = [
             grading: GradingResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'Gradings'
         },
         canActivate: [UserRouteAccessService],

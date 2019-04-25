@@ -1,7 +1,7 @@
 <div>
     <h2 id="page-heading">
         <span>My Courses</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-section" [routerLink]="['/courses/new']">
+        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-section" [routerLink]="['/courses/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span >
             Create new Course
@@ -55,7 +55,7 @@
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline">View</span>
                         </button>
-                        <button type="submit"
+                        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit"
                                 [routerLink]="['/courses', section.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>

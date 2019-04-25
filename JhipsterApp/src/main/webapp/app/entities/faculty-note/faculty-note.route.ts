@@ -33,7 +33,7 @@ export const facultyNoteRoute: Routes = [
         path: '',
         component: FacultyNoteComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'FacultyNotes'
         },
         canActivate: [UserRouteAccessService]
@@ -45,7 +45,7 @@ export const facultyNoteRoute: Routes = [
             facultyNote: FacultyNoteResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'FacultyNotes'
         },
         canActivate: [UserRouteAccessService]
@@ -57,7 +57,7 @@ export const facultyNoteRoute: Routes = [
             facultyNote: FacultyNoteResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'FacultyNotes'
         },
         canActivate: [UserRouteAccessService]
@@ -69,7 +69,7 @@ export const facultyNoteRoute: Routes = [
             facultyNote: FacultyNoteResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'FacultyNotes'
         },
         canActivate: [UserRouteAccessService]

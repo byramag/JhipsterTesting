@@ -32,6 +32,14 @@
                     </span>
                 </a>
             </li>
+            <li *jhiHasAnyAuthority="'ROLE_ADMIN'" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="/courses" (click)="collapseNavbar()">
+                    <span>
+                        <fa-icon icon="plus"></fa-icon>
+                        <span>Course List</span>
+                    </span>
+                </a>
+            </li>
             <li *jhiHasAnyAuthority="'ROLE_USER'" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link" routerLink="/update" (click)="collapseNavbar()">
                     <span>

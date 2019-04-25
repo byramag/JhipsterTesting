@@ -32,7 +32,7 @@ export const coursesRoute: Routes = [
         path: '',
         component: CoursesComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_ADMIN'],
             pageTitle: 'My Courses'
         },
         canActivate: [UserRouteAccessService]
@@ -44,7 +44,7 @@ export const coursesRoute: Routes = [
             section: SectionResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_ADMIN'],
             pageTitle: 'Course Homepage'
         },
         canActivate: [UserRouteAccessService]

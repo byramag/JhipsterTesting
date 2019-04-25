@@ -3,7 +3,7 @@
         <div *ngIf="section">
             <h2><span>Section</span> {{section.id}}</h2>
             <hr>
-            <button *jhiHasAnyAuthority="'ROLE_USER'" type="submit" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a routerLink="/select">
                     <span>
                         <fa-icon icon="user-plus"></fa-icon>
@@ -11,7 +11,7 @@
                     </span>
                 </a>
             </button>
-            <button routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <button  *jhiHasAnyAuthority="'ROLE_USER'" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a routerLink="/grading-view">
                     <span>
                         <fa-icon [icon]="'pencil-alt'"></fa-icon>
@@ -19,7 +19,7 @@
                     </span>
                 </a>
             </button>
-            <button routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <button  *jhiHasAnyAuthority="'ROLE_ADMIN'" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a routerLink="/grading-assign">
                     <span>
                         <fa-icon [icon]="'pencil-alt'"></fa-icon>
