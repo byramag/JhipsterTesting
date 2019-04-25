@@ -49,11 +49,11 @@ For best results, run both maven and angular in separate terminals. See the [Run
     - set `host` to `smtp.mailgun.org`
     - set `port` to `587`
     - `username` and `password` can be found in the mailgun console as `Default SMTP Login` and `Default Password` respectively:
-    ![mailgun](Documentation/mailgun.png)
+    ![mailgun](https://github.com/VCU-CS-Capstone/2018-CS-313-CS-TAManagement/blob/master/Documentation/mailgun.PNG)
   - Set the same values in `src/main/resources/config/application-prod.yml`
 - To set the Database connection:
   - Create a user in the GCP console:
-    ![GCPUser](Documentation/gcp_user.png)
+    ![GCPUser](https://github.com/VCU-CS-Capstone/2018-CS-313-CS-TAManagement/blob/master/Documentation/gcp_user.PNG)
   - Create a database in your GCP SQL instance by going to your instance -> databases -> create database
   - Go to `src/main/resources/config/application-dev.yml` in the JHipsterApp
   - Under `spring.datasource`
