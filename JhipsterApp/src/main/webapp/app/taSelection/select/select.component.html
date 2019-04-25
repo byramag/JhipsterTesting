@@ -11,13 +11,9 @@
             <th><span>ID</span></th>
             <th><span>Name</span></th>
             <th><span>Email</span></th>
-            <th><span>V Num</span></th>
             <th><span>Class Year</span></th>
-            <th><span>Expected Grad Year</span></th>
-            <th><span>Expected Grad Semester</span></th>
+            <th><span>Expected Grad</span></th>
             <th><span>Total Hours Available</span></th>
-            <th><span>Is Active</span></th>
-            <th><span>User</span></th>
             <th><span>Section</span></th>
             <th><span>Course Qualified</span></th>
             <th><span>Course Has Experience</span></th>
@@ -30,15 +26,9 @@
                 <td><a [routerLink]="['/ta', ta.id, 'view' ]">{{ta.id}}</a></td>
                 <td>{{ta.name}}</td>
                 <td>{{ta.email}}</td>
-                <td>{{ta.vNum}}</td>
                 <td>{{ta.classYear}}</td>
-                <td>{{ta.expectedGradYear}}</td>
-                <td>{{ta.expectedGradSemester}}</td>
+                <td>{{ta.expectedGradSemester + " " + ta.expectedGradYear}}</td>
                 <td>{{ta.totalHoursAvailable}}</td>
-                <td>{{ta.isActive}}</td>
-                <td>
-                    {{ta.user?.login}}
-                </td>
                 <td>
                     <span *ngFor="let section of ta.sections; let last = last">
                             <a class="form-control-static" [routerLink]="['../section', section?.id, 'view' ]">{{section.id}}</a>{{last ? '' : ', '}}
