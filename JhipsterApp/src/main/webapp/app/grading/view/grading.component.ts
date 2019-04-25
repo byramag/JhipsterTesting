@@ -97,6 +97,10 @@ export class GradingComponent implements OnInit, OnDestroy {
         this.eventSubscriber = this.eventManager.subscribe('gradingListModification', response => this.loadAll());
     }
 
+    previousState() {
+        window.history.back();
+    }
+
     protected onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
     }

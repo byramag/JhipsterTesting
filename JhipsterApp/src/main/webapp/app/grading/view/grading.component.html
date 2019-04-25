@@ -2,6 +2,9 @@
     <h2 id="page-heading">
         <span>My Grading</span>
     </h2>
+    <button type="submit" (click)="previousState()" class="btn btn-info">
+        <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+    </button>
     <jhi-alert></jhi-alert>
     <br />
     <div class="table-responsive" *ngIf="gradings">
