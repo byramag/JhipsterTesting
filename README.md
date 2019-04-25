@@ -71,13 +71,13 @@ For best results, run both maven and angular in separate terminals. See the [Run
   - The web application protion of this project is in Angular, see [JHipster's Angular Docs](https://www.jhipster.tech/using-angular/) for description of the general organization, changing user roles, and building components
 
 ## Description of web app target functionality 
-######(and what needs to be done to reach the target)
+###### (and what needs to be done to reach the target)
 
 ### General Functionality
 - TA Application on the home page when not logged in, adds an instance to the applicant table
 - TA Handbook: a page available form anywhere, static text page with policy and directions about TAs
 
-######General TODOs:
+###### General TODOs:
 - Formatting and changing UI of all pages for better usability, clarity, and user experience
 - Expand the TA handbook and work with Debra Duke and/or the undergraduate committee to get approval of the handbook and get more ideas for useful information or policies
 - Host application in Google App Engine (this has been attempted, but there is a problem with the `jhipster gae` command, alternate hosting locations are also an option)
@@ -85,14 +85,14 @@ For best results, run both maven and angular in separate terminals. See the [Run
 - Add connections between DB instances which have relationships (e.g. keeping track of which sections are linked to a specific faculty, documents to sections/assignments, or TimeWindows to sections/TAs etc.) 
 
 ##### User Accounts and Registeration
-######TODOs:
+###### TODOs:
 - Get a permanent mail server domain so that registeration emails can be sent (sandbox domain requires extra authentication of the email form mailgun before mail can be sent)
 - Include validation on registration for email to be a valid TA or faculty member
 - Link a specific instance of TA or Faculty to a user automatically on registration (The DB relationship exists, but this currently has be be done manually)
 - Stop the automatic login as anonymous user when not (this makes you have to log out again to be able to log in as a user or to access the TA application)
 
 ### TA Functionality
-######(Note: in terms of the app, TAs have a role `ROLE_USER`)
+###### (Note: in terms of the app, TAs have a role `ROLE_USER`)
 
 ##### Update Information
 TAs can update their information, especially for availabilities and qualifications at any time. Active TAs will be prompted by email to update new semester information at the start of each semester.
@@ -104,7 +104,7 @@ TAs can update their information, especially for availabilities and qualificatio
 ##### View Assigned Grading
 TAs can see the grading of specific assignments that the faculty has assigned to them. This includes assignment information and grading instructions. 
 
-######TODOs:
+###### TODOs:
 - Add option for TAs to update status on grading (e.g. "In Progress", "Completed")
 - Make an easier integration of grading with this app using the `gradingLink` field for the assignment
 
@@ -112,14 +112,14 @@ TAs can see the grading of specific assignments that the faculty has assigned to
 TAs should be able to make a note on a section to get general messages to the faculty and/or other TAs to be on a long term record. The entity for TANotes is currently created but not being used.
 
 ### Faculty Functionality
-######(Note: in terms of the app, all faculty have a role `ROLE_ADMIN`)
+###### (Note: in terms of the app, all faculty have a role `ROLE_ADMIN`)
 
 Beyond the TA viewing ability, faculty can also make edits to courses and add new courses to the course list (these should be added to the faculty's sections, but this needs to be implemented). Faculty can also add documents to the section such as syllabus or list of students.
 
 ##### TA Selection
 On the page for a specific section, faculty can click to select TAs for this section. On the selection page, the faculty sees a list of TAs, this can be limited to those  who are qualified for this course, those who are available to act as a specific role, and those who have availabilities at the times needed (this will take quite a bit of logic in the backend). Currently, the list only shows the list of all TAs. A specific "add TA to this section" function also still needs to be implemented.
 
-######TODOs:
+###### TODOs:
 - Implementing the filtering logic and schedule matching for the list of TAs
 - Currently, the list only shows the list of all TAs. A specific "add TA to this section" function also still needs to be implemented.
 - When a TA is selected for a course, an email notification should be send to that TA
@@ -128,7 +128,7 @@ On the page for a specific section, faculty can click to select TAs for this sec
 On a specific section, faculty for the section can create an assignment to be graded and assign TAs to grade these assignments or portions of them, keeping track of TA progress with the `status` field of the grading entity.
 Documents can be added to the assignment for quick and easy description.
 
-######TODOs:
+###### TODOs:
 - Filtering list of TAs to assign grading to only those in this section who have a grading role
 - When a TA is assigned grading, the TA should get an email notification, from which they can either accept or it or reject and send a message back to the faculty
 - Document functionality is only partially implemented
@@ -137,12 +137,12 @@ Documents can be added to the assignment for quick and easy description.
 Faculty should have the same ability as TAs to create a note to share information within a section, but also to make a note on a TA for more informed TA selection. This is not currently implemented.
 
 ### Admin Functionality
-######(Note: admin is defined as a faculty member with isAdmin set to true)
+###### (Note: admin is defined as a faculty member with isAdmin set to true)
 
 ##### Applicant Review
 An list of all unreviewed applicants with an ability to view each applicant, accept or reject them, and send a contact email to the applicant and to their faculty reference. When an applicant is accepted, the instance is deleted and the applicant information is added to the TA table. If reject, the applicant is only deleted.
 
-######TODOs:
+###### TODOs:
 - Increase usability of applicant list, view screens by only showing most useful values and formatting UI
 - Implement email functionality to contact applicant or reference to get more information (currently email button leads back to the list)
 - Automatically send an email to the applicant on the decision of the reviewer (accepted or rejected). If accepted, include onboarding information from the TA handbook
