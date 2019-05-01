@@ -1,6 +1,6 @@
 # 2018-2019 CMSC 313: CS TA Management System
 
-This project is to design a system for managing undergraduate teaching assistants at Virginia Commonwealth University's Compuater Science department.
+This project is to design a system for managing undergraduate teaching assistants at Virginia Commonwealth University's Computer Science department.
 
 Team Members:
 - Abigail Byram
